@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Red de Servicios - Kioskeys</title>
+  <link rel="icon" href="/favicon.jpg">
+  <link rel="stylesheet" href="/style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <style>
+    .map-container {
+      height: 600px;
+      margin-bottom: 32px;
+      border-radius: 18px;
+      overflow: hidden;
+      box-shadow: 0 8px 32px rgba(0, 59, 142, 0.15);
+      border: 1px solid rgba(0, 59, 142, 0.1);
+      background: white;
+    }
+
+    .map-container iframe {
+      width: 100%;
+      height: 100%;
+      border: none;
+    }
+
+    .search-box {
+      display: flex;
+      gap: 12px;
+      margin-bottom: 32px;
+    }
+
+    .search-box input {
+      flex: 1;
+      padding: 12px 20px;
+      border-radius: 12px;
+      border: 2px solid rgba(0, 59, 142, 0.1);
+      font-size: 16px;
+      transition: all 0.3s ease;
+    }
+
+    .search-box input:focus {
+      outline: none;
+      border-color: var(--primary-blue);
+      box-shadow: 0 0 0 3px rgba(0, 59, 142, 0.1);
+    }
+
+    .search-button {
+      padding: 12px 24px;
+      border-radius: 12px;
+      background: var(--card-gradient);
+      color: white;
+      border: none;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      font-weight: 500;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .search-button:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(0, 59, 142, 0.2);
+    }
+
+    .region-selector {
+      display: flex;
+      gap: 12px;
+      margin-bottom: 32px;
+      overflow-x: auto;
+      padding-bottom: 12px;
+      -webkit-overflow-scrolling: touch;
+    }
+
+    .region-button {
+      padding: 8px 16px;
+      border-radius: 20px;
+      background: var(--card-gradient);
+      color: white;
+      border: none;
+      cursor: pointer;
+      white-space: nowrap;
+      transition: all 0.3s ease;
+      font-weight: 500;
+      opacity: 0.8;
+    }
+
+    .region-button:hover,
+    .region-button.active {
+      opacity: 1;
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(0, 59, 142, 0.2);
+    }
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 24px;
+      margin-bottom: 32px;
+    }
+
+    .service-card {
+      background: var(--card-gradient);
+      border-radius: 18px;
+      padding: 32px;
+      color: white;
+      opacity: 0;
+      transform: translateY(30px);
+      transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .service-card.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .service-card h3 {
+      font-size: 24px;
+      margin-bottom: 16px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .service-card p {
+      font-size: 16px;
+      opacity: 0.9;
+      line-height: 1.6;
+    }
+
+    @media (max-width: 768px) {
+      .services-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .search-box {
+        flex-direction: column;
+      }
+
+      .search-button {
+        width: 100%;
+        justify-content: center;
+      }
+
+      .map-container {
+        height: 400px;
+        margin: 0 16px 32px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <div class="logo">
+      <a href="/"><img src="../LOGO_KIOSKEYS.png" alt="Kioskeys"></a>
+    </div>
+    <div class="nav-links">
+      <a href="/">Inicio</a>
+      <a href="/pages/red-servicios.html">Red de Servicios</a>
+      <a href="/pages/planes.html">Planes</a>
+      <a href="/pages/productos.html">Productos</a>
+      <a href="/pages/faq.html">FAQ</a>
+      <a href="/pages/contacto.html">Contacto</a>
+    </div>
+    <button class="menu-button">
+      <i class="fas fa-bars"></i>
+    </button>
+  </nav>
+
+  <main>
+    <section class="hero">
+      <div class="hero-content">
+        <h1>Red de Servicios</h1>
+        <p>La red más grande de cerrajeros certificados en Argentina</p>
+      </div>
+    </section>
+
+    <section class="main-content">
+      <div class="content-container">
+        <div class="map-container">
+          <iframe src="https://www.google.com/maps/d/u/0/embed?mid=19Nd9SZ7TGSbJTvmqFKCnp4Utr3VrngKf&z=9&ll=-33.61985714877796%2C-58.08372778833655" allowfullscreen></iframe>
+        </div>
+
+        <div class="services-grid">
+          <div class="service-card">
+            <h3><i class="fas fa-store"></i> Locales Propios</h3>
+            <p>Más de 50 locales oficiales Kioskeys en todo el país con atención personalizada y servicio técnico especializado.</p>
+          </div>
+
+          <div class="service-card">
+            <h3><i class="fas fa-handshake"></i> Cerrajeros Certificados</h3>
+            <p>Red de más de 200 profesionales certificados por Kioskeys, con capacitación continua y herramientas de última generación.</p>
+          </div>
+
+          <div class="service-card">
+            <h3><i class="fas fa-clock"></i> Soporte Especializado</h3>
+            <p>Acceso a expertos en cerrajería durante nuestro horario de atención.</p>
+          </div>
+
+          <div class="service-card">
+            <h3><i class="fas fa-certificate"></i> Garantía de Servicio</h3>
+            <p>Todos nuestros trabajos tienen garantía por escrito. Seguimiento post-servicio y soporte técnico incluido.</p>
+          </div>
+        </div>
+
+        <a href="/unirse-red" class="tutorial-button">
+          <i class="fas fa-user-plus"></i>
+          Únete a nuestra red de cerrajeros
+        </a>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="footer-content">
+      <div class="footer-section">
+        <h4 class="shiny-text">Empresa</h4>
+        <ul class="footer-links">
+          <li><a href="./pages/sobre-nosotros.html" class="shiny-text">Sobre Nosotros</a></li>
+          <li><a href="./pages/red-servicios.html" class="shiny-text">Red de Servicios</a></li>
+          <li><a href="./pages/trabaja-con-nosotros.html" class="shiny-text">Trabaja con Nosotros</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-section">
+        <h4 class="shiny-text">Servicios</h4>
+        <ul class="footer-links">
+          <li><a href="./pages/productos.html" class="shiny-text">Productos</a></li>
+          <li><a href="./pages/telemandos.html" class="shiny-text">Telemandos</a></li>
+          <li><a href="./pages/planes.html" class="shiny-text">Planes</a></li>
+          <li><a href="./pages/cerrajeria.html" class="shiny-text">Cerrajería</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-section">
+        <h4 class="shiny-text">Soporte</h4>
+        <ul class="footer-links">
+          <li><a href="./pages/contacto.html" class="shiny-text">Contacto</a></li>
+          <li><a href="./pages/faq.html" class="shiny-text">FAQ</a></li>
+          <li><a href="./pages/tutoriales.html" class="shiny-text">Tutoriales</a></li>
+          <li><a href="./pages/ayuda.html" class="shiny-text">Centro de Ayuda</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-section">
+        <h4 class="shiny-text">Legal</h4>
+        <ul class="footer-links">
+          <li><a href="./pages/privacidad.html" class="shiny-text">Política de Privacidad</a></li>
+          <li><a href="./pages/terminos.html" class="shiny-text">Términos y Condiciones</a></li>
+          <li><a href="./pages/cookies.html" class="shiny-text">Política de Cookies</a></li>
+          <li><a href="./pages/legal.html" class="shiny-text">Aviso Legal</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-section">
+        <h4 class="shiny-text">Síguenos</h4>
+        <div class="footer-social">
+          <a href="https://facebook.com/kioskeys" target="_blank" rel="noopener" class="shiny-button"><i class="fab fa-facebook"></i></a>
+          <a href="https://twitter.com/kioskeys" target="_blank" rel="noopener" class="shiny-button"><i class="fab fa-twitter"></i></a>
+          <a href="https://instagram.com/kioskeys" target="_blank" rel="noopener" class="shiny-button"><i class="fab fa-instagram"></i></a>
+          <a href="https://linkedin.com/company/kioskeys" target="_blank" rel="noopener" class="shiny-button"><i class="fab fa-linkedin"></i></a>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <p class="shiny-text">&copy; 2024 Kioskeys. Todos los derechos reservados.</p>
+    </div>
+  </footer>
+
+  <script src="/main.js"></script>
+  <script>
+    // Animación de las tarjetas de servicio
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, {
+      threshold: 0.1
+    });
+
+    document.querySelectorAll('.service-card').forEach(card => {
+      observer.observe(card);
+    });
+
+    // Manejo de botones de región
+    document.querySelectorAll('.region-button').forEach(button => {
+      button.addEventListener('click', () => {
+        document.querySelectorAll('.region-button').forEach(btn => {
+          btn.classList.remove('active');
+        });
+        button.classList.add('active');
+      });
+    });
+  </script>
+</body>
+</html>
