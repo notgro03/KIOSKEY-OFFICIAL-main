@@ -694,7 +694,7 @@ footer {
   }
   
   .hero-title {
-    font-size: 28px;
+    font-size: 32px;
   }
   
   .hero-subtitle {
@@ -703,12 +703,17 @@ footer {
   }
   
   .hero-phone-image {
-    max-height: 280px;
+    max-height: 320px;
   }
   
   .scanning-circle {
     width: 60px;
     height: 60px;
+  }
+  
+  .scanning-rectangle {
+    width: 100px;
+    height: 50px;
   }
   
   .hero-bullets {
@@ -730,7 +735,11 @@ footer {
   }
   
   .hero-image-frame {
-    padding: 16px;
+    padding: 20px;
+  }
+  
+  .hero h1 {
+    font-size: 42px;
   }
 
 /* Responsive Design */
