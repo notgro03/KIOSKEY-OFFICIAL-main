@@ -57,23 +57,26 @@
     }
 
     .timeline-image {
-      width: calc(50% - 32px);
+      width: calc(50% - 64px);
       padding: 16px;
       display: flex;
       justify-content: center;
       align-items: center;
       position: relative;
       z-index: 1;
+      margin: 0 32px;
     }
 
     .timeline-image img {
       width: 100%;
-      height: 250px;
+      height: 280px;
       object-fit: cover;
       border-radius: 18px;
       box-shadow: 0 8px 32px rgba(0, 59, 142, 0.15);
       transition: all 0.3s ease;
       border: 1px solid rgba(0, 59, 142, 0.1);
+      background: #f8f9fa;
+      display: block;
     }
 
     .timeline-image img:hover {
@@ -81,6 +84,22 @@
       box-shadow: 0 12px 48px rgba(0, 59, 142, 0.2);
     }
 
+    /* Placeholder para cuando no hay imagen */
+    .timeline-image:empty::before {
+      content: 'Imagen o GIF aquí';
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+      height: 280px;
+      background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+      border: 2px dashed rgba(0, 59, 142, 0.3);
+      border-radius: 18px;
+      color: rgba(0, 59, 142, 0.6);
+      font-size: 16px;
+      font-weight: 500;
+      text-align: center;
+    }
     /* Ajuste de posición para imágenes en items impares */
     .timeline-item:nth-child(odd) .timeline-image {
       order: 1;
@@ -91,11 +110,11 @@
     }
 
     .timeline-item:nth-child(odd) .timeline-content {
-      margin-right: 16px;
+      margin-right: 48px;
     }
 
     .timeline-item:nth-child(even) .timeline-content {
-      margin-left: 16px;
+      margin-left: 48px;
     }
 
     .timeline-content:hover {
@@ -292,7 +311,19 @@
     }
 
     .cta-button:hover i {
+      
+      .timeline-image {
+        width: calc(50% - 48px);
+        margin: 0 24px;
+      }
+      
+      .timeline-item:nth-child(odd) .timeline-content {
+        margin-right: 32px;
+      }
       transform: translateX(4px);
+      .timeline-item:nth-child(even) .timeline-content {
+        margin-left: 32px;
+      }
     }
 
     @media (max-width: 768px) {
@@ -310,8 +341,13 @@
         margin-top: 24px;
         order: 2 !important;
         padding: 0;
+        margin: 24px 0 0 0;
       }
 
+      .timeline-image img,
+      .timeline-image:empty::before {
+        height: 220px;
+      }
       .timeline-image img {
         height: 200px;
       }
@@ -377,7 +413,7 @@
             </div>
             <div class="timeline-dot"></div>
             <div class="timeline-image">
-              <img src="https://images.pexels.com/photos/7176317/pexels-photo-7176317.jpeg?auto=compress&cs=tinysrgb&w=400&h=300&dpr=1" alt="Descarga la App Kioskeys">
+              <!-- Aquí puedes agregar tu imagen o GIF -->
             </div>
           </div>
 
@@ -393,7 +429,7 @@
             </div>
             <div class="timeline-dot"></div>
             <div class="timeline-image">
-              <img src="https://images.pexels.com/photos/380768/pexels-photo-380768.jpeg?auto=compress&cs=tinysrgb&w=400&h=300&dpr=1" alt="Registra tu vehículo">
+              <!-- Aquí puedes agregar tu imagen o GIF -->
             </div>
           </div>
 
@@ -409,7 +445,7 @@
             </div>
             <div class="timeline-dot"></div>
             <div class="timeline-image">
-              <img src="https://images.pexels.com/photos/4386321/pexels-photo-4386321.jpeg?auto=compress&cs=tinysrgb&w=400&h=300&dpr=1" alt="Digitaliza tu llave con foto">
+              <!-- Aquí puedes agregar tu imagen o GIF -->
             </div>
           </div>
 
@@ -425,7 +461,7 @@
             </div>
             <div class="timeline-dot"></div>
             <div class="timeline-image">
-              <img src="https://images.pexels.com/photos/1034662/pexels-photo-1034662.jpeg?auto=compress&cs=tinysrgb&w=400&h=300&dpr=1" alt="Almacenamiento seguro en la nube">
+              <!-- Aquí puedes agregar tu imagen o GIF -->
             </div>
           </div>
 
@@ -441,7 +477,7 @@
             </div>
             <div class="timeline-dot"></div>
             <div class="timeline-image">
-              <img src="https://images.pexels.com/photos/5473955/pexels-photo-5473955.jpeg?auto=compress&cs=tinysrgb&w=400&h=300&dpr=1" alt="Recuperación inmediata de llaves">
+              <!-- Aquí puedes agregar tu imagen o GIF -->
             </div>
           </div>
         </div>
