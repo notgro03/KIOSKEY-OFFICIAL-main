@@ -17,33 +17,55 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
   <style>
     .download-banner {
-      background: linear-gradient(135deg, rgba(0, 59, 142, 0.05) 0%, rgba(0, 163, 255, 0.05) 100%);
-      border: 1px solid rgba(0, 59, 142, 0.1);
+      background: linear-gradient(135deg, rgba(0, 59, 142, 0.08) 0%, rgba(0, 163, 255, 0.08) 100%);
+      border: 2px solid rgba(0, 59, 142, 0.15);
       border-radius: 20px;
-      padding: 32px;
-      margin: 32px auto;
-      max-width: 600px;
+      padding: 40px 32px;
+      margin: 40px auto;
+      max-width: 650px;
       text-align: center;
       backdrop-filter: blur(10px);
-      box-shadow: 0 8px 32px rgba(0, 59, 142, 0.1);
+      box-shadow: 0 12px 40px rgba(0, 59, 142, 0.15);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .download-banner::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      right: -50%;
+      width: 100%;
+      height: 100%;
+      background: radial-gradient(circle at center, rgba(255,255,255,0.1) 0%, transparent 70%);
+      border-radius: 50%;
+      transform: translate(30%, -30%);
+      pointer-events: none;
     }
 
     .download-banner h3 {
       color: var(--primary-blue);
-      font-size: 24px;
-      font-weight: 600;
+      font-size: 28px;
+      font-weight: 700;
       margin-bottom: 12px;
       background: var(--card-gradient);
       background-clip: text;
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
+      position: relative;
+      z-index: 1;
     }
 
     .download-banner p {
       color: #666;
-      font-size: 16px;
+      font-size: 17px;
       margin-bottom: 24px;
-      line-height: 1.5;
+      line-height: 1.6;
+      position: relative;
+      z-index: 1;
+      max-width: 500px;
+      margin-left: auto;
+      margin-right: auto;
     }
 
     .download-buttons {
@@ -52,23 +74,27 @@
       justify-content: center;
       align-items: center;
       flex-wrap: wrap;
+      position: relative;
+      z-index: 1;
     }
 
     .download-button {
       display: inline-flex;
       align-items: center;
       gap: 12px;
-      padding: 12px 24px;
+      padding: 14px 28px;
       background: var(--card-gradient);
       color: white;
       text-decoration: none;
-      border-radius: 12px;
-      font-weight: 500;
+      border-radius: 14px;
+      font-weight: 600;
       font-size: 16px;
       transition: all 0.3s ease;
-      box-shadow: 0 4px 12px rgba(0, 59, 142, 0.2);
+      box-shadow: 0 6px 16px rgba(0, 59, 142, 0.25);
       position: relative;
       overflow: hidden;
+      min-width: 200px;
+      justify-content: center;
     }
 
     .download-button::before {
@@ -85,7 +111,7 @@
 
     .download-button:hover {
       transform: translateY(-2px);
-      box-shadow: 0 8px 24px rgba(0, 59, 142, 0.3);
+      box-shadow: 0 10px 28px rgba(0, 59, 142, 0.35);
     }
 
     .download-button:hover::before {
@@ -93,7 +119,7 @@
     }
 
     .download-button i {
-      font-size: 20px;
+      font-size: 22px;
       position: relative;
       z-index: 1;
     }
@@ -111,6 +137,10 @@
       background: linear-gradient(135deg, #34A853 0%, #137333 100%);
     }
 
+    .download-button.android:hover {
+      box-shadow: 0 10px 28px rgba(52, 168, 83, 0.4);
+    }
+
     @media (max-width: 600px) {
       .download-banner {
         margin: 24px 16px;
@@ -118,7 +148,7 @@
       }
       
       .download-banner h3 {
-        font-size: 20px;
+        font-size: 24px;
       }
       
       .download-buttons {
