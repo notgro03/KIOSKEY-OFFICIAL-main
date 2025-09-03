@@ -583,14 +583,14 @@ footer {
   width: 100%;
   height: 100%;
   background-image: url('images/llave kioskeys foto.png');
-  background-size: contain;
-  background-position: left bottom;
+  background-size: cover;
+  background-position: left center;
   background-repeat: no-repeat;
   border-radius: 18px;
   overflow: hidden;
   position: relative;
   z-index: 1;
-  margin: -40px -40px -40px 0;
+  margin: -40px -40px -40px -40px;
   padding: 0;
 }
 
@@ -625,95 +625,14 @@ footer {
 
 .hero-title {
   font-size: 44px;
-  font-weight: 800;
+  font-weight: 700;
   line-height: 1.2;
   margin-bottom: 16px;
-  letter-spacing: -0.03em;
-  color: transparent;
-  background: linear-gradient(
-    135deg, 
-    #ffffff 0%, 
-    #f8faff 15%, 
-    #ffffff 30%, 
-    #e8f2ff 45%, 
-    #ffffff 60%, 
-    #f0f6ff 75%, 
-    #ffffff 90%, 
-    #ffffff 100%
-  );
-  background-size: 400% auto;
-  background-clip: text;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  text-shadow: 
-    0 0 20px rgba(255, 255, 255, 0.8),
-    0 0 40px rgba(255, 255, 255, 0.6),
-    0 4px 20px rgba(0, 59, 142, 0.3),
-    0 8px 40px rgba(0, 114, 188, 0.2);
-  animation: titleShine 4s ease-in-out infinite, titleGlow 3s ease-in-out infinite alternate;
-  position: relative;
-  z-index: 2;
+  letter-spacing: -0.003em;
+  color: white;
+  text-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
 }
 
-.hero-title::before {
-  content: attr(data-text);
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(135deg, rgba(255,255,255,0.9) 0%, rgba(248,250,255,0.7) 50%, rgba(255,255,255,0.9) 100%);
-  background-clip: text;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  filter: blur(1px);
-  z-index: -1;
-  animation: titleBlur 2s ease-in-out infinite alternate;
-}
-
-@keyframes titleShine {
-  0%, 100% {
-    background-position: 0% center;
-  }
-  25% {
-    background-position: 25% center;
-  }
-  50% {
-    background-position: 100% center;
-  }
-  75% {
-    background-position: 75% center;
-  }
-}
-
-@keyframes titleGlow {
-  0% {
-    text-shadow: 
-      0 0 20px rgba(255, 255, 255, 0.8),
-      0 0 40px rgba(255, 255, 255, 0.6),
-      0 4px 20px rgba(0, 59, 142, 0.3),
-      0 8px 40px rgba(0, 114, 188, 0.2);
-  }
-  100% {
-    text-shadow: 
-      0 0 30px rgba(255, 255, 255, 1),
-      0 0 60px rgba(255, 255, 255, 0.8),
-      0 4px 30px rgba(0, 59, 142, 0.4),
-      0 8px 60px rgba(0, 114, 188, 0.3),
-      0 0 100px rgba(255, 255, 255, 0.4);
-  }
-}
-
-@keyframes titleBlur {
-  0% {
-    filter: blur(1px);
-    opacity: 0.3;
-  }
-  100% {
-    filter: blur(2px);
-    opacity: 0.1;
-  }
-}
 
 .hero-subtitle {
   font-size: 18px;
@@ -813,7 +732,7 @@ footer {
   
   .hero-title {
     font-size: 36px;
-    letter-spacing: -0.02em;
+    letter-spacing: -0.003em;
   }
   
   .hero-subtitle {
