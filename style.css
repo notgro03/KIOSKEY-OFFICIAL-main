@@ -519,7 +519,7 @@ footer {
   grid-template-columns: 1fr 1fr;
   gap: 48px;
   align-items: center;
-  min-height: 400px;
+  min-height: 600px;
 }
 
 .hero-container::before {
@@ -546,26 +546,19 @@ footer {
 }
 
 .hero-image {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  display: block;
+  width: 100%;
+  height: 100%;
+  background-image: url('images/llave kioskeys foto.png');
+  background-size: cover;
+  background-position: center bottom;
+  background-repeat: no-repeat;
+  border-radius: 18px;
+  overflow: hidden;
   position: relative;
   z-index: 1;
 }
 
-.hero-image-frame {
-  background: rgba(255, 255, 255, 0.05);
-  padding: 12px;
-  position: relative;
-  overflow: hidden;
-  transition: all 0.3s ease;
-  border-radius: 16px;
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  box-shadow: 0 8px 32px rgba(0, 59, 142, 0.2);
-}
-
-
-/* Hero Bullets */
 .hero-bullets {
   display: flex;
   flex-direction: column;
@@ -587,28 +580,6 @@ footer {
   font-size: 18px;
   width: 20px;
   text-align: center;
-}
-
-.hero-phone-image {
-  width: 100%;
-  height: 100%;
-  max-height: 480px;
-  object-fit: contain;
-  position: relative;
-  z-index: 1;
-  transition: all 0.3s ease;
-  filter: 
-    drop-shadow(0 16px 32px rgba(0, 59, 142, 0.4)) 
-    drop-shadow(0 0 40px rgba(0, 114, 188, 0.5))
-    drop-shadow(0 8px 16px rgba(0, 0, 0, 0.2));
-}
-
-.hero-container:hover .hero-phone-image {
-  transform: scale(1.05);
-  filter: 
-    drop-shadow(0 20px 40px rgba(0, 59, 142, 0.5)) 
-    drop-shadow(0 0 60px rgba(0, 114, 188, 0.6))
-    drop-shadow(0 12px 24px rgba(0, 0, 0, 0.3));
 }
 
 .hero-content-right {
@@ -706,12 +677,13 @@ footer {
     gap: 24px;
     text-align: center;
     padding: 24px;
-    min-height: 450px;
+    min-height: 500px;
   }
   
   .hero-image {
     order: 1;
-    min-height: 300px;
+    min-height: 250px;
+    border-radius: 12px;
   }
   
   .hero-content-right {
@@ -726,11 +698,6 @@ footer {
   .hero-subtitle {
     font-size: 16px;
     margin-bottom: 24px;
-  }
-  
-  .hero-image-frame {
-    width: 140px;
-    height: 250px;
   }
   
   .hero-bullets {
