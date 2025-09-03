@@ -56,6 +56,48 @@
       transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
     }
 
+    .timeline-image {
+      width: calc(50% - 32px);
+      padding: 16px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+      z-index: 1;
+    }
+
+    .timeline-image img {
+      width: 100%;
+      height: 250px;
+      object-fit: cover;
+      border-radius: 18px;
+      box-shadow: 0 8px 32px rgba(0, 59, 142, 0.15);
+      transition: all 0.3s ease;
+      border: 1px solid rgba(0, 59, 142, 0.1);
+    }
+
+    .timeline-image img:hover {
+      transform: scale(1.02);
+      box-shadow: 0 12px 48px rgba(0, 59, 142, 0.2);
+    }
+
+    /* Ajuste de posición para imágenes en items impares */
+    .timeline-item:nth-child(odd) .timeline-image {
+      order: 1;
+    }
+
+    .timeline-item:nth-child(even) .timeline-image {
+      order: 3;
+    }
+
+    .timeline-item:nth-child(odd) .timeline-content {
+      margin-right: 16px;
+    }
+
+    .timeline-item:nth-child(even) .timeline-content {
+      margin-left: 16px;
+    }
+
     .timeline-content:hover {
       transform: translateY(-5px);
       box-shadow: 0 16px 48px rgba(0, 59, 142, 0.2);
@@ -263,6 +305,23 @@
         width: 100%;
       }
 
+      .timeline-image {
+        width: 100%;
+        margin-top: 24px;
+        order: 2 !important;
+        padding: 0;
+      }
+
+      .timeline-image img {
+        height: 200px;
+      }
+
+      .timeline-item:nth-child(odd) .timeline-content,
+      .timeline-item:nth-child(even) .timeline-content {
+        margin-left: 0;
+        margin-right: 0;
+      }
+
       .timeline-dot {
         left: 0;
       }
@@ -317,6 +376,9 @@
               <p>Descarga nuestra aplicación móvil desde la App Store o Google Play Store para comenzar a gestionar tus llaves de forma inteligente.</p>
             </div>
             <div class="timeline-dot"></div>
+            <div class="timeline-image">
+              <img src="https://images.pexels.com/photos/7176317/pexels-photo-7176317.jpeg?auto=compress&cs=tinysrgb&w=400&h=300&dpr=1" alt="Descarga la App Kioskeys">
+            </div>
           </div>
 
           <div class="timeline-item" data-aos="fade-up">
@@ -330,6 +392,9 @@
               <p>Ingresa los datos de tu vehículo en la aplicación para asegurar una compatibilidad perfecta con nuestros servicios.</p>
             </div>
             <div class="timeline-dot"></div>
+            <div class="timeline-image">
+              <img src="https://images.pexels.com/photos/380768/pexels-photo-380768.jpeg?auto=compress&cs=tinysrgb&w=400&h=300&dpr=1" alt="Registra tu vehículo">
+            </div>
           </div>
 
           <div class="timeline-item" data-aos="fade-up">
@@ -343,6 +408,9 @@
               <p>Toma una foto clara del inserto de tu llave. Nuestro sistema la procesará y almacenará de forma segura en la nube.</p>
             </div>
             <div class="timeline-dot"></div>
+            <div class="timeline-image">
+              <img src="https://images.pexels.com/photos/4386321/pexels-photo-4386321.jpeg?auto=compress&cs=tinysrgb&w=400&h=300&dpr=1" alt="Digitaliza tu llave con foto">
+            </div>
           </div>
 
           <div class="timeline-item" data-aos="fade-up">
@@ -356,6 +424,9 @@
               <p>Tu llave digital se guarda con encriptación de nivel bancario. Accede a ella desde cualquier dispositivo autorizado.</p>
             </div>
             <div class="timeline-dot"></div>
+            <div class="timeline-image">
+              <img src="https://images.pexels.com/photos/1034662/pexels-photo-1034662.jpeg?auto=compress&cs=tinysrgb&w=400&h=300&dpr=1" alt="Almacenamiento seguro en la nube">
+            </div>
           </div>
 
           <div class="timeline-item" data-aos="fade-up">
@@ -369,6 +440,9 @@
               <p>Si necesitas una copia, visita cualquier punto de nuestra red. Con tu identificación y código único, tendrás tu llave lista en minutos.</p>
             </div>
             <div class="timeline-dot"></div>
+            <div class="timeline-image">
+              <img src="https://images.pexels.com/photos/5473955/pexels-photo-5473955.jpeg?auto=compress&cs=tinysrgb&w=400&h=300&dpr=1" alt="Recuperación inmediata de llaves">
+            </div>
           </div>
         </div>
       </div>
