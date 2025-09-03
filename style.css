@@ -706,11 +706,12 @@ footer {
     gap: 24px;
     text-align: center;
     padding: 24px;
-    min-height: auto;
+    min-height: 450px;
   }
   
   .hero-image {
     order: 1;
+    min-height: 300px;
   }
   
   .hero-content-right {
@@ -727,8 +728,9 @@ footer {
     margin-bottom: 24px;
   }
   
-  .hero-phone-image {
-    max-height: 360px;
+  .hero-image-frame {
+    width: 140px;
+    height: 250px;
   }
   
   .hero-bullets {
@@ -749,16 +751,8 @@ footer {
     align-self: center;
   }
   
-  .hero-image-frame {
-    padding: 8px;
-  }
-  
   .hero h1 {
     font-size: 42px;
-  }
-  
-  .hero-phone-image {
-    max-height: 360px;
   }
 }
 
