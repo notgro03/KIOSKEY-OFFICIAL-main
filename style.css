@@ -519,7 +519,7 @@ footer {
   grid-template-columns: 1fr 1fr;
   gap: 48px;
   align-items: center;
-  min-height: 600px;
+  min-height: 450px;
 }
 
 .hero-container::before {
@@ -550,13 +550,15 @@ footer {
   width: 100%;
   height: 100%;
   background-image: url('images/llave kioskeys foto.png');
-  background-size: cover;
-  background-position: center bottom;
+  background-size: contain;
+  background-position: left bottom;
   background-repeat: no-repeat;
   border-radius: 18px;
   overflow: hidden;
   position: relative;
   z-index: 1;
+  margin: -40px -40px -40px 0;
+  padding: 0;
 }
 
 .hero-bullets {
@@ -589,13 +591,28 @@ footer {
 }
 
 .hero-title {
-  font-size: 40px;
+  font-size: 44px;
   font-weight: 800;
   color: white;
   line-height: 1.2;
   margin-bottom: 16px;
-  letter-spacing: -0.02em;
+  letter-spacing: -0.03em;
   text-shadow: 0 4px 12px rgba(0, 0, 0, 0.3), 0 2px 6px rgba(0, 59, 142, 0.2);
+  background: linear-gradient(135deg, #ffffff 0%, #e8f4ff 25%, #ffffff 50%, #e8f4ff 75%, #ffffff 100%);
+  background-size: 300% auto;
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: titleShine 3s ease-in-out infinite;
+}
+
+@keyframes titleShine {
+  0%, 100% {
+    background-position: 0% center;
+  }
+  50% {
+    background-position: 100% center;
+  }
 }
 
 .hero-subtitle {
@@ -677,13 +694,16 @@ footer {
     gap: 24px;
     text-align: center;
     padding: 24px;
-    min-height: 500px;
+    min-height: 400px;
   }
   
   .hero-image {
     order: 1;
-    min-height: 250px;
+    min-height: 200px;
     border-radius: 12px;
+    margin: -24px -24px -24px -24px;
+    background-position: center bottom;
+    background-size: cover;
   }
   
   .hero-content-right {
@@ -692,7 +712,8 @@ footer {
   }
   
   .hero-title {
-    font-size: 32px;
+    font-size: 36px;
+    letter-spacing: -0.02em;
   }
   
   .hero-subtitle {
