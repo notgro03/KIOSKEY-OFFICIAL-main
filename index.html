@@ -16,56 +16,120 @@
   <link rel="stylesheet" href="./style.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
   <style>
-    .app-download {
-    position: fixed;
-    top: calc(var(--nav-height) + 40px);
-    right: 20px;
-    z-index: 99;
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
-    background: rgba(255, 255, 255, 0.95);
-    padding: 16px;
-    border-radius: 12px;
-    box-shadow: 0 8px 32px rgba(0, 59, 142, 0.15);
-    border: 1px solid rgba(255, 255, 255, 0.3);
-    backdrop-filter: blur(12px);
-    align-items: center;
-  }
-
-    .app-download-item {
+    .download-banner {
+      background: linear-gradient(135deg, rgba(0, 59, 142, 0.05) 0%, rgba(0, 163, 255, 0.05) 100%);
+      border: 1px solid rgba(0, 59, 142, 0.1);
+      border-radius: 20px;
+      padding: 32px;
+      margin: 32px auto;
+      max-width: 600px;
       text-align: center;
+      backdrop-filter: blur(10px);
+      box-shadow: 0 8px 32px rgba(0, 59, 142, 0.1);
     }
 
-    .app-download img {
-      width: 80px;
-      height: 80px;
-      border-radius: 8px;
-      margin-bottom: 4px;
-      transition: transform 0.3s ease;
+    .download-banner h3 {
+      color: var(--primary-blue);
+      font-size: 24px;
+      font-weight: 600;
+      margin-bottom: 12px;
+      background: var(--card-gradient);
+      background-clip: text;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
     }
 
-    .app-download a:hover img {
-    transform: scale(1.1);
-    box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.3);
-  }
-
-    .app-download-label {
-      font-size: 12px;
-      color: var(--text-color);
-      font-weight: 500;
+    .download-banner p {
+      color: #666;
+      font-size: 16px;
+      margin-bottom: 24px;
+      line-height: 1.5;
     }
 
-    @media (max-width: 768px) {
-    .app-download {
-      position: relative;
-      top: 0;
-      right: 0;
-      flex-direction: row;
+    .download-buttons {
+      display: flex;
+      gap: 16px;
       justify-content: center;
-      margin: 20px auto;
-      width: fit-content;
+      align-items: center;
+      flex-wrap: wrap;
     }
+
+    .download-button {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      padding: 12px 24px;
+      background: var(--card-gradient);
+      color: white;
+      text-decoration: none;
+      border-radius: 12px;
+      font-weight: 500;
+      font-size: 16px;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 12px rgba(0, 59, 142, 0.2);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .download-button::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: radial-gradient(circle at center, rgba(255,255,255,0.2) 0%, transparent 50%);
+      transform: translate(-100%, -100%);
+      transition: all 0.5s ease;
+    }
+
+    .download-button:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(0, 59, 142, 0.3);
+    }
+
+    .download-button:hover::before {
+      transform: translate(0, 0);
+    }
+
+    .download-button i {
+      font-size: 20px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .download-button span {
+      position: relative;
+      z-index: 1;
+    }
+
+    .download-button.ios {
+      background: linear-gradient(135deg, #007AFF 0%, #0051D5 100%);
+    }
+
+    .download-button.android {
+      background: linear-gradient(135deg, #34A853 0%, #137333 100%);
+    }
+
+    @media (max-width: 600px) {
+      .download-banner {
+        margin: 24px 16px;
+        padding: 24px;
+      }
+      
+      .download-banner h3 {
+        font-size: 20px;
+      }
+      
+      .download-buttons {
+        flex-direction: column;
+        gap: 12px;
+      }
+      
+      .download-button {
+        width: 100%;
+        justify-content: center;
+      }
     }
   </style>
 </head>
@@ -87,30 +151,26 @@
     </button>
   </nav>
 
-  <div class="app-download">
-    <div class="app-download-item">
-      <a href="https://apps.apple.com/id/app/kioskeys/id1632084137" target="_blank" rel="noopener">
-        <img src="https://api.qrserver.com/v1/create-qr-code/?size=80x80&data=https://apps.apple.com/id/app/kioskeys/id1632084137" alt="App Store QR">
-        <div class="app-download-label">
-          <i class="fab fa-apple"></i> App Store
-        </div>
-      </a>
-    </div>
-    <div class="app-download-item">
-      <a href="https://play.google.com/store/apps/details?id=com.imagosur.keymanager_app&hl=es" target="_blank" rel="noopener">
-        <img src="https://api.qrserver.com/v1/create-qr-code/?size=80x80&data=https://play.google.com/store/apps/details?id=com.imagosur.keymanager_app" alt="Play Store QR">
-        <div class="app-download-label">
-          <i class="fab fa-google-play"></i> Play Store
-        </div>
-      </a>
-    </div>
-  </div>
-
   <main>
     <section class="hero">
       <div class="hero-content">
         <h1 class="shiny-text">Tus llaves seguras siempre</h1>
         <p>La manera más inteligente de gestionar tus copias de llaves</p>
+        
+        <div class="download-banner">
+          <h3>¡Digitaliza tu llave ya mismo!</h3>
+          <p>Descarga nuestra app y comienza a gestionar tus llaves de forma inteligente y segura</p>
+          <div class="download-buttons">
+            <a href="https://apps.apple.com/id/app/kioskeys/id1632084137" target="_blank" rel="noopener" class="download-button ios">
+              <i class="fab fa-apple"></i>
+              <span>Descargar para iOS</span>
+            </a>
+            <a href="https://play.google.com/store/apps/details?id=com.imagosur.keymanager_app&hl=es" target="_blank" rel="noopener" class="download-button android">
+              <i class="fab fa-google-play"></i>
+              <span>Descargar para Android</span>
+            </a>
+          </div>
+        </div>
       </div>
     </section>
 
