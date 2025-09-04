@@ -85,7 +85,60 @@
     }
 
     /* Placeholder para cuando no hay imagen */
-    .timeline-image:empty::before {
+    .timeline-image-placeholder {
+      width: 100%;
+      height: 280px;
+      background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+      border: 2px dashed rgba(0, 59, 142, 0.3);
+      border-radius: 18px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      color: rgba(0, 59, 142, 0.6);
+      font-size: 16px;
+      font-weight: 500;
+      text-align: center;
+      transition: all 0.3s ease;
+      cursor: pointer;
+    }
+
+    .timeline-image-placeholder:hover {
+      background: linear-gradient(135deg, #e9ecef 0%, #dee2e6 100%);
+      border-color: rgba(0, 59, 142, 0.5);
+      transform: scale(1.02);
+    }
+
+    .timeline-image-placeholder i {
+      font-size: 48px;
+      margin-bottom: 16px;
+      opacity: 0.7;
+    }
+
+    .timeline-image-placeholder .placeholder-text {
+      font-size: 18px;
+      font-weight: 600;
+      margin-bottom: 8px;
+    }
+      opacity: 0.8;
+    }
+
+    /* Ajuste de posición para imágenes en items impares */
+    .timeline-item:nth-child(odd) .timeline-image {
+      order: 1;
+    }
+
+    .timeline-item:nth-child(even) .timeline-image {
+      order: 3;
+    }
+
+    .timeline-item:nth-child(odd) .timeline-content {
+      margin-right: 48px;
+    }
+
+    .timeline-item:nth-child(even) .timeline-content {
+      margin-left: 48px;
+    }</parameter>
       content: 'Imagen o GIF aquí';
       display: flex;
       align-items: center;
@@ -345,7 +398,7 @@
       }
 
       .timeline-image img,
-      .timeline-image:empty::before {
+      .timeline-image-placeholder {
         height: 220px;
       }
       .timeline-image img {
@@ -411,7 +464,11 @@
               <p>Descarga nuestra aplicación móvil desde la App Store o Google Play Store para comenzar a gestionar tus llaves de forma inteligente.</p>
             </div>
             <div class="timeline-image">
-              <!-- Placeholder para imagen o GIF del paso 1 -->
+              <div class="timeline-image-placeholder">
+                <i class="fas fa-image"></i>
+                <div class="placeholder-text">Imagen del Paso 1</div>
+                <div class="placeholder-subtitle">Descarga de la App</div>
+              </div>
             </div>
           </div>
 
@@ -425,7 +482,11 @@
               <p>Ingresa los datos de tu vehículo en la aplicación para asegurar una compatibilidad perfecta con nuestros servicios.</p>
             </div>
             <div class="timeline-image">
-              <!-- Placeholder para imagen o GIF del paso 2 -->
+              <div class="timeline-image-placeholder">
+                <i class="fas fa-image"></i>
+                <div class="placeholder-text">Imagen del Paso 2</div>
+                <div class="placeholder-subtitle">Registro de Vehículo</div>
+              </div>
             </div>
           </div>
 
@@ -439,7 +500,11 @@
               <p>Toma una foto clara del inserto de tu llave. Nuestro sistema la procesará y almacenará de forma segura en la nube.</p>
             </div>
             <div class="timeline-image">
-              <!-- Placeholder para imagen o GIF del paso 3 -->
+              <div class="timeline-image-placeholder">
+                <i class="fas fa-image"></i>
+                <div class="placeholder-text">Imagen del Paso 3</div>
+                <div class="placeholder-subtitle">Digitalización de Llave</div>
+              </div>
             </div>
           </div>
 
@@ -453,7 +518,11 @@
               <p>Tu llave digital se guarda con encriptación de nivel bancario. Accede a ella desde cualquier dispositivo autorizado.</p>
             </div>
             <div class="timeline-image">
-              <!-- Placeholder para imagen o GIF del paso 4 -->
+              <div class="timeline-image-placeholder">
+                <i class="fas fa-image"></i>
+                <div class="placeholder-text">Imagen del Paso 4</div>
+                <div class="placeholder-subtitle">Almacenamiento Seguro</div>
+              </div>
             </div>
           </div>
 
@@ -467,7 +536,11 @@
               <p>Si necesitas una copia, visita cualquier punto de nuestra red. Con tu identificación y código único, tendrás tu llave lista en minutos.</p>
             </div>
             <div class="timeline-image">
-              <!-- Placeholder para imagen o GIF del paso 5 -->
+              <div class="timeline-image-placeholder">
+                <i class="fas fa-image"></i>
+                <div class="placeholder-text">Imagen del Paso 5</div>
+                <div class="placeholder-subtitle">Recuperación Inmediata</div>
+              </div>
             </div>
           </div>
         </div>
