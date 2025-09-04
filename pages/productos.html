@@ -78,6 +78,12 @@
       height: 100%;
       display: flex;
       flex-direction: column;
+      text-align: center;
+      min-height: 400px;
+      justify-content: space-between;
+      text-align: center;
+      min-height: 400px;
+      justify-content: space-between;
     }
 
     .product-card::before {
@@ -101,7 +107,7 @@
     }
 
     .product-card:hover {
-      transform: translateY(-5px);
+      transform: translateY(-12px) scale(1.02);
       box-shadow: 0 20px 40px rgba(0, 59, 142, 0.2);
     }
 
@@ -120,16 +126,36 @@
     }
 
     .feature-icon {
-      font-size: 32px;
+      font-size: 40px;
       margin-bottom: 20px;
       background: rgba(255, 255, 255, 0.1);
-      width: 64px;
-      height: 64px;
+      width: 80px;
+      height: 80px;
       display: flex;
       align-items: center;
       justify-content: center;
       border-radius: 50%;
       margin: 0 auto 20px;
+      backdrop-filter: blur(10px);
+      border: 2px solid rgba(255, 255, 255, 0.2);
+      transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+      color: white;
+    }
+
+    .product-card:hover .feature-icon {
+      transform: scale(1.1) rotate(10deg);
+      background: rgba(255, 255, 255, 0.25);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+      backdrop-filter: blur(10px);
+      border: 2px solid rgba(255, 255, 255, 0.2);
+      transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+      color: white;
+    }
+
+    .product-card:hover .feature-icon {
+      transform: scale(1.1) rotate(10deg);
+      background: rgba(255, 255, 255, 0.25);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
     }
 
     .product-card h3 {
@@ -137,6 +163,10 @@
       margin-bottom: 16px;
       text-align: center;
       color: white;
+      font-weight: 700;
+      letter-spacing: -0.01em;
+      font-weight: 700;
+      letter-spacing: -0.01em;
     }
 
     .product-description {
@@ -144,14 +174,20 @@
       line-height: 1.6;
       opacity: 0.9;
       text-align: center;
+      font-size: 16px;
+      flex-grow: 1;
+      font-size: 16px;
+      flex-grow: 1;
     }
 
     .product-details {
-      margin-top: auto;
+      margin: 20px 0;
       padding-top: 16px;
       border-top: 1px solid rgba(255, 255, 255, 0.1);
       list-style: none;
       padding-left: 0;
+      text-align: left;
+      text-align: left;
     }
 
     .product-details li {
@@ -160,6 +196,8 @@
       position: relative;
       font-size: 15px;
       color: rgba(255, 255, 255, 0.9);
+      line-height: 1.5;
+      line-height: 1.5;
     }
 
     .product-details li::before {
@@ -167,6 +205,8 @@
       position: absolute;
       left: 0;
       color: rgba(255, 255, 255, 0.9);
+      font-weight: bold;
+      font-weight: bold;
     }
 
     .learn-more {
@@ -185,11 +225,17 @@
       margin-left: auto;
       margin-right: auto;
       color: white;
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.2);
     }
 
     .learn-more:hover {
       opacity: 1;
       background: rgba(255, 255, 255, 0.2);
+      transform: translateY(-2px);
+      transform: translateY(-2px);
     }
 
     .learn-more i {
@@ -203,7 +249,8 @@
 
     @media (max-width: 768px) {
       .features-grid {
-        grid-template-columns: 1fr;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
       }
       
       .category-filters {
@@ -212,12 +259,13 @@
       
       .product-card {
         padding: 24px;
+        min-height: 350px;
       }
       
-      .feature-icon {
-        width: 48px;
-        height: 48px;
-        font-size: 24px;
+      .product-icon {
+        width: 64px;
+        height: 64px;
+        font-size: 32px;
       }
 
       .product-card h3 {
@@ -228,8 +276,30 @@
         font-size: 14px;
       }
     }
+
+    @media (max-width: 480px) {
+      .features-grid {
+        grid-template-columns: 1fr;
+      }
+      
+      .product-card {
+        min-height: 320px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .features-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+      }
+      
+      .product-card {
+        min-height: 320px;
+      }
+    }
   </style>
 </head>
+        min-height: 350px;
 <body>
   <nav>
     <div class="logo">
@@ -273,7 +343,9 @@
 
         <div class="features-grid">
           <a href="/pages/telemandos.html" class="product-card" data-category="telemandos">
-            <i class="fas fa-car feature-icon"></i>
+            <div class="feature-icon">
+              <i class="fas fa-car"></i>
+            </div>
             <h3>Telemandos</h3>
             <p class="product-description">Controles remotos originales y alternativos para todo tipo de vehículos. Programación profesional incluida.</p>
             <ul class="product-details">
@@ -287,7 +359,9 @@
           </a>
 
           <a href="/pages/llaves.html" class="product-card" data-category="llaves">
-            <i class="fas fa-key feature-icon"></i>
+            <div class="feature-icon">
+              <i class="fas fa-key"></i>
+            </div>
             <h3>Llaves</h3>
             <p class="product-description">Amplia gama de llaves de seguridad y copias certificadas para todo tipo de cerraduras.</p>
             <ul class="product-details">
@@ -301,7 +375,9 @@
           </a>
 
           <a href="/pages/carcasas.html" class="product-card" data-category="carcasas">
-            <i class="fas fa-shield-alt feature-icon"></i>
+            <div class="feature-icon">
+              <i class="fas fa-shield-alt"></i>
+            </div>
             <h3>Carcasas</h3>
             <p class="product-description">Carcasas de repuesto originales y alternativas para mandos de todas las marcas.</p>
             <ul class="product-details">
@@ -315,7 +391,9 @@
           </a>
 
           <a href="/pages/accesorios.html" class="product-card" data-category="accesorios">
-            <i class="fas fa-tools feature-icon"></i>
+            <div class="feature-icon">
+              <i class="fas fa-tools"></i>
+            </div>
             <h3>Accesorios</h3>
             <p class="product-description">Complementos y accesorios profesionales para el cuidado y mantenimiento de tus llaves.</p>
             <ul class="product-details">
