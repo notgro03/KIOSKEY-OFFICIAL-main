@@ -224,7 +224,10 @@
   </footer>
 
   <script type="module" src="/js/carousel.js"></script>
-  <script type="module" src="/src/carousel.js"></script>
   <script type="module" src="/main.js"></script>
+  <script type="module">
+    import { initCarousel } from '/src/carousel.js';
+    initCarousel();
+  </script>
 </body>
 </html>

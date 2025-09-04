@@ -7,6 +7,212 @@
   <link rel="icon" href="/favicon.jpg">
   <link rel="stylesheet" href="/style.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <style>
+    .contact-intro {
+      text-align: center;
+      margin-bottom: 48px;
+      padding: 32px;
+      background: white;
+      border-radius: 18px;
+      box-shadow: 0 4px 6px rgba(0, 59, 142, 0.1);
+    }
+
+    .contact-intro h2 {
+      color: var(--primary-blue);
+      font-size: 32px;
+      margin-bottom: 16px;
+    }
+
+    .contact-intro p {
+      color: #666;
+      font-size: 18px;
+      max-width: 600px;
+      margin: 0 auto;
+      line-height: 1.6;
+    }
+
+    .contact-card {
+      background: white;
+      border-radius: 18px;
+      padding: 32px;
+      text-align: center;
+      box-shadow: 0 4px 6px rgba(0, 59, 142, 0.1);
+      border: 2px solid transparent;
+      transition: all 0.3s ease;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .contact-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 24px rgba(0, 59, 142, 0.15);
+    }
+
+    .contact-card.featured {
+      border-color: #25D366;
+      background: linear-gradient(135deg, #ffffff 0%, #f0fff4 100%);
+    }
+
+    .contact-card.primary {
+      border-color: rgba(0, 59, 142, 0.2);
+    }
+
+    .contact-card .feature-icon {
+      font-size: 48px;
+      color: var(--primary-blue);
+      margin-bottom: 16px;
+      width: 80px;
+      height: 80px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: rgba(0, 59, 142, 0.1);
+      border-radius: 50%;
+    }
+
+    .contact-card.featured .feature-icon {
+      color: #25D366;
+      background: rgba(37, 211, 102, 0.1);
+    }
+
+    .contact-card h3 {
+      color: var(--primary-blue);
+      font-size: 24px;
+      margin-bottom: 8px;
+    }
+
+    .contact-card p {
+      color: #666;
+      margin-bottom: 16px;
+      line-height: 1.5;
+    }
+
+    .contact-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 12px 24px;
+      background: var(--card-gradient);
+      color: white;
+      text-decoration: none;
+      border-radius: 25px;
+      font-weight: 500;
+      transition: all 0.3s ease;
+    }
+
+    .contact-link:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(0, 59, 142, 0.3);
+    }
+
+    .contact-link.whatsapp {
+      background: linear-gradient(135deg, #25D366, #128C7E);
+    }
+
+    .contact-hours {
+      background: white;
+      border-radius: 18px;
+      padding: 32px;
+      margin: 32px 0;
+      box-shadow: 0 4px 6px rgba(0, 59, 142, 0.1);
+      text-align: center;
+    }
+
+    .contact-hours h3 {
+      color: var(--primary-blue);
+      font-size: 24px;
+      margin-bottom: 24px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+    }
+
+    .hours-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 24px;
+    }
+
+    .hours-item {
+      padding: 20px;
+      background: rgba(0, 59, 142, 0.05);
+      border-radius: 12px;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .hours-item strong {
+      color: var(--primary-blue);
+      font-size: 16px;
+    }
+
+    .hours-item span {
+      color: #666;
+      font-size: 14px;
+    }
+
+    .support-section {
+      background: var(--card-gradient);
+      color: white;
+      border-radius: 18px;
+      padding: 32px;
+      text-align: center;
+      margin-top: 32px;
+    }
+
+    .support-section h3 {
+      font-size: 24px;
+      margin-bottom: 24px;
+    }
+
+    .support-buttons {
+      display: flex;
+      gap: 16px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .support-button {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 12px 20px;
+      background: rgba(255, 255, 255, 0.1);
+      color: white;
+      text-decoration: none;
+      border-radius: 25px;
+      font-weight: 500;
+      transition: all 0.3s ease;
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+    }
+
+    .support-button:hover {
+      background: rgba(255, 255, 255, 0.2);
+      transform: translateY(-2px);
+    }
+
+    @media (max-width: 768px) {
+      .support-buttons {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .support-button {
+        width: 100%;
+        max-width: 300px;
+        justify-content: center;
+      }
+
+      .hours-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
 </head>
 <body>
   <nav>
