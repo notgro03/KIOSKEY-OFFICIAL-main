@@ -602,16 +602,6 @@
     font-size: 32px;
   }
   
-  .feature-header {
-    flex-wrap: wrap;
-  }
-  
-  .feature-name {
-    white-space: normal;
-    overflow: visible;
-    text-overflow: unset;
-  }
-  
   .plan-features li {
     padding: 16px 0;
   }
