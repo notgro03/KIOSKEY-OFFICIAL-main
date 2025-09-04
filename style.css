@@ -294,7 +294,7 @@ body::after {
   height: 400px;
   object-fit: cover;
   display: block;
-  border-radius: 24px;
+  border-radius: 0;
 }
 
 /* Navigation Buttons */
