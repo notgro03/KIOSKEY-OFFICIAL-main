@@ -276,9 +276,11 @@ body::after {
   min-height: 600px;
   display: flex;
   flex-direction: column;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
   text-align: center;
+  gap: 40px;
   gap: 40px;
 }
 
@@ -287,6 +289,8 @@ body::after {
   margin: 0 auto;
   padding: 0 24px;
   animation: heroFadeIn 1.2s ease-out;
+  position: relative;
+  z-index: 2;
   position: relative;
   z-index: 2;
 }
