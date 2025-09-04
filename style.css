@@ -47,6 +47,8 @@ nav.nav-hidden {
   height: 40px;
   width: auto;
   object-fit: contain;
+  position: relative;
+  z-index: 10;
 }
 
 .nav-links {
@@ -299,6 +301,7 @@ body::after {
   justify-content: center;
   text-align: center;
   gap: 40px;
+  z-index: 1;
   gap: 40px;
 }
 
@@ -511,10 +514,13 @@ body::after {
   max-width: var(--max-content-width);
   margin: 0 auto;
   padding: 80px var(--content-padding);
+  position: relative;
+  z-index: 1;
 }
 
 .main-content {
   position: relative;
+  z-index: 1;
 }
 
 /* Feature Grid */
