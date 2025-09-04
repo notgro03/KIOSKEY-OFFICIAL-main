@@ -1,5 +1,6 @@
 // Import styles
 import './style.css'
+import { initCarousel } from './src/carousel.js'; // Import the new carousel
 
 // Initialize modules
 const initApp = () => {
@@ -33,6 +34,9 @@ const initApp = () => {
       }
     })
   }
+
+  // Initialize carousel
+  initCarousel(); // Call the carousel initialization
 }
 
 // Initialize app when DOM is ready

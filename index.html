@@ -108,50 +108,75 @@
 
   <main>
     <section class="hero">
-      <div class="hero-content">
-        <h1 class="shiny-text">Tus llaves seguras siempre</h1>
+      <div class="hero-content" style="text-shadow: none;">
+        <h1 style="color: var(--primary-blue); font-size: 52px; font-weight: 700; letter-spacing: -0.003em; margin-bottom: 8px; text-shadow: 0 4px 8px rgba(0, 59, 142, 0.2), 0 2px 4px rgba(0,0,0,0.1);">Tus llaves seguras siempre</h1>
         <p>La manera más inteligente de gestionar tus copias de llaves</p>
       </div>
     </section>
 
     <section class="main-content">
       <div class="content-container">
-        <!-- Hero Section with Two Columns -->
-        <section class="hero-section">
-          <div class="hero-container">
-            <div class="hero-image">
-              <!-- Imagen de fondo aplicada via CSS -->
+        <!-- Image Carousel Section -->
+        <section class="image-carousel">
+          <div class="carousel-slides">
+            <div class="carousel-slide active">
+              <img src="https://images.pexels.com/photos/546819/pexels-photo-546819.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Slide 1 Background">
+              <div class="carousel-content">
+                <h2 class="carousel-title">KEYDIY TAG</h2>
+                <p class="carousel-description">LOCALIZADOR COMPATIBLE CON APPLE</p>
+                <a href="#" class="carousel-button">Ver Producto</a>
+              </div>
             </div>
-            <div class="hero-content-right">
-              <h2 class="hero-title">Guardá tu llave en la nube</h2>
-              <p class="hero-subtitle">Seguro, rápido y siempre disponible</p>
-              
-              <!-- Bullets con proceso -->
-              <div class="hero-bullets">
-                <div class="bullet-item">
-                  <i class="fas fa-camera bullet-icon"></i>
-                  <span>Sacá la foto</span>
+            <div class="carousel-slide">
+              <img src="https://images.pexels.com/photos/3861969/pexels-photo-3861969.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Slide 2 Background">
+              <div class="carousel-content">
+                <h2 class="carousel-title">Llaves Codificadas</h2>
+                <p class="carousel-description">La última tecnología en seguridad para tu vehículo</p>
+                <a href="#" class="carousel-button">Explorar Llaves</a>
+              </div>
+            </div>
+            <div class="carousel-slide">
+              <img src="https://images.pexels.com/photos/3862632/pexels-photo-3862632.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Slide 3 Background">
+              <div class="carousel-content">
+                <h2 class="carousel-title">Servicio Express</h2>
+                <p class="carousel-description">Duplicados y programación en minutos</p>
+                <a href="#" class="carousel-button">Conoce más</a>
+              </div>
+            </div>
+          </div>
+          <button class="carousel-nav-left"><i class="fas fa-chevron-left"></i></button>
+          <button class="carousel-nav-right"><i class="fas fa-chevron-right"></i></button>
+          <div class="carousel-pagination"></div>
+        </section>
+
+        <div class="hero-container" style="background: var(--card-gradient); border-radius: 24px; padding: 40px; box-shadow: 0 16px 48px rgba(0, 59, 142, 0.15); position: relative; overflow: hidden; transition: all 0.3s ease; display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: center; min-height: 450px;">
+          <div class="hero-image" style="display: block; width: 100%; height: 100%; background-image: url('images/llave kioskeys foto.png'); background-size: cover; background-position: left center; background-repeat: no-repeat; border-radius: 18px; overflow: hidden; position: relative; z-index: 1; margin: -40px -40px -40px -40px; padding: 0;"></div>
+          <div class="hero-content-right" style="padding: 0; position: relative; z-index: 1;">
+            <h2 class="hero-title" style="font-size: 44px; font-weight: 700; line-height: 1.2; margin-bottom: 16px; letter-spacing: -0.003em; color: white; text-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);">Guardá tu llave en la nube</h2>
+            <p class="hero-subtitle" style="font-size: 18px; color: rgba(255, 255, 255, 0.9); margin-bottom: 32px; line-height: 1.5; font-weight: 400;">Seguro, rápido y siempre disponible</p>
+            <div class="hero-bullets" style="display: flex; flex-direction: column; gap: 16px; margin: 24px 0 32px 0;">
+              <div class="bullet-item" style="display: flex; align-items: center; gap: 12px; font-size: 16px; color: white; font-weight: 500;">
+                <i class="fas fa-camera bullet-icon" style="color: rgba(255, 255, 255, 0.8); font-size: 18px; width: 20px; text-align: center;"></i>
+                <span>Sacá la foto</span>
                 </div>
-                <div class="bullet-item">
-                  <i class="fas fa-cloud bullet-icon"></i>
-                  <span>Guardala en la nube</span>
+              <div class="bullet-item" style="display: flex; align-items: center; gap: 12px; font-size: 16px; color: white; font-weight: 500;">
+                <i class="fas fa-cloud bullet-icon" style="color: rgba(255, 255, 255, 0.8); font-size: 18px; width: 20px; text-align: center;"></i>
+                <span>Guardala en la nube</span>
                 </div>
-                <div class="bullet-item">
-                  <i class="fas fa-key bullet-icon"></i>
-                  <span>Accedé cuando lo necesites</span>
+              <div class="bullet-item" style="display: flex; align-items: center; gap: 12px; font-size: 16px; color: white; font-weight: 500;">
+                <i class="fas fa-key bullet-icon" style="color: rgba(255, 255, 255, 0.8); font-size: 18px; width: 20px; text-align: center;"></i>
+                <span>Accedé cuando lo necesites</span>
                 </div>
               </div>
-              
-              <div class="hero-buttons">
-                <a href="./pages/como-funciona.html" class="hero-primary-button">
-                  <i class="fas fa-play-circle"></i>
-                  Mirá cómo funciona
-                </a>
+            <div class="hero-buttons" style="display: flex; flex-direction: column; gap: 0;">
+              <a href="./pages/como-funciona.html" class="hero-primary-button" style="display: inline-flex; align-items: center; gap: 12px; background: white; color: var(--primary-blue); padding: 16px 36px; border-radius: 12px; font-size: 18px; font-weight: 600; text-decoration: none; transition: all 0.3s ease; box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2); width: fit-content; min-width: 220px; justify-content: center;">
+                <i class="fas fa-play-circle" style="font-size: 18px;"></i>
+                Mirá cómo funciona
+              </a>
               </div>
             </div>
           </div>
         </section>
-
         <div class="features-grid">
           <a href="./pages/planes.html" class="feature-card shiny-button">
             <div>
