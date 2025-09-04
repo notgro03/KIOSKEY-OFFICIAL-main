@@ -108,9 +108,39 @@
 
   <main>
     <section class="hero">
-      <div class="hero-content">
-        <h1 class="shiny-text">Tus llaves seguras siempre</h1>
-        <p>La manera más inteligente de gestionar tus copias de llaves</p>
+      <div class="carousel-container">
+        <div class="carousel-slides">
+          <div class="carousel-slide">
+            <img src="https://via.placeholder.com/1200x400/003B8E/FFFFFF?text=Flyer+1+-+Kioskeys" alt="Flyer 1">
+          </div>
+          <div class="carousel-slide">
+            <img src="https://via.placeholder.com/1200x400/0072BC/FFFFFF?text=Flyer+2+-+Telemandos" alt="Flyer 2">
+          </div>
+          <div class="carousel-slide">
+            <img src="https://via.placeholder.com/1200x400/003B8E/FFFFFF?text=Flyer+3+-+Llaves" alt="Flyer 3">
+          </div>
+          <div class="carousel-slide">
+            <img src="https://via.placeholder.com/1200x400/0072BC/FFFFFF?text=Flyer+4+-+Carcasas" alt="Flyer 4">
+          </div>
+          <div class="carousel-slide">
+            <img src="https://via.placeholder.com/1200x400/003B8E/FFFFFF?text=Flyer+5+-+Planes" alt="Flyer 5">
+          </div>
+        </div>
+        
+        <button class="carousel-button prev" aria-label="Slide anterior">
+          <i class="fas fa-chevron-left"></i>
+        </button>
+        <button class="carousel-button next" aria-label="Slide siguiente">
+          <i class="fas fa-chevron-right"></i>
+        </button>
+        
+        <div class="carousel-indicators">
+          <span class="indicator active" data-slide="0"></span>
+          <span class="indicator" data-slide="1"></span>
+          <span class="indicator" data-slide="2"></span>
+          <span class="indicator" data-slide="3"></span>
+          <span class="indicator" data-slide="4"></span>
+        </div>
       </div>
     </section>
 
@@ -252,5 +282,6 @@
   </footer>
 
   <script type="module" src="./main.js"></script>
+  <script src="./js/carousel.js"></script>
 </body>
 </html>
