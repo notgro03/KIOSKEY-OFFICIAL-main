@@ -1,623 +1,229 @@
-/* Plans Section Styles */
-.plans-section {
-  padding: 64px 0;
-  background: linear-gradient(135deg, #f8f9ff 0%, #ffffff 50%, #f0f8ff 100%);
-  position: relative;
-  overflow: hidden;
-}
-
-.plans-section::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 100%;
-  background: radial-gradient(circle at 20% 80%, rgba(0, 59, 142, 0.03) 0%, transparent 50%),
-              radial-gradient(circle at 80% 20%, rgba(0, 114, 188, 0.03) 0%, transparent 50%);
-  transform: skewY(-3deg);
-  transform-origin: top left;
-}
-
-.plans-container {
-  max-width: var(--max-content-width);
-  margin: 0 auto;
-  padding: 0 24px;
-  position: relative;
-  z-index: 1;
-}
-
-.plans-container h2 {
-  text-align: center;
-  font-size: 56px;
-  font-weight: 700;
-  color: var(--primary-blue);
-  margin-bottom: 24px;
-  background: var(--card-gradient);
-  background-clip: text;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  letter-spacing: -0.02em;
-  line-height: 1.1;
-}
-
-.plans-container > p {
-  text-align: center;
-  font-size: 24px;
-  color: #666;
-  margin-bottom: 64px;
-  max-width: 700px;
-  margin-left: auto;
-  margin-right: auto;
-  line-height: 1.4;
-  font-weight: 400;
-}
-
-.plan-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 40px;
-  margin: 0;
-  align-items: stretch;
-}
-
-.plan-card {
-  background: white;
-  border-radius: 28px;
-  overflow: hidden;
-  color: var(--text-color);
-  position: relative;
-  transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-  display: flex;
-  flex-direction: column;
-  box-shadow: 0 16px 48px rgba(0, 59, 142, 0.2);
-  border: 2px solid rgba(255, 255, 255, 0.8);
-  transform: translateY(0);
-  opacity: 0;
-  animation: planFadeInUp 0.8s ease-out forwards;
-}
-
-.plan-card:nth-child(1) { animation-delay: 0.1s; }
-.plan-card:nth-child(2) { animation-delay: 0.2s; }
-.plan-card:nth-child(3) { animation-delay: 0.3s; }
-
-@keyframes planFadeInUp {
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-.plan-card:hover {
-  transform: translateY(-20px) scale(1.02);
-  box-shadow: 0 32px 64px rgba(0, 59, 142, 0.25);
-}
-
-.plan-header {
-  background: linear-gradient(135deg, var(--primary-blue) 0%, var(--secondary-blue) 50%, #0099ff 100%);
-  color: white;
-  padding: 40px 32px;
-  text-align: center;
-  position: relative;
-  overflow: hidden;
-}
-
-.plan-header::before {
-  content: '';
-  position: absolute;
-  top: -50%;
-  left: -50%;
-  width: 200%;
-  height: 200%;
-  background: radial-gradient(circle at center, rgba(255,255,255,0.25) 0%, transparent 70%);
-  transform: translate(0, 0);
-  animation: planShine 12s infinite linear;
-}
-
-@keyframes planShine {
-  from {
-    transform: translate(-100%, -100%);
-  }
-  to {
-    transform: translate(100%, 100%);
-  }
-}
-
-.plan-icon {
-  font-size: 36px;
-  margin-bottom: 20px;
-  background: rgba(255, 255, 255, 0.2);
-  width: 80px;
-  height: 80px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border-radius: 50%;
-  margin: 0 auto 24px;
-  position: relative;
-  z-index: 1;
-  backdrop-filter: blur(10px);
-  border: 3px solid rgba(255, 255, 255, 0.3);
-  transition: all 0.4s ease;
-}
-
-.plan-card:hover .plan-icon {
-  transform: scale(1.1) rotate(10deg);
-  background: rgba(255, 255, 255, 0.3);
-}
-
-.plan-title {
-  font-size: 32px;
-  font-weight: 700;
-  margin-bottom: 12px;
-  position: relative;
-  z-index: 1;
-  letter-spacing: -0.01em;
-}
-
-.plan-subtitle {
-  font-size: 18px;
-  opacity: 0.95;
-  position: relative;
-  z-index: 1;
-  font-weight: 400;
-}
-
-.plan-price {
-  text-align: center;
-  padding: 40px 32px;
-  background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);
-  border-bottom: 2px solid rgba(0, 59, 142, 0.1);
-  position: relative;
-}
-
-.plan-price::after {
-  content: '';
-  position: absolute;
-  bottom: -1px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 60%;
-  height: 2px;
-  background: var(--card-gradient);
-  border-radius: 1px;
-}
-
-.plan-price-amount {
-  font-size: 56px;
-  font-weight: 700;
-  background: var(--card-gradient);
-  background-clip: text;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  display: flex;
-  align-items: baseline;
-  justify-content: center;
-  gap: 4px;
-  letter-spacing: -0.02em;
-  line-height: 1;
-  margin-bottom: 8px;
-}
-
-.plan-price-period {
-  font-size: 18px;
-  opacity: 0.7;
-  font-weight: normal;
-  color: #666;
-}
-
-.original-price {
-  text-decoration: line-through;
-  color: #6e6e73;
-  font-size: 18px;
-  margin-top: 12px;
-  opacity: 0.8;
-  font-weight: 500;
-}
-
-.promo-badge {
-  position: absolute;
-  top: 20px;
-  right: -32px;
-  background: linear-gradient(135deg, #FFD700 0%, #FF8C00 50%, #FF6B35 100%);
-  color: #000;
-  padding: 10px 44px;
-  transform: rotate(45deg);
-  font-size: 15px;
-  font-weight: 700;
-  box-shadow: 0 6px 12px rgba(0,0,0,0.25);
-  z-index: 2;
-  text-shadow: 0 1px 2px rgba(0,0,0,0.1);
-  letter-spacing: 0.5px;
-}
-
-.promo-text {
-  font-size: 14px;
-  color: #6e6e73;
-  margin-top: 12px;
-  font-weight: 600;
-  text-align: center;
-}
-
-.promo-banner {
-  background: linear-gradient(135deg, rgba(0, 59, 142, 0.15) 0%, rgba(0, 163, 255, 0.15) 100%);
-  padding: 16px 28px;
-  border-radius: 16px;
-  margin-top: 20px;
-  display: inline-block;
-  color: var(--primary-blue);
-  font-weight: 600;
-  box-shadow: 0 6px 12px rgba(0, 59, 142, 0.2);
-  border: 2px solid rgba(0, 59, 142, 0.15);
-}
-
-.plan-content {
-  padding: 40px 32px;
-  flex-grow: 1;
-  display: flex;
-  flex-direction: column;
-  background: linear-gradient(135deg, #ffffff 0%, #f8f9ff 50%, #ffffff 100%);
-}
-
-.plan-features {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-  flex-grow: 1;
-}
-
-.plan-features li {
-  padding: 24px 0;
-  border-bottom: 2px solid rgba(0, 59, 142, 0.08);
-  transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-  border-radius: 8px;
-}
-
-.plan-features li:hover {
-  background: rgba(0, 59, 142, 0.08);
-  transform: translateX(8px);
-  padding-left: 16px;
-  box-shadow: 0 4px 12px rgba(0, 59, 142, 0.1);
-}
-
-.plan-features li:last-child {
-  border-bottom: none;
-}
-
-.feature-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 8px;
-  flex-wrap: wrap;
-  gap: 8px;
-}
-
-.feature-name {
-  font-weight: 600;
-  color: var(--text-color);
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  font-size: 16px;
-  flex: 1;
-  min-width: 0;
-}
-
-.feature-name::before {
-  content: '✓';
-  color: var(--primary-blue);
-  font-weight: bold;
-  font-size: 18px;
-}
-
-.feature-value {
-  font-weight: 700;
-  padding: 6px 16px;
-  background: var(--card-gradient);
-  color: white;
-  border-radius: 24px;
-  font-size: 15px;
-  box-shadow: 0 4px 8px rgba(0, 59, 142, 0.25);
-  letter-spacing: 0.5px;
-}
-
-.feature-description {
-  font-size: 15px;
-  color: #666;
-  margin-top: 8px;
-  padding-left: 30px;
-  line-height: 1.6;
-  font-weight: 400;
-}
-
-.plan-button {
-  display: inline-block;
-  width: 100%;
-  padding: 20px 32px;
-  background: linear-gradient(135deg, var(--primary-blue) 0%, var(--secondary-blue) 50%, #0099ff 100%);
-  color: white;
-  text-decoration: none;
-  border-radius: 16px;
-  text-align: center;
-  font-weight: 700;
-  font-size: 18px;
-  transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-  margin-top: 32px;
-  border: none;
-  position: relative;
-  overflow: hidden;
-  box-shadow: 0 8px 20px rgba(0, 59, 142, 0.35);
-  letter-spacing: 0.5px;
-}
-
-.plan-button::before {
-  content: '';
-  position: absolute;
-  top: -50%;
-  left: -50%;
-  width: 200%;
-  height: 200%;
-  background: radial-gradient(circle at center, rgba(255,255,255,0.25) 0%, transparent 70%);
-  transform: translate(-100%, -100%);
-  transition: all 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-}
-
-.plan-button:hover {
-  transform: translateY(-4px) scale(1.02);
-  box-shadow: 0 16px 32px rgba(0, 59, 142, 0.45);
-}
-
-.plan-button:hover::before {
-  transform: translate(0, 0);
-}
-
-.plan-badge {
-  position: absolute;
-  top: 20px;
-  right: -32px;
-  background: linear-gradient(135deg, #FFD700 0%, #FFA500 100%);
-  color: #000;
-  padding: 10px 44px;
-  transform: rotate(45deg);
-  font-size: 15px;
-  font-weight: 700;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.15);
-  z-index: 2;
-}
-
-.plan-most-popular {
-  transform: scale(1.05);
-  border: 3px solid var(--primary-blue);
-  z-index: 2;
-  box-shadow: 0 24px 64px rgba(0, 59, 142, 0.3);
-}
-
-.plan-most-popular:hover {
-  transform: scale(1.05) translateY(-20px);
-  box-shadow: 0 36px 80px rgba(0, 59, 142, 0.35);
-}
-
-.plan-most-popular .plan-header {
-  background: linear-gradient(135deg, #FF6B35 0%, #F7931E 50%, #FFD700 100%);
-}
-
-.plan-most-popular::after {
-  content: 'MÁS POPULAR';
-  position: absolute;
-  top: -12px;
-  left: 50%;
-  transform: translateX(-50%);
-  background: linear-gradient(135deg, #FF6B35 0%, #F7931E 100%);
-  color: white;
-  padding: 10px 28px;
-  border-radius: 24px;
-  font-size: 13px;
-  font-weight: 700;
-  letter-spacing: 1.2px;
-  box-shadow: 0 6px 16px rgba(255, 107, 53, 0.45);
-  z-index: 3;
-  text-shadow: 0 1px 2px rgba(0,0,0,0.1);
-}
-
-/* FAQ Section */
-.faq-section {
-  padding: 64px 0;
-  background: #f8f9fa;
-}
-
-.faq-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 24px;
-  margin-top: 32px;
-}
-
-.faq-item {
-  background: white;
-  padding: 24px;
-  border-radius: 16px;
-  box-shadow: 0 4px 12px rgba(0, 59, 142, 0.1);
-}
-
-.faq-item h3 {
-  color: var(--primary-blue);
-  margin-bottom: 12px;
-  font-size: 18px;
-}
-
-.faq-item p {
-  color: #666;
-  line-height: 1.6;
-}
-
-/* CTA Section */
-.cta-section {
-  padding: 64px 0;
-  text-align: center;
-  background: white;
-}
-
-.cta-content {
-  max-width: 600px;
-  margin: 0 auto;
-}
-
-.cta-buttons {
-  display: flex;
-  gap: 16px;
-  justify-content: center;
-  margin-top: 32px;
-}
-
-.cta-button {
-  padding: 16px 32px;
-  border-radius: 12px;
-  font-weight: 600;
-  text-decoration: none;
-  transition: all 0.3s ease;
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-}
-
-.cta-button.primary {
-  background: var(--card-gradient);
-  color: white;
-}
-
-.cta-button.secondary {
-  background: white;
-  color: var(--primary-blue);
-  border: 2px solid var(--primary-blue);
-}
-
-.cta-button:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 8px 16px rgba(0, 59, 142, 0.2);
-}
-
-/* Animations */
-@keyframes shine {
-  from {
-    transform: translate(-100%, -100%);
-  }
-  to {
-    transform: translate(100%, 100%);
-  }
-}
-
-/* Responsive Design */
-@media (max-width: 1024px) {
-  .plans-container h2 {
-    font-size: 36px;
-  }
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Kioskeys - Tus Llaves Seguras Siempre</title>
+  <meta name="description" content="La manera más inteligente de gestionar tus copias de llaves. Servicio de cerrajería profesional, telemandos, duplicado de llaves y más en Buenos Aires, Argentina.">
+  <meta name="keywords" content="cerrajería, llaves, telemandos, duplicado llaves, Buenos Aires, Argentina, seguridad, cerrajero">
+  <meta name="author" content="Kioskeys">
+  <link rel="canonical" href="https://kioskeys.com/">
+  <meta name="robots" content="index, follow">
   
-  .plans-container > p {
-    font-size: 18px;
-  }
-  
-  .plan-grid {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 24px;
-  }
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://kioskeys.com/">
+  <meta property="og:title" content="Kioskeys - Tus Llaves Seguras Siempre">
+  <meta property="og:description" content="La manera más inteligente de gestionar tus copias de llaves. Servicio profesional de cerrajería en Argentina.">
+  <meta property="og:image" content="https://kioskeys.com/LOGO_KIOSKEYS.png">
 
-  .plan-most-popular {
-    transform: scale(1.02);
-  }
+  <!-- Twitter -->
+  <meta property="twitter:card" content="summary_large_image">
+  <meta property="twitter:url" content="https://kioskeys.com/">
+  <meta property="twitter:title" content="Kioskeys - Tus Llaves Seguras Siempre">
+  <meta property="twitter:description" content="La manera más inteligente de gestionar tus copias de llaves. Servicio profesional de cerrajería en Argentina.">
+  <meta property="twitter:image" content="https://kioskeys.com/LOGO_KIOSKEYS.png">
 
-  .plan-most-popular:hover {
-    transform: scale(1.02) translateY(-10px);
+  <!-- Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness",
+    "name": "Kioskeys",
+    "description": "Servicio profesional de cerrajería y gestión de llaves",
+    "url": "https://kioskeys.com",
+    "telephone": "+54-11-5723-7390",
+    "address": {
+      "@type": "PostalAddress",
+      "addressCountry": "AR",
+      "addressLocality": "Buenos Aires"
+    },
+    "serviceArea": "Argentina",
+    "priceRange": "$$"
   }
-  
-  .plan-card {
-    margin: 0 8px;
-  }
-  
-  .plan-header {
-    padding: 24px;
-  }
-  
-  .plan-content {
-    padding: 24px;
-  }
-  
-  .plan-price-amount {
-    font-size: 36px;
-  }
-}
+  </script>
 
-@media (max-width: 768px) {
-  .plans-section {
-    padding: 48px 0;
-  }
-  
-  .plans-container h2 {
-    font-size: 28px;
-    margin-bottom: 12px;
-  }
-  
-  .plans-container > p {
-    font-size: 16px;
-    margin-bottom: 32px;
-  }
-  
-  .plan-grid {
-    grid-template-columns: 1fr;
-    gap: 20px;
-  }
-  
-  .cta-buttons {
-    flex-direction: column;
-  }
+  <link rel="icon" href="/favicon.jpg">
+  <link rel="preload" href="/LOGO_KIOSKEYS.png" as="image">
+  <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" as="style">
+  <link rel="stylesheet" href="/style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <link rel="manifest" href="/manifest.json">
+</head>
+<body>
+  <nav>
+    <div class="logo">
+      <a href="/"><img src="LOGO_KIOSKEYS.png" alt="Kioskeys - Gestión inteligente de llaves"></a>
+    </div>
+    <div class="nav-links">
+      <a href="/">Inicio</a>
+      <a href="/pages/red-servicios.html">Red de Servicios</a>
+      <a href="/pages/planes.html">Planes</a>
+      <a href="/pages/productos.html">Productos</a>
+      <a href="/pages/faq.html">FAQ</a>
+      <a href="/pages/contacto.html">Contacto</a>
+    </div>
+    <button class="menu-button">
+      <i class="fas fa-bars"></i>
+    </button>
+  </nav>
 
-  .plan-card {
-    margin: 0 8px;
-  }
+  <main>
+    <section class="hero">
+      <div class="carousel-container">
+        <div class="carousel-slides">
+          <div class="carousel-slide">
+            <img src="https://images.pexels.com/photos/5691659/pexels-photo-5691659.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Servicios profesionales de cerrajería">
+          </div>
+          <div class="carousel-slide">
+            <img src="https://images.pexels.com/photos/4386321/pexels-photo-4386321.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Telemandos y llaves de vehículos">
+          </div>
+          <div class="carousel-slide">
+            <img src="https://images.pexels.com/photos/5025639/pexels-photo-5025639.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Duplicado de llaves profesional">
+          </div>
+          <div class="carousel-slide">
+            <img src="https://images.pexels.com/photos/4386370/pexels-photo-4386370.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Seguridad y protección">
+          </div>
+          <div class="carousel-slide">
+            <img src="https://images.pexels.com/photos/5025641/pexels-photo-5025641.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Red de servicios Kioskeys">
+          </div>
+        </div>
+        
+        <button class="carousel-button prev" aria-label="Imagen anterior">
+          <i class="fas fa-chevron-left"></i>
+        </button>
+        <button class="carousel-button next" aria-label="Siguiente imagen">
+          <i class="fas fa-chevron-right"></i>
+        </button>
+        
+        <div class="carousel-indicators">
+          <div class="indicator active" data-slide="0"></div>
+          <div class="indicator" data-slide="1"></div>
+          <div class="indicator" data-slide="2"></div>
+          <div class="indicator" data-slide="3"></div>
+          <div class="indicator" data-slide="4"></div>
+        </div>
+      </div>
 
-  .plan-header {
-    padding: 20px;
-  }
+      <div class="hero-content">
+        <h1>Tus Llaves Seguras Siempre</h1>
+        <p>La manera más inteligente de gestionar tus copias de llaves</p>
+      </div>
+    </section>
 
-  .plan-content {
-    padding: 20px;
-  }
-  
-  .plan-title {
-    font-size: 24px;
-  }
-  
-  .plan-subtitle {
-    font-size: 14px;
-  }
-  
-  .plan-price {
-    padding: 24px 20px;
-  }
-  
-  .plan-price-amount {
-    font-size: 32px;
-  }
-  
-  .plan-features li {
-    padding: 16px 0;
-  }
-  
-  .feature-description {
-    font-size: 13px;
-  }
-  
-  .plan-most-popular {
-    transform: scale(1);
-  }
-  
-  .plan-most-popular:hover {
-    transform: translateY(-8px);
-  }
-  
-  .plan-most-popular::after {
-    top: -8px;
-    padding: 6px 20px;
-    font-size: 11px;
-  }
-}
+    <section class="main-content">
+      <div class="content-container">
+        <div class="features-grid">
+          <a href="/pages/como-funciona.html" class="feature-card">
+            <div class="feature-icon">
+              <i class="fas fa-info-circle"></i>
+            </div>
+            <h3>¿Cómo funciona?</h3>
+            <p>Descubre cómo nuestro sistema revoluciona la gestión de llaves</p>
+          </a>
+
+          <a href="/pages/planes.html" class="feature-card">
+            <div class="feature-icon">
+              <i class="fas fa-crown"></i>
+            </div>
+            <h3>Elegí tu plan</h3>
+            <p>Planes diseñados para cada necesidad con precios especiales</p>
+          </a>
+
+          <a href="/pages/productos.html" class="feature-card">
+            <div class="feature-icon">
+              <i class="fas fa-box"></i>
+            </div>
+            <h3>Nuestros productos</h3>
+            <p>Amplio catálogo de llaves, telemandos y accesorios</p>
+          </a>
+
+          <a href="/pages/red-servicios.html" class="feature-card">
+            <div class="feature-icon">
+              <i class="fas fa-map-marker-alt"></i>
+            </div>
+            <h3>Red de servicios</h3>
+            <p>Más de 50 puntos de atención en todo el país</p>
+          </a>
+
+          <a href="/pages/contacto.html" class="feature-card">
+            <div class="feature-icon">
+              <i class="fas fa-credit-card"></i>
+            </div>
+            <h3>Formas de pago</h3>
+            <p>Múltiples opciones de pago y financiación disponibles</p>
+          </a>
+
+          <a href="/pages/tutoriales.html" class="feature-card">
+            <div class="feature-icon">
+              <i class="fas fa-play-circle"></i>
+            </div>
+            <h3>Tutoriales</h3>
+            <p>Aprende a usar todos nuestros servicios</p>
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="footer-content">
+      <div class="footer-section">
+        <h4 class="shiny-text">Empresa</h4>
+        <ul class="footer-links">
+          <li><a href="./pages/sobre-nosotros.html" class="shiny-text">Sobre Nosotros</a></li>
+          <li><a href="./pages/red-servicios.html" class="shiny-text">Red de Servicios</a></li>
+          <li><a href="./pages/trabaja-con-nosotros.html" class="shiny-text">Trabaja con Nosotros</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-section">
+        <h4 class="shiny-text">Servicios</h4>
+        <ul class="footer-links">
+          <li><a href="./pages/productos.html" class="shiny-text">Productos</a></li>
+          <li><a href="./pages/telemandos.html" class="shiny-text">Telemandos</a></li>
+          <li><a href="./pages/planes.html" class="shiny-text">Planes</a></li>
+          <li><a href="./pages/cerrajeria.html" class="shiny-text">Cerrajería</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-section">
+        <h4 class="shiny-text">Soporte</h4>
+        <ul class="footer-links">
+          <li><a href="./pages/contacto.html" class="shiny-text">Contacto</a></li>
+          <li><a href="./pages/faq.html" class="shiny-text">FAQ</a></li>
+          <li><a href="./pages/tutoriales.html" class="shiny-text">Tutoriales</a></li>
+          <li><a href="./pages/ayuda.html" class="shiny-text">Centro de Ayuda</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-section">
+        <h4 class="shiny-text">Legal</h4>
+        <ul class="footer-links">
+          <li><a href="./pages/privacidad.html" class="shiny-text">Política de Privacidad</a></li>
+          <li><a href="./pages/terminos.html" class="shiny-text">Términos y Condiciones</a></li>
+          <li><a href="./pages/cookies.html" class="shiny-text">Política de Cookies</a></li>
+          <li><a href="./pages/legal.html" class="shiny-text">Aviso Legal</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-section">
+        <h4 class="shiny-text">Síguenos</h4>
+        <div class="footer-social">
+          <a href="https://facebook.com/kioskeys" target="_blank" rel="noopener" class="shiny-button"><i class="fab fa-facebook"></i></a>
+          <a href="https://twitter.com/kioskeys" target="_blank" rel="noopener" class="shiny-button"><i class="fab fa-twitter"></i></a>
+          <a href="https://instagram.com/kioskeys" target="_blank" rel="noopener" class="shiny-button"><i class="fab fa-instagram"></i></a>
+          <a href="https://linkedin.com/company/kioskeys" target="_blank" rel="noopener" class="shiny-button"><i class="fab fa-linkedin"></i></a>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <p class="shiny-text">&copy; 2024 Kioskeys. Todos los derechos reservados.</p>
+    </div>
+  </footer>
+
+  <script src="/js/carousel.js"></script>
+  <script type="module" src="/main.js"></script>
+</body>
+</html>
