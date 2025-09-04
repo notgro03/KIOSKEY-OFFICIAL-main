@@ -1,4 +1,3 @@
-```javascript
 export function initCarousel() {
   const carouselSlides = document.querySelector('.carousel-slides');
   const slides = document.querySelectorAll('.carousel-slide');
@@ -70,4 +69,3 @@ export function initCarousel() {
   showSlide(currentSlide);
   startAutoPlay();
 }
-```
