@@ -420,6 +420,35 @@
   text-shadow: 0 1px 2px rgba(0,0,0,0.1);
 }
 
+/* Hero Title Section */
+.hero-title-section {
+  text-align: center;
+  margin-bottom: 48px;
+  padding: 0 24px;
+}
+
+.hero-title-section h1 {
+  font-size: 48px;
+  font-weight: 700;
+  color: var(--primary-blue);
+  margin-bottom: 16px;
+  background: var(--card-gradient);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  letter-spacing: -0.02em;
+  line-height: 1.1;
+}
+
+.hero-title-section p {
+  font-size: 20px;
+  color: #666;
+  max-width: 600px;
+  margin: 0 auto;
+  line-height: 1.4;
+  font-weight: 400;
+}
+
 /* FAQ Section */
 .faq-section {
   padding: 64px 0;
@@ -545,6 +574,14 @@
   .plan-price-amount {
     font-size: 36px;
   }
+
+  .hero-title-section h1 {
+    font-size: 36px;
+  }
+  
+  .hero-title-section p {
+    font-size: 18px;
+  }
 }
 
 @media (max-width: 768px) {
@@ -619,5 +656,13 @@
     top: -8px;
     padding: 6px 20px;
     font-size: 11px;
+  }
+
+  .hero-title-section h1 {
+    font-size: 28px;
+  }
+  
+  .hero-title-section p {
+    font-size: 16px;
   }
 }
