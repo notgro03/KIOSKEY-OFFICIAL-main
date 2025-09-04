@@ -31,7 +31,7 @@ export function initCarousel() {
       currentSlide = index;
     }
 
-    carouselSlides.style.transform = \`translateX(-${currentSlide * 100}%)`;
+    carouselSlides.style.transform = `translateX(-${currentSlide * 100}%)`;
 
     dots.forEach(dot => dot.classList.remove('active'));
     dots[currentSlide].classList.add('active');
