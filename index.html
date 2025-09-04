@@ -3,218 +3,165 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Kioskeys - La manera más inteligente de gestionar tus copias de llaves. Servicios de duplicado, telemandos y cerrajería profesional.">
-  <meta name="keywords" content="llaves, cerrajería, telemandos, duplicados, seguridad, cerrajero">
-  <meta property="og:title" content="Kioskeys aaa - Tus llaves seguras siempre">
-  <meta property="og:description" content="La manera más inteligente de gestionar tus copias de llaves">
-  <meta property="og:image" content="/og-image.jpg">
-  <meta property="og:url" content="https://kioskeys.com">
   <title>Kioskeys - Tus Llaves Seguras Siempre</title>
-  <link rel="icon" href="/favicon.jpg" sizes="64x64">
-  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
-  <link rel="manifest" href="/manifest.json">
-  <link rel="stylesheet" href="./style.css">
+  <meta name="description" content="La manera más inteligente de gestionar tus copias de llaves. Servicio de cerrajería profesional, telemandos, duplicado de llaves y más en Buenos Aires, Argentina.">
+  <meta name="keywords" content="cerrajería, llaves, telemandos, duplicado llaves, Buenos Aires, Argentina, seguridad, cerrajero">
+  <meta name="author" content="Kioskeys">
+  <link rel="canonical" href="https://kioskeys.com/">
+  <meta name="robots" content="index, follow">
+  
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://kioskeys.com/">
+  <meta property="og:title" content="Kioskeys - Tus Llaves Seguras Siempre">
+  <meta property="og:description" content="La manera más inteligente de gestionar tus copias de llaves. Servicio profesional de cerrajería en Argentina.">
+  <meta property="og:image" content="https://kioskeys.com/LOGO_KIOSKEYS.png">
+
+  <!-- Twitter -->
+  <meta property="twitter:card" content="summary_large_image">
+  <meta property="twitter:url" content="https://kioskeys.com/">
+  <meta property="twitter:title" content="Kioskeys - Tus Llaves Seguras Siempre">
+  <meta property="twitter:description" content="La manera más inteligente de gestionar tus copias de llaves. Servicio profesional de cerrajería en Argentina.">
+  <meta property="twitter:image" content="https://kioskeys.com/LOGO_KIOSKEYS.png">
+
+  <!-- Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness",
+    "name": "Kioskeys",
+    "description": "Servicio profesional de cerrajería y gestión de llaves",
+    "url": "https://kioskeys.com",
+    "telephone": "+54-11-5723-7390",
+    "address": {
+      "@type": "PostalAddress",
+      "addressCountry": "AR",
+      "addressLocality": "Buenos Aires"
+    },
+    "serviceArea": "Argentina",
+    "priceRange": "$$"
+  }
+  </script>
+
+  <link rel="icon" href="/favicon.jpg">
+  <link rel="preload" href="/LOGO_KIOSKEYS.png" as="image">
+  <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" as="style">
+  <link rel="stylesheet" href="/style.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-  <style>
-    .app-download {
-    position: fixed;
-    top: calc(var(--nav-height) + 40px);
-    right: 20px;
-    z-index: 99;
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
-    background: rgba(255, 255, 255, 0.95);
-    padding: 16px;
-    border-radius: 12px;
-    box-shadow: 0 8px 32px rgba(0, 59, 142, 0.15);
-    border: 1px solid rgba(255, 255, 255, 0.3);
-    backdrop-filter: blur(12px);
-    align-items: center;
-  }
-
-    .app-download-item {
-      text-align: center;
-    }
-
-    .app-download img {
-      width: 80px;
-      height: 80px;
-      border-radius: 8px;
-      margin-bottom: 4px;
-      transition: transform 0.3s ease;
-    }
-
-    .app-download a:hover img {
-    transform: scale(1.1);
-    box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.3);
-  }
-
-    .app-download-label {
-      font-size: 12px;
-      color: var(--text-color);
-      font-weight: 500;
-    }
-
-    @media (max-width: 768px) {
-    .app-download {
-      position: relative;
-      top: 0;
-      right: 0;
-      flex-direction: row;
-      justify-content: center;
-      margin: 20px auto;
-      width: fit-content;
-    }
-    }
-  </style>
+  <link rel="manifest" href="/manifest.json">
 </head>
 <body>
   <nav>
     <div class="logo">
-      <a href="./index.html"><img src="./LOGO_KIOSKEYS.png" alt="Kioskeys"></a>
+      <a href="/"><img src="LOGO_KIOSKEYS.png" alt="Kioskeys - Gestión inteligente de llaves"></a>
     </div>
     <div class="nav-links">
-      <a href="./index.html" class="shiny-text">Inicio</a>
-      <a href="./pages/red-servicios.html" class="shiny-text">Red de Servicios</a>
-      <a href="./pages/planes.html" class="shiny-text">Planes</a>
-      <a href="./pages/productos.html" class="shiny-text">Productos</a>
-      <a href="./pages/faq.html" class="shiny-text">FAQ</a>
-      <a href="./pages/contacto.html" class="shiny-text">Contacto</a>
+      <a href="/">Inicio</a>
+      <a href="/pages/red-servicios.html">Red de Servicios</a>
+      <a href="/pages/planes.html">Planes</a>
+      <a href="/pages/productos.html">Productos</a>
+      <a href="/pages/faq.html">FAQ</a>
+      <a href="/pages/contacto.html">Contacto</a>
     </div>
     <button class="menu-button">
       <i class="fas fa-bars"></i>
     </button>
   </nav>
 
-  <div class="app-download">
-    <div class="app-download-item">
-      <a href="https://apps.apple.com/id/app/kioskeys/id1632084137" target="_blank" rel="noopener">
-        <img src="https://api.qrserver.com/v1/create-qr-code/?size=80x80&data=https://apps.apple.com/id/app/kioskeys/id1632084137" alt="App Store QR">
-        <div class="app-download-label">
-          <i class="fab fa-apple"></i> App Store
-        </div>
-      </a>
-    </div>
-    <div class="app-download-item">
-      <a href="https://play.google.com/store/apps/details?id=com.imagosur.keymanager_app&hl=es" target="_blank" rel="noopener">
-        <img src="https://api.qrserver.com/v1/create-qr-code/?size=80x80&data=https://play.google.com/store/apps/details?id=com.imagosur.keymanager_app" alt="Play Store QR">
-        <div class="app-download-label">
-          <i class="fab fa-google-play"></i> Play Store
-        </div>
-      </a>
-    </div>
-  </div>
-
   <main>
     <section class="hero">
-      <div class="hero-content" style="text-shadow: none;">
-        <h1 style="color: var(--primary-blue); font-size: 52px; font-weight: 700; letter-spacing: -0.003em; margin-bottom: 8px; text-shadow: 0 4px 8px rgba(0, 59, 142, 0.2), 0 2px 4px rgba(0,0,0,0.1);">Tus llaves seguras siempre</h1>
+      <div class="carousel-container">
+        <div class="carousel-slides">
+          <div class="carousel-slide">
+            <img src="https://images.pexels.com/photos/5691659/pexels-photo-5691659.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Servicios profesionales de cerrajería">
+          </div>
+          <div class="carousel-slide">
+            <img src="https://images.pexels.com/photos/4386321/pexels-photo-4386321.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Telemandos y llaves de vehículos">
+          </div>
+          <div class="carousel-slide">
+            <img src="https://images.pexels.com/photos/5025639/pexels-photo-5025639.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Duplicado de llaves profesional">
+          </div>
+          <div class="carousel-slide">
+            <img src="https://images.pexels.com/photos/4386370/pexels-photo-4386370.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Seguridad y protección">
+          </div>
+          <div class="carousel-slide">
+            <img src="https://images.pexels.com/photos/5025641/pexels-photo-5025641.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Red de servicios Kioskeys">
+          </div>
+        </div>
+        
+        <button class="carousel-button prev" aria-label="Imagen anterior">
+          <i class="fas fa-chevron-left"></i>
+        </button>
+        <button class="carousel-button next" aria-label="Siguiente imagen">
+          <i class="fas fa-chevron-right"></i>
+        </button>
+        
+        <div class="carousel-indicators">
+          <div class="indicator active" data-slide="0"></div>
+          <div class="indicator" data-slide="1"></div>
+          <div class="indicator" data-slide="2"></div>
+          <div class="indicator" data-slide="3"></div>
+          <div class="indicator" data-slide="4"></div>
+        </div>
+      </div>
+
+      <div class="hero-content">
+        <h1>Tus Llaves Seguras Siempre</h1>
         <p>La manera más inteligente de gestionar tus copias de llaves</p>
       </div>
     </section>
 
     <section class="main-content">
       <div class="content-container">
-        <!-- Image Carousel Section -->
-        <section class="image-carousel">
-          <div class="carousel-slides">
-            <div class="carousel-slide active">
-              <img src="https://images.pexels.com/photos/546819/pexels-photo-546819.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Slide 1 Background">
-              <div class="carousel-content">
-                <h2 class="carousel-title">KEYDIY TAG</h2>
-                <p class="carousel-description">LOCALIZADOR COMPATIBLE CON APPLE</p>
-                <a href="#" class="carousel-button">Ver Producto</a>
-              </div>
-            </div>
-            <div class="carousel-slide">
-              <img src="https://images.pexels.com/photos/3861969/pexels-photo-3861969.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Slide 2 Background">
-              <div class="carousel-content">
-                <h2 class="carousel-title">Llaves Codificadas</h2>
-                <p class="carousel-description">La última tecnología en seguridad para tu vehículo</p>
-                <a href="#" class="carousel-button">Explorar Llaves</a>
-              </div>
-            </div>
-            <div class="carousel-slide">
-              <img src="https://images.pexels.com/photos/3862632/pexels-photo-3862632.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Slide 3 Background">
-              <div class="carousel-content">
-                <h2 class="carousel-title">Servicio Express</h2>
-                <p class="carousel-description">Duplicados y programación en minutos</p>
-                <a href="#" class="carousel-button">Conoce más</a>
-              </div>
-            </div>
-          </div>
-          <button class="carousel-nav-left"><i class="fas fa-chevron-left"></i></button>
-          <button class="carousel-nav-right"><i class="fas fa-chevron-right"></i></button>
-          <div class="carousel-pagination"></div>
-        </section>
-
-        <div class="hero-container" style="background: var(--card-gradient); border-radius: 24px; padding: 40px; box-shadow: 0 16px 48px rgba(0, 59, 142, 0.15); position: relative; overflow: hidden; transition: all 0.3s ease; display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: center; min-height: 450px;">
-          <div class="hero-image" style="display: block; width: 100%; height: 100%; background-image: url('images/llave kioskeys foto.png'); background-size: cover; background-position: left center; background-repeat: no-repeat; border-radius: 18px; overflow: hidden; position: relative; z-index: 1; margin: -40px -40px -40px -40px; padding: 0;"></div>
-          <div class="hero-content-right" style="padding: 0; position: relative; z-index: 1;">
-            <h2 class="hero-title" style="font-size: 44px; font-weight: 700; line-height: 1.2; margin-bottom: 16px; letter-spacing: -0.003em; color: white; text-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);">Guardá tu llave en la nube</h2>
-            <p class="hero-subtitle" style="font-size: 18px; color: rgba(255, 255, 255, 0.9); margin-bottom: 32px; line-height: 1.5; font-weight: 400;">Seguro, rápido y siempre disponible</p>
-            <div class="hero-bullets" style="display: flex; flex-direction: column; gap: 16px; margin: 24px 0 32px 0;">
-              <div class="bullet-item" style="display: flex; align-items: center; gap: 12px; font-size: 16px; color: white; font-weight: 500;">
-                <i class="fas fa-camera bullet-icon" style="color: rgba(255, 255, 255, 0.8); font-size: 18px; width: 20px; text-align: center;"></i>
-                <span>Sacá la foto</span>
-                </div>
-              <div class="bullet-item" style="display: flex; align-items: center; gap: 12px; font-size: 16px; color: white; font-weight: 500;">
-                <i class="fas fa-cloud bullet-icon" style="color: rgba(255, 255, 255, 0.8); font-size: 18px; width: 20px; text-align: center;"></i>
-                <span>Guardala en la nube</span>
-                </div>
-              <div class="bullet-item" style="display: flex; align-items: center; gap: 12px; font-size: 16px; color: white; font-weight: 500;">
-                <i class="fas fa-key bullet-icon" style="color: rgba(255, 255, 255, 0.8); font-size: 18px; width: 20px; text-align: center;"></i>
-                <span>Accedé cuando lo necesites</span>
-                </div>
-              </div>
-            <div class="hero-buttons" style="display: flex; flex-direction: column; gap: 0;">
-              <a href="./pages/como-funciona.html" class="hero-primary-button" style="display: inline-flex; align-items: center; gap: 12px; background: white; color: var(--primary-blue); padding: 16px 36px; border-radius: 12px; font-size: 18px; font-weight: 600; text-decoration: none; transition: all 0.3s ease; box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2); width: fit-content; min-width: 220px; justify-content: center;">
-                <i class="fas fa-play-circle" style="font-size: 18px;"></i>
-                Mirá cómo funciona
-              </a>
-              </div>
-            </div>
-          </div>
-        </section>
         <div class="features-grid">
-          <a href="./pages/planes.html" class="feature-card shiny-button">
-            <div>
-              <i class="fas fa-crown feature-icon"></i>
-              <h3 class="shiny-text">Elegí tu plan</h3>
-              <p>Planes flexibles que se adaptan a tus necesidades</p>
+          <a href="/pages/como-funciona.html" class="feature-card">
+            <div class="feature-icon">
+              <i class="fas fa-info-circle"></i>
             </div>
+            <h3>¿Cómo funciona?</h3>
+            <p>Descubre cómo nuestro sistema revoluciona la gestión de llaves</p>
           </a>
-          
-          <a href="./pages/productos.html" class="feature-card shiny-button">
-            <div>
-              <i class="fas fa-box feature-icon"></i>
-              <h3 class="shiny-text">Nuestros productos</h3>
-              <p>Descubre nuestra gama completa de servicios</p>
+
+          <a href="/pages/planes.html" class="feature-card">
+            <div class="feature-icon">
+              <i class="fas fa-crown"></i>
             </div>
+            <h3>Elegí tu plan</h3>
+            <p>Planes diseñados para cada necesidad con precios especiales</p>
           </a>
-          
-          <a href="./pages/red-servicios.html" class="feature-card shiny-button">
-            <div>
-              <i class="fas fa-map-marker-alt feature-icon"></i>
-              <h3 class="shiny-text">Red de servicios</h3>
-              <p>Encuentra el punto de servicio más cercano</p>
+
+          <a href="/pages/productos.html" class="feature-card">
+            <div class="feature-icon">
+              <i class="fas fa-box"></i>
             </div>
+            <h3>Nuestros productos</h3>
+            <p>Amplio catálogo de llaves, telemandos y accesorios</p>
           </a>
-          
-          <a href="./pages/planes.html#pagos" class="feature-card shiny-button">
-            <div>
-              <i class="fas fa-credit-card feature-icon"></i>
-              <h3 class="shiny-text">Formas de pago</h3>
-              <p>Múltiples opciones de pago disponibles</p>
+
+          <a href="/pages/red-servicios.html" class="feature-card">
+            <div class="feature-icon">
+              <i class="fas fa-map-marker-alt"></i>
             </div>
+            <h3>Red de servicios</h3>
+            <p>Más de 50 puntos de atención en todo el país</p>
+          </a>
+
+          <a href="/pages/contacto.html" class="feature-card">
+            <div class="feature-icon">
+              <i class="fas fa-credit-card"></i>
+            </div>
+            <h3>Formas de pago</h3>
+            <p>Múltiples opciones de pago y financiación disponibles</p>
+          </a>
+
+          <a href="/pages/tutoriales.html" class="feature-card">
+            <div class="feature-icon">
+              <i class="fas fa-play-circle"></i>
+            </div>
+            <h3>Tutoriales</h3>
+            <p>Aprende a usar todos nuestros servicios</p>
           </a>
         </div>
-
-        <a href="./pages/tutoriales.html" class="tutorial-button shiny-button">
-          <i class="fas fa-play-circle"></i>
-          <span class="shiny-text">Tutoriales</span>
-        </a>
       </div>
     </section>
   </main>
@@ -276,6 +223,7 @@
     </div>
   </footer>
 
-  <script type="module" src="./main.js"></script>
+  <script src="/js/carousel.js"></script>
+  <script type="module" src="/main.js"></script>
 </body>
 </html>

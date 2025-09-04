@@ -85,7 +85,60 @@
     }
 
     /* Placeholder para cuando no hay imagen */
-    .timeline-image:empty::before {
+    .timeline-image-placeholder {
+      width: 100%;
+      height: 280px;
+      background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+      border: 2px dashed rgba(0, 59, 142, 0.3);
+      border-radius: 18px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      color: rgba(0, 59, 142, 0.6);
+      font-size: 16px;
+      font-weight: 500;
+      text-align: center;
+      transition: all 0.3s ease;
+      cursor: pointer;
+    }
+
+    .timeline-image-placeholder:hover {
+      background: linear-gradient(135deg, #e9ecef 0%, #dee2e6 100%);
+      border-color: rgba(0, 59, 142, 0.5);
+      transform: scale(1.02);
+    }
+
+    .timeline-image-placeholder i {
+      font-size: 48px;
+      margin-bottom: 16px;
+      opacity: 0.7;
+    }
+
+    .timeline-image-placeholder .placeholder-text {
+      font-size: 18px;
+      font-weight: 600;
+      margin-bottom: 8px;
+    }
+      opacity: 0.8;
+    }
+
+    /* Ajuste de posición para imágenes en items impares */
+    .timeline-item:nth-child(odd) .timeline-image {
+      order: 1;
+    }
+
+    .timeline-item:nth-child(even) .timeline-image {
+      order: 3;
+    }
+
+    .timeline-item:nth-child(odd) .timeline-content {
+      margin-right: 48px;
+    }
+
+    .timeline-item:nth-child(even) .timeline-content {
+      margin-left: 48px;
+    }</parameter>
       content: 'Imagen o GIF aquí';
       display: flex;
       align-items: center;
@@ -345,7 +398,7 @@
       }
 
       .timeline-image img,
-      .timeline-image:empty::before {
+      .timeline-image-placeholder {
         height: 220px;
       }
       .timeline-image img {
@@ -401,83 +454,93 @@
     <section class="process-section">
       <div class="content-container">
         <div class="process-timeline">
-          <div class="timeline-item" data-aos="fade-up">
+          <div class="timeline-item">
+            <div class="timeline-dot"></div>
             <div class="timeline-content">
-              <h3>
-                <div class="step-icon">
-                  <i class="fas fa-mobile-alt"></i>
-                </div>
-                1. Descarga la App
-              </h3>
+              <div class="step-icon">
+                <i class="fas fa-mobile-alt"></i>
+              </div>
+              <h3>1. Descarga la App</h3>
               <p>Descarga nuestra aplicación móvil desde la App Store o Google Play Store para comenzar a gestionar tus llaves de forma inteligente.</p>
             </div>
-            <div class="timeline-dot"></div>
             <div class="timeline-image">
-              <!-- Aquí puedes agregar tu imagen o GIF -->
+              <div class="timeline-image-placeholder">
+                <i class="fas fa-image"></i>
+                <div class="placeholder-text">Imagen del Paso 1</div>
+                <div class="placeholder-subtitle">Descarga de la App</div>
+              </div>
             </div>
           </div>
 
-          <div class="timeline-item" data-aos="fade-up">
+          <div class="timeline-item">
+            <div class="timeline-dot"></div>
             <div class="timeline-content">
-              <h3>
-                <div class="step-icon">
-                  <i class="fas fa-car"></i>
-                </div>
-                2. Registra tu Vehículo
-              </h3>
+              <div class="step-icon">
+                <i class="fas fa-car"></i>
+              </div>
+              <h3>2. Registra tu Vehículo</h3>
               <p>Ingresa los datos de tu vehículo en la aplicación para asegurar una compatibilidad perfecta con nuestros servicios.</p>
             </div>
-            <div class="timeline-dot"></div>
             <div class="timeline-image">
-              <!-- Aquí puedes agregar tu imagen o GIF -->
+              <div class="timeline-image-placeholder">
+                <i class="fas fa-image"></i>
+                <div class="placeholder-text">Imagen del Paso 2</div>
+                <div class="placeholder-subtitle">Registro de Vehículo</div>
+              </div>
             </div>
           </div>
 
-          <div class="timeline-item" data-aos="fade-up">
+          <div class="timeline-item">
+            <div class="timeline-dot"></div>
             <div class="timeline-content">
-              <h3>
-                <div class="step-icon">
-                  <i class="fas fa-camera"></i>
-                </div>
-                3. Digitaliza tu Llave
-              </h3>
+              <div class="step-icon">
+                <i class="fas fa-camera"></i>
+              </div>
+              <h3>3. Digitaliza tu Llave</h3>
               <p>Toma una foto clara del inserto de tu llave. Nuestro sistema la procesará y almacenará de forma segura en la nube.</p>
             </div>
-            <div class="timeline-dot"></div>
             <div class="timeline-image">
-              <!-- Aquí puedes agregar tu imagen o GIF -->
+              <div class="timeline-image-placeholder">
+                <i class="fas fa-image"></i>
+                <div class="placeholder-text">Imagen del Paso 3</div>
+                <div class="placeholder-subtitle">Digitalización de Llave</div>
+              </div>
             </div>
           </div>
 
-          <div class="timeline-item" data-aos="fade-up">
+          <div class="timeline-item">
+            <div class="timeline-dot"></div>
             <div class="timeline-content">
-              <h3>
-                <div class="step-icon">
-                  <i class="fas fa-shield-alt"></i>
-                </div>
-                4. Almacenamiento Seguro
-              </h3>
+              <div class="step-icon">
+                <i class="fas fa-shield-alt"></i>
+              </div>
+              <h3>4. Almacenamiento Seguro</h3>
               <p>Tu llave digital se guarda con encriptación de nivel bancario. Accede a ella desde cualquier dispositivo autorizado.</p>
             </div>
-            <div class="timeline-dot"></div>
             <div class="timeline-image">
-              <!-- Aquí puedes agregar tu imagen o GIF -->
+              <div class="timeline-image-placeholder">
+                <i class="fas fa-image"></i>
+                <div class="placeholder-text">Imagen del Paso 4</div>
+                <div class="placeholder-subtitle">Almacenamiento Seguro</div>
+              </div>
             </div>
           </div>
 
-          <div class="timeline-item" data-aos="fade-up">
+          <div class="timeline-item">
+            <div class="timeline-dot"></div>
             <div class="timeline-content">
-              <h3>
-                <div class="step-icon">
-                  <i class="fas fa-key"></i>
-                </div>
-                5. Recuperación Inmediata
-              </h3>
+              <div class="step-icon">
+                <i class="fas fa-key"></i>
+              </div>
+              <h3>5. Recuperación Inmediata</h3>
               <p>Si necesitas una copia, visita cualquier punto de nuestra red. Con tu identificación y código único, tendrás tu llave lista en minutos.</p>
             </div>
-            <div class="timeline-dot"></div>
             <div class="timeline-image">
-              <!-- Aquí puedes agregar tu imagen o GIF -->
+              <div class="timeline-image-placeholder">
+                <i class="fas fa-image"></i>
+                <div class="placeholder-text">Imagen del Paso 5</div>
+                <div class="placeholder-subtitle">Recuperación Inmediata</div>
+              </div>
             </div>
           </div>
         </div>
@@ -487,29 +550,31 @@
     <section class="benefits-section">
       <div class="content-container">
         <h2 style="text-align: center; margin-bottom: 32px;">Beneficios de Kioskeys</h2>
-        <div class="benefits-grid">
-          <div class="benefit-card" data-aos="fade-up">
+        <div class="features-grid">
+          <div class="feature-card" data-aos="fade-up">
             <i class="fas fa-shield-alt"></i>
             <h3>Seguridad Garantizada</h3>
             <p>Sistema de encriptación avanzado para proteger tus llaves digitales</p>
           </div>
 
-          <div class="benefit-card" data-aos="fade-up" data-aos-delay="100">
+          <div class="feature-card" data-aos="fade-up" data-aos-delay="100">
             <i class="fas fa-clock"></i>
             <h3>Ahorro de Tiempo</h3>
             <p>Obtén copias de tus llaves en minutos cuando las necesites</p>
           </div>
 
-          <div class="benefit-card" data-aos="fade-up" data-aos-delay="200">
+          <div class="feature-card" data-aos="fade-up" data-aos-delay="200">
             <i class="fas fa-handshake"></i>
             <h3>Red Profesional</h3>
             <p>Acceso a cerrajeros certificados en todo el país</p>
           </div>
         </div>
 
-        <div class="cta-container" data-aos="fade-up">
-          <a href="/pages/planes.html" class="cta-button">
-            Comenzar Ahora <i class="fas fa-arrow-right"></i>
+        <div style="text-align: center; margin-top: 40px;" data-aos="fade-up">
+          <a href="/pages/planes.html" class="feature-card" style="display: inline-flex; max-width: 300px; text-decoration: none;">
+            <i class="fas fa-rocket feature-icon"></i>
+            <h3>Comenzar Ahora</h3>
+            <p>Únete a Kioskeys hoy mismo</p>
           </a>
         </div>
       </div>
