@@ -11,6 +11,10 @@ const initApp = () => {
     menuButton.addEventListener('click', () => {
       navLinks.classList.toggle('active')
       menuButton.classList.toggle('active')
+      
+      // Update ARIA attributes
+      const isExpanded = navLinks.classList.contains('active')
+      menuButton.setAttribute('aria-expanded', isExpanded)
     })
 
     // Close menu when clicking outside
@@ -18,9 +22,75 @@ const initApp = () => {
       if (!menuButton.contains(e.target) && !navLinks.contains(e.target)) {
         navLinks.classList.remove('active')
         menuButton.classList.remove('active')
+        menuButton.setAttribute('aria-expanded', 'false')
+      }
+    })
+    
+    // Close menu on Escape key
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && navLinks.classList.contains('active')) {
+        navLinks.classList.remove('active')
+        menuButton.classList.remove('active')
+        menuButton.setAttribute('aria-expanded', 'false')
+        menuButton.focus()
       }
     })
   }
+
+  // Initialize dropdown menus
+  const dropdowns = document.querySelectorAll('.nav-dropdown')
+  dropdowns.forEach(dropdown => {
+    const trigger = dropdown.querySelector('a[aria-haspopup]')
+    const content = dropdown.querySelector('.nav-dropdown-content')
+    
+    if (trigger && content) {
+      // Keyboard navigation
+      trigger.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault()
+          const isExpanded = trigger.getAttribute('aria-expanded') === 'true'
+          trigger.setAttribute('aria-expanded', !isExpanded)
+          
+          if (!isExpanded) {
+            const firstLink = content.querySelector('a')
+            if (firstLink) firstLink.focus()
+          }
+        }
+      })
+      
+      // Mouse events
+      dropdown.addEventListener('mouseenter', () => {
+        trigger.setAttribute('aria-expanded', 'true')
+      })
+      
+      dropdown.addEventListener('mouseleave', () => {
+        trigger.setAttribute('aria-expanded', 'false')
+      })
+      
+      // Handle dropdown item navigation
+      const dropdownLinks = content.querySelectorAll('a')
+      dropdownLinks.forEach((link, index) => {
+        link.addEventListener('keydown', (e) => {
+          if (e.key === 'ArrowDown') {
+            e.preventDefault()
+            const nextLink = dropdownLinks[index + 1] || dropdownLinks[0]
+            nextLink.focus()
+          } else if (e.key === 'ArrowUp') {
+            e.preventDefault()
+            const prevLink = dropdownLinks[index - 1] || dropdownLinks[dropdownLinks.length - 1]
+            prevLink.focus()
+          } else if (e.key === 'Escape') {
+            e.preventDefault()
+            trigger.setAttribute('aria-expanded', 'false')
+            trigger.focus()
+          }
+        })
+      })
+    }
+  })
+
+  // Set active navigation state
+  setActiveNavigation()
 
   // Scroll effects
   const hero = document.querySelector('.hero')
@@ -35,6 +105,36 @@ const initApp = () => {
   }
 }
 
+// Function to set active navigation state
+function setActiveNavigation() {
+  const currentPath = window.location.pathname
+  const navLinks = document.querySelectorAll('.nav-links a:not(.nav-dropdown a)')
+  
+  navLinks.forEach(link => {
+    link.classList.remove('active')
+    link.removeAttribute('aria-current')
+    
+    const linkPath = new URL(link.href).pathname
+    if (currentPath === linkPath || (currentPath === '/' && linkPath === '/')) {
+      link.classList.add('active')
+      link.setAttribute('aria-current', 'page')
+    }
+  })
+  
+  // Handle dropdown active states
+  const dropdownLinks = document.querySelectorAll('.nav-dropdown-content a')
+  dropdownLinks.forEach(link => {
+    const linkPath = new URL(link.href).pathname
+    if (currentPath === linkPath) {
+      const dropdown = link.closest('.nav-dropdown')
+      const trigger = dropdown.querySelector('a[aria-haspopup]')
+      if (trigger) {
+        trigger.classList.add('active')
+        trigger.setAttribute('aria-current', 'page')
+      }
+    }
+  })
+}
 // Initialize app when DOM is ready
 if (document.readyState === 'loading') {
   document.addEventListener('DOMContentLoaded', initApp)
