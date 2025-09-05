@@ -106,3 +106,76 @@ if (document.readyState === 'loading') {
 } else {
   initDarkMode();
 }
+// Initialize dark mode for all pages
+document.addEventListener('DOMContentLoaded', () => {
+  // Initialize dark mode on every page load
+  initDarkMode();
+  
+  // Also initialize the main app functionality
+  initApp();
+});
+
+// Make sure dark mode works on all pages by adding the script to each page
+if (typeof window !== 'undefined') {
+  // Auto-initialize dark mode
+  const autoInitDarkMode = () => {
+    const darkModeToggle = document.getElementById('darkModeToggle');
+    const body = document.body;
+    const prefersDarkMode = window.matchMedia('(prefers-color-scheme: dark)');
+
+    const enableDarkMode = () => {
+      body.classList.add('dark-mode');
+      localStorage.setItem('theme', 'dark');
+      if (darkModeToggle) {
+        darkModeToggle.querySelector('i').classList.remove('fa-moon');
+        darkModeToggle.querySelector('i').classList.add('fa-sun');
+      }
+    };
+
+    const disableDarkMode = () => {
+      body.classList.remove('dark-mode');
+      localStorage.setItem('theme', 'light');
+      if (darkModeToggle) {
+        darkModeToggle.querySelector('i').classList.remove('fa-sun');
+        darkModeToggle.querySelector('i').classList.add('fa-moon');
+      }
+    };
+
+    // Check for saved theme preference or system preference
+    const savedTheme = localStorage.getItem('theme');
+    if (savedTheme === 'dark' || (savedTheme === null && prefersDarkMode.matches)) {
+      enableDarkMode();
+    } else {
+      disableDarkMode();
+    }
+
+    // Event listener for the toggle button
+    if (darkModeToggle) {
+      darkModeToggle.addEventListener('click', () => {
+        if (body.classList.contains('dark-mode')) {
+          disableDarkMode();
+        } else {
+          enableDarkMode();
+        }
+      });
+    }
+
+    // Listen for system theme changes
+    prefersDarkMode.addEventListener('change', (event) => {
+      if (localStorage.getItem('theme') === null) {
+        if (event.matches) {
+          enableDarkMode();
+        } else {
+          disableDarkMode();
+        }
+      }
+    });
+  };
+
+  // Initialize immediately if DOM is ready, otherwise wait
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', autoInitDarkMode);
+  } else {
+    autoInitDarkMode();
+  }
+}
