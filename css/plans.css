@@ -1,6 +1,122 @@
+/* Professional Promo Banner */
+.promo-banner-hero {
+  background: linear-gradient(135deg, #FF6B35 0%, #F7931E 50%, #FFD700 100%);
+  border-radius: 20px;
+  padding: 24px 32px;
+  margin-top: 32px;
+  box-shadow: 0 12px 32px rgba(255, 107, 53, 0.3);
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  position: relative;
+  overflow: hidden;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.promo-banner-hero::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle at center, rgba(255,255,255,0.2) 0%, transparent 70%);
+  animation: bannerShine 8s infinite linear;
+}
+
+@keyframes bannerShine {
+  from {
+    transform: translate(-100%, -100%) rotate(45deg);
+  }
+  to {
+    transform: translate(100%, 100%) rotate(45deg);
+  }
+}
+
+.promo-content {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  position: relative;
+  z-index: 1;
+}
+
+.promo-icon {
+  background: rgba(255, 255, 255, 0.2);
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  backdrop-filter: blur(10px);
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  flex-shrink: 0;
+}
+
+.promo-icon i {
+  font-size: 24px;
+  color: white;
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+}
+
+.promo-text {
+  flex: 1;
+  text-align: left;
+}
+
+.promo-title {
+  font-size: 20px;
+  font-weight: 700;
+  color: white;
+  margin-bottom: 4px;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.promo-subtitle {
+  font-size: 16px;
+  color: rgba(255, 255, 255, 0.9);
+  font-weight: 500;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+.promo-badge {
+  background: rgba(255, 255, 255, 0.9);
+  color: #FF6B35;
+  padding: 12px 20px;
+  border-radius: 25px;
+  font-weight: 700;
+  font-size: 14px;
+  letter-spacing: 0.5px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  flex-shrink: 0;
+  animation: bounce 3s infinite;
+}
+
+@keyframes bounce {
+  0%, 20%, 50%, 80%, 100% {
+    transform: translateY(0);
+  }
+  40% {
+    transform: translateY(-5px);
+  }
+  60% {
+    transform: translateY(-3px);
+  }
+}
+
 /* Plans Section Styles */
 .plans-section {
-  padding: 64px 0;
+  padding: 80px 0;
   background: linear-gradient(135deg, #f8f9ff 0%, #ffffff 50%, #f0f8ff 100%);
   position: relative;
   overflow: hidden;
@@ -123,11 +239,11 @@
   }
 }
 
-.plan-icon {
+  padding: 120px 0 100px;
   font-size: 36px;
   margin-bottom: 20px;
   background: rgba(255, 255, 255, 0.2);
-  width: 80px;
+  min-height: 650px;
   height: 80px;
   display: flex;
   align-items: center;
@@ -191,7 +307,7 @@
 }
 
 .plan-price-amount {
-  font-size: 56px;
+  margin-bottom: 32px;
   font-weight: 700;
   background: var(--card-gradient);
   background-clip: text;
@@ -336,7 +452,7 @@
   font-size: 15px;
   color: #666;
   margin-top: 8px;
-  padding-left: 30px;
+  margin-bottom: 48px;
   line-height: 1.6;
   font-weight: 400;
 }
@@ -459,6 +575,17 @@
 .faq-item p {
   color: #666;
   line-height: 1.6;
+}
+
+/* Dark Mode for Promo Banner */
+body.dark-mode .promo-banner-hero {
+  background: linear-gradient(135deg, #66B2FF 0%, #4A9EFF 50%, #0099ff 100%);
+  box-shadow: 0 12px 32px rgba(102, 178, 255, 0.3);
+}
+
+body.dark-mode .promo-badge {
+  background: rgba(26, 26, 26, 0.9);
+  color: #66B2FF;
 }
 
 /* Dark Mode Styles for Plans */
@@ -658,6 +785,44 @@ body.dark-mode .cta-button.secondary {
 }
 
 @media (max-width: 768px) {
+  .hero {
+    padding: 100px 0 80px;
+    min-height: 500px;
+  }
+  
+  .hero h1 {
+    font-size: 36px;
+    margin-bottom: 24px;
+  }
+  
+  .hero p {
+    font-size: 18px;
+    margin-bottom: 32px;
+  }
+  
+  .promo-banner-hero {
+    padding: 20px 24px;
+    margin-top: 24px;
+  }
+  
+  .promo-content {
+    flex-direction: column;
+    text-align: center;
+    gap: 16px;
+  }
+  
+  .promo-text {
+    text-align: center;
+  }
+  
+  .promo-title {
+    font-size: 18px;
+  }
+  
+  .promo-subtitle {
+    font-size: 14px;
+  }
+  
   .plans-section {
     padding: 48px 0;
   }
