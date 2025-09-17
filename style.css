@@ -74,6 +74,11 @@ nav.nav-hidden {
   gap: 6px;
 }
 
+.nav-links a i {
+  color: inherit;
+  display: inline-block;
+  font-size: 14px;
+}
 .nav-links a:hover {
   opacity: 1;
   background: rgba(0, 59, 142, 0.1);
@@ -88,6 +93,9 @@ nav.nav-hidden {
   box-shadow: 0 4px 12px rgba(0, 59, 142, 0.3);
 }
 
+.nav-links a.active i {
+  color: white;
+}
 .nav-links a.active::after {
   content: '';
   position: absolute;
@@ -143,17 +151,18 @@ nav.nav-hidden {
   opacity: 0.8;
 }
 
+.nav-dropdown-content a i {
+  margin-right: 8px;
+  width: 16px;
+  color: var(--primary-blue);
+  display: inline-block;
+}
 .nav-dropdown-content a:hover {
   background: rgba(0, 59, 142, 0.1);
   opacity: 1;
   transform: translateX(4px);
 }
 
-.nav-dropdown-content a i {
-  margin-right: 8px;
-  width: 16px;
-  color: var(--primary-blue);
-}
 
 /* CTA Button */
 .nav-cta {
@@ -167,6 +176,9 @@ nav.nav-hidden {
   transition: all 0.3s ease;
 }
 
+.nav-cta i {
+  color: white !important;
+}
 .nav-cta:hover {
   transform: translateY(-2px) scale(1.05);
   box-shadow: 0 6px 20px rgba(0, 59, 142, 0.4);
@@ -176,7 +188,7 @@ nav.nav-hidden {
 /* Breadcrumbs */
 .breadcrumbs {
   padding: calc(var(--nav-height) + 30px) 0 20px;
-  background: rgba(0, 59, 142, 0.02);
+  background: var(--background);
   border-bottom: 1px solid rgba(0, 59, 142, 0.1);
   margin-top: 0;
   position: relative;
@@ -243,6 +255,10 @@ nav.nav-hidden {
   justify-content: center;
 }
 
+.menu-button i {
+  color: inherit;
+  display: inline-block;
+}
 .menu-button:hover {
   background: rgba(0, 59, 142, 0.1);
 }
@@ -266,6 +282,10 @@ nav.nav-hidden {
   justify-content: center;
 }
 
+#darkModeToggle i {
+  color: inherit;
+  display: inline-block;
+}
 #darkModeToggle:hover {
   background: rgba(0, 59, 142, 0.1);
   transform: scale(1.1);
@@ -1231,6 +1251,9 @@ body.dark-mode .nav-links a {
   color: var(--text-color);
 }
 
+body.dark-mode .nav-links a i {
+  color: inherit;
+}
 body.dark-mode .nav-links a:hover {
   background: rgba(102, 178, 255, 0.1);
 }
@@ -1240,13 +1263,22 @@ body.dark-mode .nav-links a.active {
   color: var(--primary-blue);
 }
 body.dark-mode .menu-button {
+body.dark-mode .nav-links a.active i {
+  color: var(--primary-blue);
+}
   color: var(--text-color);
+}
+body.dark-mode .menu-button i {
+  color: inherit;
 }
 
 body.dark-mode #darkModeToggle:hover {
   background: rgba(102, 178, 255, 0.1);
 }
 
+body.dark-mode #darkModeToggle i {
+  color: inherit;
+}
 body.dark-mode .nav-dropdown-content {
   background: rgba(26, 26, 26, 0.98);
   border: 1px solid rgba(255, 255, 255, 0.1);
@@ -1256,12 +1288,15 @@ body.dark-mode .nav-dropdown-content a {
   color: var(--text-color);
 }
 
+body.dark-mode .nav-dropdown-content a i {
+  color: var(--primary-blue);
+}
 body.dark-mode .nav-dropdown-content a:hover {
   background: rgba(102, 178, 255, 0.1);
 }
 
 body.dark-mode .breadcrumbs {
-  background: rgba(102, 178, 255, 0.02);
+  background: var(--background);
   border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
 
