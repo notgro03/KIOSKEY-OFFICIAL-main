@@ -116,7 +116,7 @@
 
 /* Plans Section Styles */
 .plans-section {
-  padding: 80px 0;
+  padding: 140px 0 100px;
   background: linear-gradient(135deg, #f8f9ff 0%, #ffffff 50%, #f0f8ff 100%);
   position: relative;
   overflow: hidden;
@@ -148,7 +148,7 @@
   font-size: 56px;
   font-weight: 700;
   color: var(--primary-blue);
-  margin-bottom: 48px;
+  margin-bottom: 40px;
   background: var(--card-gradient);
   background-clip: text;
   -webkit-background-clip: text;
@@ -243,7 +243,7 @@
   font-size: 36px;
   margin-bottom: 20px;
   background: rgba(255, 255, 255, 0.2);
-  min-height: 650px;
+  min-height: 700px;
   height: 80px;
   display: flex;
   align-items: center;
@@ -307,7 +307,7 @@
 }
 
 .plan-price-amount {
-  margin-bottom: 32px;
+  margin-bottom: 60px;
   font-weight: 700;
   background: var(--card-gradient);
   background-clip: text;
