@@ -1,8 +1,8 @@
 // Import styles
 import './style.css'
 
-// Initialize modules
-const initApp = () => {
+// Consolidated initialization function
+const initializeApp = () => {
   // Navigation menu
   const menuButton = document.querySelector('.menu-button')
   const navLinks = document.querySelector('.nav-links')
@@ -44,6 +44,35 @@ const initApp = () => {
     const content = dropdown.querySelector('.nav-dropdown-content')
     
     if (trigger && content) {
+      // Initialize ARIA state
+      trigger.setAttribute('aria-expanded', 'false')
+      
+      // Click handler for mobile and accessibility
+      trigger.addEventListener('click', (e) => {
+        e.preventDefault()
+        const isExpanded = trigger.getAttribute('aria-expanded') === 'true'
+        
+        // Close all other dropdowns
+        dropdowns.forEach(otherDropdown => {
+          if (otherDropdown !== dropdown) {
+            const otherTrigger = otherDropdown.querySelector('a[aria-haspopup]')
+            if (otherTrigger) {
+              otherTrigger.setAttribute('aria-expanded', 'false')
+            }
+          }
+        })
+        
+        // Toggle current dropdown
+        trigger.setAttribute('aria-expanded', !isExpanded)
+        
+        if (!isExpanded) {
+          const firstLink = content.querySelector('a')
+          if (firstLink && window.innerWidth <= 768) {
+            firstLink.focus()
+          }
+        }
+      })
+      
       // Keyboard navigation
       trigger.addEventListener('keydown', (e) => {
         if (e.key === 'Enter' || e.key === ' ') {
@@ -60,11 +89,15 @@ const initApp = () => {
       
       // Mouse events
       dropdown.addEventListener('mouseenter', () => {
-        trigger.setAttribute('aria-expanded', 'true')
+        if (window.innerWidth > 768) {
+          trigger.setAttribute('aria-expanded', 'true')
+        }
       })
       
       dropdown.addEventListener('mouseleave', () => {
-        trigger.setAttribute('aria-expanded', 'false')
+        if (window.innerWidth > 768) {
+          trigger.setAttribute('aria-expanded', 'false')
+        }
       })
       
       // Handle dropdown item navigation
@@ -89,6 +122,18 @@ const initApp = () => {
     }
   })
 
+  // Close dropdowns when clicking outside
+  document.addEventListener('click', (e) => {
+    if (!e.target.closest('.nav-dropdown')) {
+      dropdowns.forEach(dropdown => {
+        const trigger = dropdown.querySelector('a[aria-haspopup]')
+        if (trigger) {
+          trigger.setAttribute('aria-expanded', 'false')
+        }
+      })
+    }
+  })
+
   // Set active navigation state
   setActiveNavigation()
 
@@ -103,6 +148,9 @@ const initApp = () => {
       }
     })
   }
+
+  // Initialize dark mode
+  initializeDarkMode()
 }
 
 // Function to set active navigation state
@@ -135,18 +183,9 @@ function setActiveNavigation() {
     }
   })
 }
-// Initialize app when DOM is ready
-if (document.readyState === 'loading') {
-  document.addEventListener('DOMContentLoaded', initApp)
-} else {
-  initApp()
-}
 
-// Export for use in other modules
-export { initApp }
-
-// Dark Mode Toggle
-const initDarkMode = () => {
+// Dark Mode functionality
+const initializeDarkMode = () => {
   const darkModeToggle = document.getElementById('darkModeToggle');
   const body = document.body;
   const prefersDarkMode = window.matchMedia('(prefers-color-scheme: dark)');
@@ -200,82 +239,12 @@ const initDarkMode = () => {
   });
 };
 
-// Initialize dark mode when DOM is ready
+// Single initialization point
 if (document.readyState === 'loading') {
-  document.addEventListener('DOMContentLoaded', initDarkMode);
+  document.addEventListener('DOMContentLoaded', initializeApp);
 } else {
-  initDarkMode();
+  initializeApp();
 }
-// Initialize dark mode for all pages
-document.addEventListener('DOMContentLoaded', () => {
-  // Initialize dark mode on every page load
-  initDarkMode();
-  
-  // Also initialize the main app functionality
-  initApp();
-});
 
-// Make sure dark mode works on all pages by adding the script to each page
-if (typeof window !== 'undefined') {
-  // Auto-initialize dark mode
-  const autoInitDarkMode = () => {
-    const darkModeToggle = document.getElementById('darkModeToggle');
-    const body = document.body;
-    const prefersDarkMode = window.matchMedia('(prefers-color-scheme: dark)');
-
-    const enableDarkMode = () => {
-      body.classList.add('dark-mode');
-      localStorage.setItem('theme', 'dark');
-      if (darkModeToggle) {
-        darkModeToggle.querySelector('i').classList.remove('fa-moon');
-        darkModeToggle.querySelector('i').classList.add('fa-sun');
-      }
-    };
-
-    const disableDarkMode = () => {
-      body.classList.remove('dark-mode');
-      localStorage.setItem('theme', 'light');
-      if (darkModeToggle) {
-        darkModeToggle.querySelector('i').classList.remove('fa-sun');
-        darkModeToggle.querySelector('i').classList.add('fa-moon');
-      }
-    };
-
-    // Check for saved theme preference or system preference
-    const savedTheme = localStorage.getItem('theme');
-    if (savedTheme === 'dark' || (savedTheme === null && prefersDarkMode.matches)) {
-      enableDarkMode();
-    } else {
-      disableDarkMode();
-    }
-
-    // Event listener for the toggle button
-    if (darkModeToggle) {
-      darkModeToggle.addEventListener('click', () => {
-        if (body.classList.contains('dark-mode')) {
-          disableDarkMode();
-        } else {
-          enableDarkMode();
-        }
-      });
-    }
-
-    // Listen for system theme changes
-    prefersDarkMode.addEventListener('change', (event) => {
-      if (localStorage.getItem('theme') === null) {
-        if (event.matches) {
-          enableDarkMode();
-        } else {
-          disableDarkMode();
-        }
-      }
-    });
-  };
-
-  // Initialize immediately if DOM is ready, otherwise wait
-  if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', autoInitDarkMode);
-  } else {
-    autoInitDarkMode();
-  }
-}
+// Export for use in other modules
+export { initializeApp }
