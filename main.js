@@ -156,11 +156,67 @@ const initializeApp = () => {
 // Function to set active navigation state
 function setActiveNavigation() {
   const currentPath = window.location.pathname
-  const navLinks = document.querySelectorAll('.nav-links a:not(.nav-dropdown a)')
   
-  navLinks.forEach(link => {
+  // Reset all navigation states first
+  const allNavLinks = document.querySelectorAll('.nav-links a')
+  const allDropdownTriggers = document.querySelectorAll('.nav-dropdown > a')
+  const allDropdownContents = document.querySelectorAll('.nav-dropdown-content a')
+  
+  // Clear all active states
+  allNavLinks.forEach(link => {
     link.classList.remove('active')
     link.removeAttribute('aria-current')
+  })
+  
+  allDropdownTriggers.forEach(trigger => {
+    trigger.classList.remove('active')
+    trigger.removeAttribute('aria-current')
+    trigger.setAttribute('aria-expanded', 'false')
+  })
+  
+  // Check direct navigation links (not in dropdowns)
+  const directNavLinks = document.querySelectorAll('.nav-links > a:not(.nav-dropdown > a)')
+  directNavLinks.forEach(link => {
+    const linkPath = new URL(link.href).pathname
+    if (currentPath === linkPath || (currentPath === '/' && linkPath === '/')) {
+      link.classList.add('active')
+      link.setAttribute('aria-current', 'page')
+    }
+  })
+  
+  // Check dropdown items and their parent triggers
+  let dropdownItemActive = false
+  allDropdownContents.forEach(link => {
+    const linkPath = new URL(link.href).pathname
+    if (currentPath === linkPath) {
+      // Mark the dropdown item as active
+      link.classList.add('active')
+      link.setAttribute('aria-current', 'page')
+      
+      // Mark the parent dropdown trigger as active
+      const dropdown = link.closest('.nav-dropdown')
+      const trigger = dropdown.querySelector('a[aria-haspopup]')
+      if (trigger) {
+        trigger.classList.add('active')
+        trigger.setAttribute('aria-current', 'page')
+        trigger.setAttribute('aria-expanded', 'true')
+      }
+      dropdownItemActive = true
+    }
+  })
+  
+  // Check if we're on the main dropdown page (like productos.html)
+  if (!dropdownItemActive) {
+    allDropdownTriggers.forEach(trigger => {
+      const linkPath = new URL(trigger.href).pathname
+      if (currentPath === linkPath) {
+        trigger.classList.add('active')
+        trigger.setAttribute('aria-current', 'page')
+        // Don't auto-expand dropdown on main page unless needed
+      }
+    })
+  }
+}
     
     const linkPath = new URL(link.href).pathname
     if (currentPath === linkPath || (currentPath === '/' && linkPath === '/')) {

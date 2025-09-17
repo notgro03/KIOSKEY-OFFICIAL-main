@@ -76,6 +76,7 @@ nav.nav-hidden {
   gap: 6px;
   height: fit-content;
   white-space: nowrap;
+  line-height: 1.2;
 }
 
 .nav-links a i {
@@ -119,6 +120,13 @@ nav.nav-hidden {
   display: flex;
   align-items: center;
   height: 100%;
+}
+
+.nav-dropdown > a {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  height: fit-content;
 }
 
 .nav-dropdown-content {
