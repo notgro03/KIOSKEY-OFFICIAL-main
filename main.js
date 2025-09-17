@@ -217,28 +217,6 @@ function setActiveNavigation() {
     })
   }
 }
-    
-    const linkPath = new URL(link.href).pathname
-    if (currentPath === linkPath || (currentPath === '/' && linkPath === '/')) {
-      link.classList.add('active')
-      link.setAttribute('aria-current', 'page')
-    }
-  })
-  
-  // Handle dropdown active states
-  const dropdownLinks = document.querySelectorAll('.nav-dropdown-content a')
-  dropdownLinks.forEach(link => {
-    const linkPath = new URL(link.href).pathname
-    if (currentPath === linkPath) {
-      const dropdown = link.closest('.nav-dropdown')
-      const trigger = dropdown.querySelector('a[aria-haspopup]')
-      if (trigger) {
-        trigger.classList.add('active')
-        trigger.setAttribute('aria-current', 'page')
-      }
-    }
-  })
-}
 
 // Dark Mode functionality
 const initializeDarkMode = () => {
