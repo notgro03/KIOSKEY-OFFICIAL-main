@@ -55,11 +55,64 @@ document.addEventListener('DOMContentLoaded', () => {
     updateDarkModeIcon(isDarkMode);
 
     // Add hover effect
-    darkModeToggle.addEventListener('mouseenter', () => {
-        darkModeToggle.style.transform = 'scale(1.1)';
-    });
+    // Rewritten dark mode script: simple, robust, compatible with .dark-mode-toggle and #darkModeToggle
+    document.addEventListener('DOMContentLoaded', () => {
+        const toggle = document.querySelector('.dark-mode-toggle') || document.getElementById('darkModeToggle');
+        const root = document.documentElement;
+        const body = document.body;
 
-    darkModeToggle.addEventListener('mouseleave', () => {
-        darkModeToggle.style.transform = 'scale(1)';
+        if (!toggle) {
+            // No toggle on this page; nothing to do.
+            return;
+        }
+
+        // Read saved preference
+        const saved = localStorage.getItem('darkMode');
+        const prefersDark = saved === 'enabled';
+
+        function setDark(on, save = false) {
+            if (on) {
+                root.classList.add('dark-mode');
+                body.classList.add('dark-mode');
+            } else {
+                root.classList.remove('dark-mode');
+                body.classList.remove('dark-mode');
+            }
+            updateIcon(on);
+            if (save) localStorage.setItem('darkMode', on ? 'enabled' : 'disabled');
+            // Emit event
+            document.dispatchEvent(new CustomEvent('darkModeChange', { detail: { isDarkMode: on } }));
+        }
+
+        function updateIcon(isDark) {
+            const icon = toggle.querySelector('i');
+            if (!icon) return;
+            icon.classList.remove('fa-moon', 'fa-sun');
+            icon.classList.add(isDark ? 'fa-sun' : 'fa-moon');
+            icon.style.transition = 'transform 220ms ease, color 220ms ease';
+            icon.style.transform = isDark ? 'rotate(180deg)' : 'rotate(0deg)';
+        }
+
+        // Initialize state
+        setDark(prefersDark, false);
+
+        // Make toggle keyboard and pointer accessible
+        toggle.setAttribute('role', 'button');
+        toggle.setAttribute('tabindex', '0');
+        toggle.style.cursor = 'pointer';
+
+        // Toggle handlers
+        toggle.addEventListener('click', (e) => {
+            e.preventDefault();
+            const isNowDark = root.classList.toggle('dark-mode');
+            body.classList.toggle('dark-mode');
+            setDark(isNowDark, true);
+        });
+
+        toggle.addEventListener('keydown', (e) => {
+            if (e.key === 'Enter' || e.key === ' ') {
+                e.preventDefault();
+                toggle.click();
+            }
+        });
     });
-});
