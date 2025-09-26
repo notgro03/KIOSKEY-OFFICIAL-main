@@ -1,6 +1,7 @@
 document.addEventListener('DOMContentLoaded', () => {
-    const darkModeToggle = document.querySelector('.dark-mode-toggle');
+    const darkModeToggle = document.querySelector('.dark-mode-toggle') || document.querySelector('#darkModeToggle');
     const htmlElement = document.documentElement;
+    const bodyElement = document.body;
 
     if (!darkModeToggle) {
         console.error('Dark mode toggle button not found');

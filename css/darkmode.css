@@ -8,9 +8,10 @@
   --dark-shadow: rgba(0, 0, 0, 0.3);
 }
 
+/* Modo oscuro base */
 .dark-mode {
-  background-color: var(--dark-bg);
-  color: var(--dark-text);
+  background-color: var(--dark-bg) !important;
+  color: var(--dark-text) !important;
 }
 
 .dark-mode nav {
