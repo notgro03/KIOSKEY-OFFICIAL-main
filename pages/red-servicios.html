@@ -153,7 +153,7 @@
 <body>
   <nav>
     <div class="logo">
-      <a href="/"><img src="../LOGO_KIOSKEYS.png" alt="Kioskeys"></a>
+      <a href="/"><img src="/LOGO_KIOSKEYS.png" alt="Kioskeys"></a>
     </div>
     <div class="nav-links">
       <a href="/">Inicio</a>
@@ -163,9 +163,14 @@
       <a href="/pages/faq.html">FAQ</a>
       <a href="/pages/contacto.html">Contacto</a>
     </div>
-    <button class="menu-button">
-      <i class="fas fa-bars"></i>
-    </button>
+    <div class="nav-actions">
+      <button id="dark-mode-toggle" class="dark-mode-button" aria-label="Activar modo oscuro">
+        <i class="fas fa-moon"></i>
+      </button>
+      <button class="menu-button">
+        <i class="fas fa-bars"></i>
+      </button>
+    </div>
   </nav>
 
   <main>
@@ -284,6 +289,8 @@
     </div>
   </footer>
 
+  <script src="/js/carousel.js"></script>
+  <script src="/js/dark-mode.js"></script>
   <script src="/main.js" type="module"></script>
   <script>
     // Animación de las tarjetas de servicio

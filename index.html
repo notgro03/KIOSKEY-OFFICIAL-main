@@ -45,7 +45,6 @@
 
   <link rel="icon" href="/favicon.jpg">
   <link rel="preload" href="/LOGO_KIOSKEYS.png" as="image">
-  <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" as="style">
   <link rel="stylesheet" href="/style.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
   <link rel="manifest" href="/manifest.json">
@@ -63,9 +62,14 @@
       <a href="/pages/faq.html">FAQ</a>
       <a href="/pages/contacto.html">Contacto</a>
     </div>
-    <button class="menu-button">
-      <i class="fas fa-bars"></i>
-    </button>
+    <div class="nav-actions">
+      <button id="dark-mode-toggle" class="dark-mode-button" aria-label="Activar modo oscuro">
+        <i class="fas fa-moon"></i>
+      </button>
+      <button class="menu-button">
+        <i class="fas fa-bars"></i>
+      </button>
+    </div>
   </nav>
 
   <main>
@@ -171,39 +175,39 @@
       <div class="footer-section">
         <h4 class="shiny-text">Empresa</h4>
         <ul class="footer-links">
-          <li><a href="./pages/sobre-nosotros.html" class="shiny-text">Sobre Nosotros</a></li>
-          <li><a href="./pages/red-servicios.html" class="shiny-text">Red de Servicios</a></li>
-          <li><a href="./pages/trabaja-con-nosotros.html" class="shiny-text">Trabaja con Nosotros</a></li>
+          <li><a href="/pages/sobre-nosotros.html" class="shiny-text">Sobre Nosotros</a></li>
+          <li><a href="/pages/red-servicios.html" class="shiny-text">Red de Servicios</a></li>
+          <li><a href="/pages/trabaja-con-nosotros.html" class="shiny-text">Trabaja con Nosotros</a></li>
         </ul>
       </div>
 
       <div class="footer-section">
         <h4 class="shiny-text">Servicios</h4>
         <ul class="footer-links">
-          <li><a href="./pages/productos.html" class="shiny-text">Productos</a></li>
-          <li><a href="./pages/telemandos.html" class="shiny-text">Telemandos</a></li>
-          <li><a href="./pages/planes.html" class="shiny-text">Planes</a></li>
-          <li><a href="./pages/cerrajeria.html" class="shiny-text">Cerrajería</a></li>
+          <li><a href="/pages/productos.html" class="shiny-text">Productos</a></li>
+          <li><a href="/pages/telemandos.html" class="shiny-text">Telemandos</a></li>
+          <li><a href="/pages/planes.html" class="shiny-text">Planes</a></li>
+          <li><a href="/pages/cerrajeria.html" class="shiny-text">Cerrajería</a></li>
         </ul>
       </div>
 
       <div class="footer-section">
         <h4 class="shiny-text">Soporte</h4>
         <ul class="footer-links">
-          <li><a href="./pages/contacto.html" class="shiny-text">Contacto</a></li>
-          <li><a href="./pages/faq.html" class="shiny-text">FAQ</a></li>
-          <li><a href="./pages/tutoriales.html" class="shiny-text">Tutoriales</a></li>
-          <li><a href="./pages/ayuda.html" class="shiny-text">Centro de Ayuda</a></li>
+          <li><a href="/pages/contacto.html" class="shiny-text">Contacto</a></li>
+          <li><a href="/pages/faq.html" class="shiny-text">FAQ</a></li>
+          <li><a href="/pages/tutoriales.html" class="shiny-text">Tutoriales</a></li>
+          <li><a href="/pages/ayuda.html" class="shiny-text">Centro de Ayuda</a></li>
         </ul>
       </div>
 
       <div class="footer-section">
         <h4 class="shiny-text">Legal</h4>
         <ul class="footer-links">
-          <li><a href="./pages/privacidad.html" class="shiny-text">Política de Privacidad</a></li>
-          <li><a href="./pages/terminos.html" class="shiny-text">Términos y Condiciones</a></li>
-          <li><a href="./pages/cookies.html" class="shiny-text">Política de Cookies</a></li>
-          <li><a href="./pages/legal.html" class="shiny-text">Aviso Legal</a></li>
+          <li><a href="/pages/privacidad.html" class="shiny-text">Política de Privacidad</a></li>
+          <li><a href="/pages/terminos.html" class="shiny-text">Términos y Condiciones</a></li>
+          <li><a href="/pages/cookies.html" class="shiny-text">Política de Cookies</a></li>
+          <li><a href="/pages/legal.html" class="shiny-text">Aviso Legal</a></li>
         </ul>
       </div>
 
@@ -224,6 +228,7 @@
   </footer>
 
   <script src="/js/carousel.js"></script>
+  <script src="/js/dark-mode.js"></script>
   <script type="module" src="/main.js"></script>
 </body>
 </html>
