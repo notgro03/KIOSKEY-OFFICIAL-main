@@ -156,19 +156,72 @@
       <a href="/"><img src="../LOGO_KIOSKEYS.png" alt="Kioskeys"></a>
     </div>
     <div class="nav-links">
-      <a href="/">Inicio</a>
-      <a href="/pages/red-servicios.html">Red de Servicios</a>
-      <a href="/pages/planes.html">Planes</a>
-      <a href="/pages/productos.html">Productos</a>
-      <a href="/pages/faq.html">FAQ</a>
-      <a href="/pages/contacto.html">Contacto</a>
+      <a href="/">
+        <i class="fas fa-home" aria-hidden="true"></i>
+        Inicio
+      </a>
+      <div class="nav-dropdown">
+        <a href="/pages/productos.html" aria-haspopup="true" aria-expanded="false">
+          <i class="fas fa-box" aria-hidden="true"></i>
+          Productos
+          <i class="fas fa-chevron-down" style="font-size: 10px; margin-left: 4px;" aria-hidden="true"></i>
+        </a>
+        <div class="nav-dropdown-content" role="menu">
+          <a href="/pages/telemandos.html" role="menuitem">
+            <i class="fas fa-car"></i>
+            Telemandos
+          </a>
+          <a href="/pages/llaves.html" role="menuitem">
+            <i class="fas fa-key"></i>
+            Llaves
+          </a>
+          <a href="/pages/carcasas.html" role="menuitem">
+            <i class="fas fa-shield-alt"></i>
+            Carcasas
+          </a>
+          <a href="/pages/accesorios.html" role="menuitem">
+            <i class="fas fa-tools"></i>
+            Accesorios
+          </a>
+        </div>
+      </div>
+      <a href="/pages/red-servicios.html">
+        <i class="fas fa-map-marker-alt" aria-hidden="true"></i>
+        Red de Servicios
+      </a>
+      <a href="/pages/planes.html">
+        <i class="fas fa-crown" aria-hidden="true"></i>
+        Planes
+      </a>
+      <a href="/pages/faq.html">
+        <i class="fas fa-question-circle" aria-hidden="true"></i>
+        FAQ
+      </a>
+      <a href="/pages/contacto.html" class="nav-cta">
+        <i class="fas fa-phone" aria-hidden="true"></i>
+        Contacto
+      </a>
     </div>
     <button class="menu-button">
       <i class="fas fa-bars"></i>
     </button>
+    <button id="darkModeToggle" class="menu-button" style="margin-left: 10px;">
+      <i class="fas fa-moon"></i>
+    </button>
   </nav>
 
   <main>
+    <!-- Breadcrumbs -->
+    <nav class="breadcrumbs" aria-label="Breadcrumb">
+      <div class="breadcrumbs-container">
+        <ol class="breadcrumbs-list">
+          <li><a href="/">Inicio</a></li>
+          <li><span class="breadcrumbs-separator">›</span></li>
+          <li><span class="current">Red de Servicios</span></li>
+        </ol>
+      </div>
+    </nav>
+
     <section class="hero">
       <div class="hero-content">
         <h1>Red de Servicios</h1>
@@ -187,12 +240,16 @@
             <div class="feature-icon">
               <i class="fas fa-store"></i>
             </div>
+              <i class="fas fa-store"></i>
+            </div>
             <h3>Locales Propios</h3>
             <p>Más de 50 locales oficiales Kioskeys en todo el país con atención personalizada y servicio técnico especializado.</p>
           </div>
 
           <div class="feature-card">
             <div class="feature-icon">
+              <i class="fas fa-handshake"></i>
+            </div>
               <i class="fas fa-handshake"></i>
             </div>
             <h3>Cerrajeros Certificados</h3>
@@ -203,12 +260,16 @@
             <div class="feature-icon">
               <i class="fas fa-clock"></i>
             </div>
+              <i class="fas fa-clock"></i>
+            </div>
             <h3>Soporte Especializado</h3>
             <p>Acceso a expertos en cerrajería durante nuestro horario de atención.</p>
           </div>
 
           <div class="feature-card">
             <div class="feature-icon">
+              <i class="fas fa-certificate"></i>
+            </div>
               <i class="fas fa-certificate"></i>
             </div>
             <h3>Garantía de Servicio</h3>
@@ -218,7 +279,9 @@
 
         <div style="text-align: center; margin-top: 40px;">
           <a href="/unirse-red" class="feature-card" style="display: inline-flex; max-width: 400px; text-decoration: none;">
-            <i class="fas fa-user-plus feature-icon"></i>
+            <div class="feature-icon">
+              <i class="fas fa-user-plus"></i>
+            </div>
             <h3>Únete a Nuestra Red</h3>
             <p>Forma parte de la red de cerrajeros más grande de Argentina</p>
           </a>
@@ -284,6 +347,7 @@
     </div>
   </footer>
 
+  <script type="module" src="/main.js"></script>
   <script src="/main.js" type="module"></script>
   <script>
     // Animación de las tarjetas de servicio
