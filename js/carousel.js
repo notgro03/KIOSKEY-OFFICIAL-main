@@ -1,11 +1,16 @@
 class Carousel {
   constructor() {
     this.currentSlide = 0;
-    this.totalSlides = 5;
+    this.totalSlides = 0;
     this.autoPlayInterval = null;
     this.autoPlayDelay = 5000; // 5 seconds
     
     this.initializeElements();
+
+    if (this.totalSlides < 1) {
+      return;
+    }
+
     this.bindEvents();
     this.startAutoPlay();
     this.showSlide(0);
@@ -14,6 +19,7 @@ class Carousel {
   initializeElements() {
     this.slidesContainer = document.querySelector('.carousel-slides');
     this.slides = document.querySelectorAll('.carousel-slide');
+    this.totalSlides = this.slides.length;
     this.prevButton = document.querySelector('.carousel-button.prev');
     this.nextButton = document.querySelector('.carousel-button.next');
     this.indicators = document.querySelectorAll('.indicator');
