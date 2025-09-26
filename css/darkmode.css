@@ -1,0 +1,97 @@
+:root {
+  --dark-bg: #1a1a1a;
+  --dark-card-bg: #2a2a2a;
+  --dark-text: #ffffff;
+  --dark-border: rgba(255, 255, 255, 0.1);
+  --dark-hover: rgba(255, 255, 255, 0.05);
+  --dark-card-gradient: linear-gradient(135deg, #003B8E 0%, #0056D1 100%);
+  --dark-shadow: rgba(0, 0, 0, 0.3);
+}
+
+.dark-mode {
+  background-color: var(--dark-bg);
+  color: var(--dark-text);
+}
+
+.dark-mode nav {
+  background-color: var(--dark-bg);
+  border-bottom: 1px solid var(--dark-border);
+}
+
+.dark-mode .nav-links a {
+  color: var(--dark-text);
+}
+
+.dark-mode .nav-dropdown-content {
+  background-color: var(--dark-card-bg);
+  border: 1px solid var(--dark-border);
+  box-shadow: 0 4px 12px var(--dark-shadow);
+}
+
+.dark-mode .nav-dropdown-content a:hover {
+  background-color: var(--dark-hover);
+}
+
+.dark-mode .search-box,
+.dark-mode .info-section,
+.dark-mode .search-results {
+  background-color: var(--dark-card-bg);
+  border-color: var(--dark-border);
+}
+
+.dark-mode .search-field select,
+.dark-mode .search-field input {
+  background-color: var(--dark-bg);
+  border-color: var(--dark-border);
+  color: var(--dark-text);
+}
+
+.dark-mode .feature-card {
+  background: var(--dark-card-gradient);
+}
+
+.dark-mode .result-feature {
+  background: rgba(255, 255, 255, 0.1);
+  color: var(--dark-text);
+}
+
+.dark-mode .result-info h3,
+.dark-mode .search-title h2,
+.dark-mode .info-section h2 {
+  color: var(--dark-text);
+}
+
+.dark-mode .result-info p,
+.dark-mode .search-title p {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.dark-mode footer {
+  background-color: var(--dark-bg);
+  border-top: 1px solid var(--dark-border);
+}
+
+.dark-mode .footer-links a {
+  color: var(--dark-text);
+}
+
+.dark-mode .footer-bottom {
+  border-top: 1px solid var(--dark-border);
+}
+
+.dark-mode .menu-button {
+  color: var(--dark-text);
+}
+
+.dark-mode #darkModeToggle {
+  color: var(--dark-text);
+}
+
+.dark-mode .footer-social a {
+  background: rgba(255, 255, 255, 0.1);
+  color: var(--dark-text);
+}
+
+.dark-mode .footer-social a:hover {
+  background: rgba(255, 255, 255, 0.2);
+}

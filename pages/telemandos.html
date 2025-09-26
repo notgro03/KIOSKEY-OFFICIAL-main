@@ -6,8 +6,10 @@
   <title>Telemandos - Kioskeys</title>
   <link rel="icon" href="/favicon.jpg">
   <link rel="stylesheet" href="/style.css">
+  <link rel="stylesheet" href="/css/darkmode.css">
+  <link rel="stylesheet" href="/css/features.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" crossorigin="anonymous">
+  <script src="/src/js/darkmode.js" defer></script>
   <style>
     .search-container {
       max-width: 800px;
@@ -312,10 +314,7 @@
     <button class="menu-button">
       <i class="fas fa-bars"></i>
     </button>
-    <button id="darkModeToggle" class="menu-button" style="margin-left: 10px;">
-      <i class="fas fa-moon"></i>
-    </button>
-    <button id="darkModeToggle" class="menu-button" style="margin-left: 10px;">
+    <button class="dark-mode-toggle" aria-label="Cambiar modo oscuro">
       <i class="fas fa-moon"></i>
     </button>
   </nav>
@@ -380,25 +379,33 @@
           <h2>¿Por qué elegir nuestros telemandos?</h2>
           <div class="features-grid">
             <div class="feature-card">
-              <i class="fas fa-shield-alt feature-icon"></i>
+              <div class="feature-icon-wrapper">
+                <i class="fas fa-shield-alt feature-icon"></i>
+              </div>
               <h3>Calidad Garantizada</h3>
               <p>Telemandos originales y alternativos de la más alta calidad, con garantía de funcionamiento.</p>
             </div>
 
             <div class="feature-card">
-              <i class="fas fa-tools feature-icon"></i>
+              <div class="feature-icon-wrapper">
+                <i class="fas fa-tools feature-icon"></i>
+              </div>
               <h3>Programación Profesional</h3>
               <p>Servicio de programación incluido realizado por técnicos certificados.</p>
             </div>
 
             <div class="feature-card">
-              <i class="fas fa-clock feature-icon"></i>
+              <div class="feature-icon-wrapper">
+                <i class="fas fa-clock feature-icon"></i>
+              </div>
               <h3>Servicio Express</h3>
               <p>Programación en el momento y servicio de urgencia disponible 24/7.</p>
             </div>
 
             <div class="feature-card">
-              <i class="fas fa-tag feature-icon"></i>
+              <div class="feature-icon-wrapper">
+                <i class="fas fa-tag feature-icon"></i>
+              </div>
               <h3>Precios Competitivos</h3>
               <p>Mejores precios del mercado con opciones para todos los presupuestos.</p>
             </div>
