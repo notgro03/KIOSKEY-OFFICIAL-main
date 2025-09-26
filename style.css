@@ -805,6 +805,130 @@ body::after {
   }
 }
 
+/* Dark Mode Styles */
+body.dark-mode {
+  --primary-blue: #58a6ff;
+  --secondary-blue: #79c0ff;
+  --background: #0d1117;
+  --text-color: #c9d1d9;
+  --card-gradient: linear-gradient(135deg, #161b22, #21262d);
+}
+
+/* Navigation */
+.nav-actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.dark-mode-button {
+  background: none;
+  border: none;
+  color: var(--text-color);
+  cursor: pointer;
+  padding: 8px;
+  font-size: 18px;
+  transition: all 0.3s ease;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.dark-mode-button:hover {
+  background: rgba(0, 59, 142, 0.1);
+}
+
+body.dark-mode nav {
+  background: rgba(22, 27, 34, 0.8);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+}
+
+body.dark-mode .nav-links a:hover {
+  background: rgba(88, 166, 255, 0.15);
+}
+
+body.dark-mode .dark-mode-button:hover {
+  background: rgba(88, 166, 255, 0.15);
+}
+
+/* Mobile Menu */
+@media (max-width: 768px) {
+  body.dark-mode .nav-links {
+    background: rgba(22, 27, 34, 0.98);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+  }
+}
+
+/* Hero */
+body.dark-mode .hero h1 {
+  background: linear-gradient(135deg, #58a6ff, #79c0ff);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+body.dark-mode .hero p {
+  color: #8b949e;
+}
+
+/* Carousel */
+body.dark-mode .carousel-button {
+  background: rgba(33, 38, 45, 0.8);
+  color: var(--primary-blue);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+body.dark-mode .carousel-button:hover {
+  background: #21262d;
+}
+
+body.dark-mode .indicator {
+  background: rgba(255, 255, 255, 0.2);
+  border: 2px solid rgba(255, 255, 255, 0.3);
+}
+
+body.dark-mode .indicator.active {
+  background: var(--primary-blue);
+  border-color: var(--primary-blue);
+  box-shadow: 0 0 10px var(--primary-blue);
+}
+
+/* Feature Cards */
+body.dark-mode .feature-card {
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.3);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+body.dark-mode .feature-card:hover {
+  box-shadow: 0 28px 60px rgba(0, 0, 0, 0.5);
+}
+
+/* Footer */
+body.dark-mode footer {
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+body.dark-mode .footer-bottom {
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+body.dark-mode .shiny-text {
+  background: linear-gradient(90deg,
+    var(--primary-blue) 0%,
+    var(--secondary-blue) 25%,
+    #ffffff 50%,
+    var(--secondary-blue) 75%,
+    var(--primary-blue) 100%);
+  background-size: 400% auto;
+  -webkit-background-clip: text;
+  background-clip: text;
+  animation: textShine 4s ease-in-out infinite;
+}
+
 @media (max-width: 480px) {
   .hero {
     padding: calc(var(--nav-height) + 30px) 0 30px;
