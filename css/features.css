@@ -212,3 +212,27 @@ body.dark-mode .feature-icon:not(.fas):not(.far):not(.fa) { color: #66B2FF; }
   filter: saturate(120%) blur(0.2px);
   opacity: 0.65;
 }
+
+/* Light mode: make feature icons visible and balanced */
+body:not(.dark-mode) .feature-icon-wrapper {
+  background: rgba(0, 59, 142, 0.08) !important;
+  border: 1px solid rgba(0, 59, 142, 0.12) !important;
+  box-shadow: 0 10px 24px rgba(0, 59, 142, 0.10) !important;
+}
+body:not(.dark-mode) .feature-icon-wrapper .feature-icon { color: #0f2a55 !important; }
+body:not(.dark-mode) .feature-icon-wrapper::before {
+  background: radial-gradient(circle at 60% 30%, rgba(255,255,255,0.45), transparent 60%);
+}
+
+/* Ensure glyph color in dark stands out */
+.dark-mode .feature-icon-wrapper .feature-icon { color: #cfe5ff !important; }
+
+/* If .feature-icon used without wrapper: provide theme-aware circle */
+body:not(.dark-mode) .feature-card .feature-icon:not(.fas):not(.far):not(.fa) {
+  background: rgba(0,59,142,0.06) !important;
+  color: #0f2a55 !important;
+}
+.dark-mode .feature-card .feature-icon:not(.fas):not(.far):not(.fa) {
+  background: rgba(102,178,255,0.12) !important;
+  color: #cfe5ff !important;
+}
