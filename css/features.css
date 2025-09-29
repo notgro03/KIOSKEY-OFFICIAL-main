@@ -7,11 +7,32 @@
 
 .feature-card {
   padding: 24px;
-  background: var(--card-gradient);
+  background: rgba(255, 255, 255, 0.18);
+  border: 1px solid rgba(255, 255, 255, 0.35);
   border-radius: 12px;
   text-align: center;
   transition: all 0.3s ease;
   color: white;
+  position: relative;
+  overflow: hidden;
+  backdrop-filter: blur(18px) saturate(140%);
+  -webkit-backdrop-filter: blur(18px) saturate(140%);
+  box-shadow: 0 18px 44px rgba(0,59,142,0.18), inset 0 1px 0 rgba(255,255,255,0.35);
+}
+
+.feature-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  pointer-events: none;
+  background: linear-gradient(180deg, rgba(255,255,255,0.35), rgba(255,255,255,0.06));
+  mask: linear-gradient(#000, #000) content-box, linear-gradient(#000, #000);
+  -webkit-mask: linear-gradient(#000, #000) content-box, linear-gradient(#000, #000);
+  padding: 1px; /* thin light edge */
+  -webkit-mask-composite: xor;
+          mask-composite: exclude;
+  opacity: 0.6;
 }
 
 .feature-card:hover {
@@ -27,15 +48,16 @@
   width: 96px;
   height: 96px;
   border-radius: 50%;
-  background: radial-gradient(120% 120% at 30% 20%, rgba(255,255,255,0.25) 0%, rgba(255,255,255,0.08) 35%, rgba(0,0,0,0.06) 70%),
-              linear-gradient(180deg, rgba(255,255,255,0.18) 0%, rgba(255,255,255,0.06) 100%);
+  background: rgba(255,255,255,0.16);
+  border: 1.2px solid rgba(255,255,255,0.35);
   box-shadow: inset 0 2px 6px rgba(255,255,255,0.35), inset 0 -8px 20px rgba(0,0,0,0.15), 0 10px 30px rgba(0,59,142,0.18);
   margin: 0 auto 20px;
   display: inline-flex;
   align-items: center;
   justify-content: center;
   position: relative;
-  border: 1.5px solid rgba(255,255,255,0.35);
+  backdrop-filter: blur(8px) saturate(140%);
+  -webkit-backdrop-filter: blur(8px) saturate(140%);
 }
 
 /* luminous ring */
@@ -165,4 +187,50 @@ body.dark-mode .feature-card h3 { color: #66B2FF; }
   color: rgba(255, 255, 255, 0.9);
   font-size: 14px;
   line-height: 1.6;
+}
+
+/* Glassmorphism + blue grainy neon background for features */
+.features-section {
+  position: relative;
+  overflow: hidden;
+}
+
+/* Section background: soft gradients + procedural grain */
+.features-section::before {
+  content: '';
+  position: absolute;
+  inset: -20px; /* bleed edges for blur */
+  pointer-events: none;
+  background-image:
+    radial-gradient(800px 500px at 10% 20%, rgba(0, 163, 255, 0.18), transparent 60%),
+    radial-gradient(600px 400px at 85% 30%, rgba(0, 115, 230, 0.16), transparent 58%),
+    radial-gradient(700px 500px at 50% 90%, rgba(0, 59, 142, 0.14), transparent 60%),
+    /* faux grain */
+    radial-gradient(circle at 30% 35%, rgba(255,255,255,0.05) 0 1px, transparent 1px),
+    radial-gradient(circle at 70% 65%, rgba(255,255,255,0.04) 0 1px, transparent 1px),
+    radial-gradient(circle at 40% 80%, rgba(255,255,255,0.04) 0 1px, transparent 1px),
+    radial-gradient(circle at 60% 20%, rgba(255,255,255,0.04) 0 1px, transparent 1px);
+  background-size: auto, auto, auto, 3px 3px, 3px 3px, 3px 3px, 3px 3px;
+  filter: saturate(120%) blur(0.2px);
+  opacity: 0.65;
+}
+
+/* Dark mode: stronger neon and bluish grain */
+.dark-mode .features-section::before {
+  background-image:
+    radial-gradient(800px 500px at 12% 22%, rgba(0, 163, 255, 0.24), transparent 60%),
+    radial-gradient(600px 400px at 82% 28%, rgba(0, 140, 255, 0.22), transparent 58%),
+    radial-gradient(700px 500px at 50% 95%, rgba(0, 90, 200, 0.22), transparent 60%),
+    radial-gradient(circle at 30% 35%, rgba(102,178,255,0.08) 0 1px, transparent 1px),
+    radial-gradient(circle at 70% 65%, rgba(102,178,255,0.06) 0 1px, transparent 1px),
+    radial-gradient(circle at 40% 80%, rgba(102,178,255,0.06) 0 1px, transparent 1px),
+    radial-gradient(circle at 60% 20%, rgba(102,178,255,0.06) 0 1px, transparent 1px);
+  opacity: 0.7;
+}
+
+/* Dark glass */
+.dark-mode .feature-card {
+  background: rgba(18, 24, 34, 0.45);
+  border: 1px solid rgba(102,178,255,0.25);
+  box-shadow: 0 22px 60px rgba(0,0,0,0.45), 0 16px 48px rgba(0,115,230,0.18), inset 0 1px 0 rgba(255,255,255,0.06);
 }
