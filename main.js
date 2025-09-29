@@ -4,6 +4,7 @@ import './style.css'
 // Bring in global scripts so Vite bundles them for production
 import './src/js/darkmode.js'
 import './js/carousel.js'
+import './src/js/interactive-key.js'
 
 // Initialize modules
 const initApp = () => {
