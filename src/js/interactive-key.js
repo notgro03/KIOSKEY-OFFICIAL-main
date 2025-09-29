@@ -1,8 +1,10 @@
-// Interactive 3D-like key: scroll + pointer parallax
+// Interactive 3D-like key + parallax for glass and blobs
 (() => {
   const hero = document.querySelector('.hero');
+  if (!hero) return;
   const keyWrap = document.querySelector('.hero-3d-key');
-  if (!hero || !keyWrap) return;
+  const glass = document.querySelector('.glass-hero');
+  const blobs = document.querySelectorAll('.bg-blob');
 
   let rafId = null;
   let pointerX = 0, pointerY = 0;
@@ -13,14 +15,23 @@
     rafId = null;
     if (!active) return;
 
-    // Subtle ranges for elegance
-    const rotZ = -6 + progress * 12; // -6..+6 deg
-    const moveY = progress * 80;     // px
-    const tiltX = (pointerY - 0.5) * 8; // deg
-    const tiltY = (pointerX - 0.5) * 10; // deg
-    const scale = 1 + Math.min(progress, 1) * 0.02;
+    // Subtle parallax for hero glass and blobs
+    const baseY = progress * -14; // glass goes slightly up when scrolling
+    if (glass) glass.style.transform = `translate3d(0, ${baseY}px, 0)`;
+    blobs.forEach((b, i) => {
+      const speed = 8 + i * 6; // different speeds per blob
+      b.style.transform = `translate3d(0, ${progress * speed}px, 0)`;
+    });
 
-    keyWrap.style.transform = `translate3d(0, ${moveY}px, 0) rotateX(${tiltX}deg) rotateY(${tiltY}deg) rotateZ(${rotZ}deg) scale(${scale})`;
+    // Key overlay motion (if present)
+    if (keyWrap) {
+      const rotZ = -6 + progress * 12; // -6..+6 deg
+      const moveY = progress * 80;     // px
+      const tiltX = (pointerY - 0.5) * 8; // deg
+      const tiltY = (pointerX - 0.5) * 10; // deg
+      const scale = 1 + Math.min(progress, 1) * 0.02;
+      keyWrap.style.transform = `translate3d(0, ${moveY}px, 0) rotateX(${tiltX}deg) rotateY(${tiltY}deg) rotateZ(${rotZ}deg) scale(${scale})`;
+    }
   };
 
   const schedule = () => { if (!rafId) rafId = requestAnimationFrame(update); };
