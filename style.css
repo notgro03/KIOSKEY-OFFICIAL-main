@@ -1629,3 +1629,12 @@ body.dark-mode .faq-answer.active {
   outline: 3px solid rgba(0,115,230,0.16);
   outline-offset: 3px;
 }
+
+/* Asegúrate de que el botón de modo oscuro no esté oculto o deshabilitado */
+.dark-mode-toggle {
+    pointer-events: auto !important; /* Forzar que sea clickeable */
+    z-index: 100; /* Asegurar que esté por encima de otros elementos */
+    display: flex; /* Asegurar que se muestre */
+    align-items: center;
+    justify-content: center;
+}

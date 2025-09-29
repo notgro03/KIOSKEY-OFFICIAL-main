@@ -6,6 +6,13 @@
   --dark-hover: rgba(255, 255, 255, 0.05);
   --dark-card-gradient: linear-gradient(135deg, #003B8E 0%, #0056D1 100%);
   --dark-shadow: rgba(0, 0, 0, 0.3);
+  --bg-color: #121212;
+  --header-bg: #1e1e1e;
+  --card-bg: #2c2c2c;
+  --footer-bg: #1e1e1e;
+  --text-color: #e0e0e0;
+  --border-color: rgba(255, 255, 255, 0.2);
+  --shadow: rgba(0, 0, 0, 0.5);
 }
 
 /* Modo oscuro base */
@@ -95,4 +102,62 @@
 
 .dark-mode .footer-social a:hover {
   background: rgba(255, 255, 255, 0.2);
+}
+
+/* Aplicar las variables a los elementos */
+html.dark-mode, body.dark-mode {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+}
+
+html.dark-mode header, body.dark-mode header {
+    background-color: var(--header-bg);
+    border-color: var(--border-color);
+}
+
+html.dark-mode .nav-link, body.dark-mode .nav-link {
+    color: var(--text-color);
+}
+
+html.dark-mode .card,
+html.dark-mode .service-card,
+html.dark-mode .feature-card,
+html.dark-mode .content-box,
+html.dark-mode .search-box,
+html.dark-mode .info-section,
+body.dark-mode .card,
+body.dark-mode .service-card,
+body.dark-mode .feature-card,
+body.dark-mode .content-box,
+body.dark-mode .search-box,
+body.dark-mode .info-section {
+    background-color: var(--card-bg);
+    border-color: var(--border-color);
+    box-shadow: 0 2px 4px var(--shadow);
+}
+
+html.dark-mode input,
+html.dark-mode textarea,
+html.dark-mode select,
+body.dark-mode input,
+body.dark-mode textarea,
+body.dark-mode select {
+    background-color: var(--card-bg); /* Usar card-bg para inputs en dark mode */
+    color: var(--text-color);
+    border-color: var(--border-color);
+}
+
+html.dark-mode footer, body.dark-mode footer {
+    background-color: var(--footer-bg);
+    border-color: var(--border-color);
+}
+
+/* Estilos para el icono de la luna/sol */
+.dark-mode-toggle i {
+    color: var(--text-color); /* El color del icono cambia con el tema */
+    transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.dark-mode-toggle:hover i {
+    transform: scale(1.1);
 }
