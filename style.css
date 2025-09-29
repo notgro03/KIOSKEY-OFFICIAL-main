@@ -1706,3 +1706,104 @@ body.dark-mode .faq-answer.active {
 /* Dark mode toggle color in dark theme */
 .dark-mode .dark-mode-toggle { color: #e6f0ff; }
 .dark-mode .dark-mode-toggle:hover { background: rgba(102,178,255,0.12); }
+
+/* Global grainy neon background for the entire site */
+html, body { background: var(--background); }
+body { position: relative; }
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  z-index: -1; /* behind content */
+  pointer-events: none;
+  background-image:
+    radial-gradient(1200px 800px at 8% 12%, rgba(0,163,255,0.10), transparent 60%),
+    radial-gradient(1000px 700px at 90% 18%, rgba(0,115,230,0.08), transparent 62%),
+    radial-gradient(1200px 800px at 55% 92%, rgba(0,59,142,0.10), transparent 62%),
+    /* faux grain speckles */
+    radial-gradient(circle at 12% 24%, rgba(255,255,255,0.05) 0 1px, transparent 1px),
+    radial-gradient(circle at 22% 66%, rgba(255,255,255,0.045) 0 1px, transparent 1px),
+    radial-gradient(circle at 42% 74%, rgba(255,255,255,0.04) 0 1px, transparent 1px),
+    radial-gradient(circle at 78% 38%, rgba(255,255,255,0.05) 0 1px, transparent 1px),
+    radial-gradient(circle at 64% 18%, rgba(255,255,255,0.05) 0 1px, transparent 1px);
+  background-size: auto, auto, auto, 3px 3px, 3px 3px, 3px 3px, 3px 3px;
+  filter: saturate(115%) blur(0.25px);
+  opacity: 0.55;
+}
+.dark-mode body::before {
+  background-image:
+    radial-gradient(1200px 800px at 8% 12%, rgba(0,163,255,0.18), transparent 60%),
+    radial-gradient(1000px 700px at 90% 18%, rgba(0,140,255,0.16), transparent 62%),
+    radial-gradient(1200px 800px at 55% 92%, rgba(0,90,200,0.20), transparent 62%),
+    radial-gradient(circle at 12% 24%, rgba(102,178,255,0.09) 0 1px, transparent 1px),
+    radial-gradient(circle at 22% 66%, rgba(102,178,255,0.08) 0 1px, transparent 1px),
+    radial-gradient(circle at 42% 74%, rgba(102,178,255,0.08) 0 1px, transparent 1px),
+    radial-gradient(circle at 78% 38%, rgba(102,178,255,0.09) 0 1px, transparent 1px),
+    radial-gradient(circle at 64% 18%, rgba(102,178,255,0.09) 0 1px, transparent 1px);
+  opacity: 0.65;
+}
+
+/* Reusable glass surface (applied to site cards) */
+.feature-card,
+.plan-card,
+.contact-card,
+.product-card,
+.info-section,
+.search-box,
+.content-box,
+.service-card,
+.faq-item {
+  position: relative;
+  background: rgba(255,255,255,0.16) !important;
+  border: 1px solid rgba(255,255,255,0.35);
+  backdrop-filter: blur(18px) saturate(140%);
+  -webkit-backdrop-filter: blur(18px) saturate(140%);
+  box-shadow: 0 18px 44px rgba(0,59,142,0.18), inset 0 1px 0 rgba(255,255,255,0.35);
+}
+.dark-mode .feature-card,
+.dark-mode .plan-card,
+.dark-mode .contact-card,
+.dark-mode .product-card,
+.dark-mode .info-section,
+.dark-mode .search-box,
+.dark-mode .content-box,
+.dark-mode .service-card,
+.dark-mode .faq-item {
+  background: rgba(18,24,34,0.45) !important;
+  border: 1px solid rgba(102,178,255,0.25);
+  box-shadow: 0 22px 60px rgba(0,0,0,0.45), 0 16px 48px rgba(0,115,230,0.18), inset 0 1px 0 rgba(255,255,255,0.06);
+}
+
+/* Subtle glass edge highlight */
+.feature-card::before,
+.plan-card::before,
+.contact-card::before,
+.product-card::before,
+.info-section::before,
+.search-box::before,
+.content-box::before,
+.service-card::before,
+.faq-item::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  pointer-events: none;
+  background: linear-gradient(180deg, rgba(255,255,255,0.35), rgba(255,255,255,0.06));
+  mask: linear-gradient(#000, #000) content-box, linear-gradient(#000, #000);
+  -webkit-mask: linear-gradient(#000, #000) content-box, linear-gradient(#000, #000);
+  padding: 1px;
+  -webkit-mask-composite: xor;
+          mask-composite: exclude;
+  opacity: 0.55;
+}
+
+/* Make sure text remains legible on glass */
+.dark-mode .feature-card h3,
+.dark-mode .plan-card h3,
+.dark-mode .contact-card h3,
+.dark-mode .product-card h3 { color: #eaf2ff; }
+.dark-mode .feature-card p,
+.dark-mode .plan-card p,
+.dark-mode .contact-card p,
+.dark-mode .product-card p { color: #cfd8e6; }
