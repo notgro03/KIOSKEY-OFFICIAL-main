@@ -336,6 +336,15 @@ nav.nav-hidden {
 .skip-link:focus {
   top: 6px;
 }
+
+/* Layout containers and section spacing */
+.content-container{ max-width: var(--max-content-width); margin: 0 auto; padding: 0 24px; }
+.main-content{ padding: 40px 0 80px; position: relative; z-index: 1; }
+.features-grid{ margin-top: 24px; }
+
+/* Ensure footer has room and sits below content */
+footer{ margin-top: 20px; z-index: 0; position: relative; }
+
 @media (max-width: 1024px) {
   nav {
     width: calc(100% - 40px);
