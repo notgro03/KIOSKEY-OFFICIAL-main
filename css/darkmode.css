@@ -37,6 +37,11 @@
   box-shadow: 0 6px 18px rgba(0, 115, 230, 0.25) !important;
 }
 
+.dark-mode .nav-links a i {
+  color: #e6f0ff !important;
+  opacity: 1;
+}
+
 .dark-mode .nav-dropdown-content {
   background-color: var(--dark-card-bg);
   border: 1px solid var(--dark-border);
@@ -191,3 +196,8 @@ html.dark-mode footer, body.dark-mode footer {
 .dark-mode-toggle:hover i {
     transform: scale(1.1);
 }
+
+/* Accent headings in dark mode where needed */
+.dark-mode .feature-card h3,
+.dark-mode .plans-container h2,
+.dark-mode .faq-item h3 { color: #66B2FF !important; }
