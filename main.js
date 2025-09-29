@@ -1,6 +1,10 @@
 // Import styles
 import './style.css'
 
+// Bring in global scripts so Vite bundles them for production
+import './src/js/darkmode.js'
+import './js/carousel.js'
+
 // Initialize modules
 const initApp = () => {
   // Navigation menu
