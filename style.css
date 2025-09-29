@@ -66,7 +66,7 @@ nav.nav-hidden {
   text-decoration: none;
   font-size: 16px;
   font-weight: 500;
-  opacity: 0.8;
+  opacity: 1 !important;
   transition: all 0.3s ease;
   padding: 8px 16px;
   border-radius: 50px;
@@ -84,7 +84,9 @@ nav.nav-hidden {
   display: inline-block;
   font-size: 14px;
   flex-shrink: 0;
+  opacity: 1 !important;
 }
+
 .nav-links a:hover {
   opacity: 1;
   background: rgba(0, 59, 142, 0.1);
@@ -1638,3 +1640,33 @@ body.dark-mode .faq-answer.active {
     align-items: center;
     justify-content: center;
 }
+
+/* Nav readability in light mode */
+.nav-links a {
+  opacity: 1 !important;            /* full contrast */
+  color: var(--text-color) !important;
+}
+.nav-links a i {
+  opacity: 1 !important;
+  color: inherit !important;
+}
+
+/* Clean, round dark-mode toggle button */
+.dark-mode-toggle {
+  background: none;
+  border: none;
+  width: 40px;
+  height: 40px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-color);
+  border-radius: 50%;
+  transition: background 0.2s ease, transform 0.15s ease;
+}
+.dark-mode-toggle:hover { background: rgba(0, 59, 142, 0.1); transform: translateY(-1px); }
+.dark-mode-toggle i { font-size: 22px; }
+
+/* Dark mode toggle color in dark theme */
+.dark-mode .dark-mode-toggle { color: #e6f0ff; }
+.dark-mode .dark-mode-toggle:hover { background: rgba(102,178,255,0.12); }

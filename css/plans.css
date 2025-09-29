@@ -899,3 +899,17 @@ body.dark-mode .cta-button.secondary {
     font-size: 11px;
   }
 }
+
+/* Distinct color themes per plan */
+.plan-card:nth-child(1) .plan-header { background: linear-gradient(135deg, #003B8E 0%, #0072BC 60%, #00A3FF 100%); }
+.plan-card:nth-child(1) .plan-button { background: linear-gradient(135deg, #003B8E, #0072BC, #00A3FF); }
+
+.plan-card:nth-child(2) .plan-header { background: linear-gradient(135deg, #FF6B35 0%, #F7931E 60%, #FFD700 100%); }
+.plan-card:nth-child(2) .plan-button { background: linear-gradient(135deg, #FF6B35, #F7931E, #FFD700); color: #1a1a1a; }
+
+.plan-card:nth-child(3) .plan-header { background: linear-gradient(135deg, #006D77 0%, #00A6A6 60%, #3CD0C9 100%); }
+.plan-card:nth-child(3) .plan-button { background: linear-gradient(135deg, #006D77, #00A6A6, #3CD0C9); }
+
+/* Dark-mode stronger contrast for these themes */
+body.dark-mode .plan-card:nth-child(2) .plan-header { background: linear-gradient(135deg, #FF8A50, #FFB347, #FFE066); }
+body.dark-mode .plan-card:nth-child(3) .plan-header { background: linear-gradient(135deg, #27A2A2, #34C1BF, #6FE3DC); }
