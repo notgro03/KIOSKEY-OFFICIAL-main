@@ -1592,3 +1592,40 @@ body.dark-mode .faq-question:hover {
 body.dark-mode .faq-answer.active {
   border-top: 1px solid rgba(102, 178, 255, 0.1);
 }
+
+/* Small UI tweaks requested by user */
+.dark-mode-toggle i, #darkModeToggle i {
+  font-size: 22px !important; /* larger moon/sun */
+}
+
+/* Hide the three-line menu button since it has no function */
+.menu-button {
+  display: none !important;
+}
+
+/* Add more space between the fixed nav and the hero title */
+.hero {
+  margin-top: 110px; /* pushes hero down so title is further from nav */
+}
+
+/* Make feature icons bigger and match site aesthetic */
+.feature-icon, .feature-icon-wrapper .feature-icon {
+  font-size: 40px !important;
+  width: 96px;
+  height: 96px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+}
+
+/* Contact cards: ensure grid looks tidy */
+.pages-contact .features-grid, .features-grid {
+  gap: 28px;
+}
+
+/* For accessibility: ensure toggles remain keyboard-focusable */
+.dark-mode-toggle:focus {
+  outline: 3px solid rgba(0,115,230,0.16);
+  outline-offset: 3px;
+}

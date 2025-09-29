@@ -20,36 +20,37 @@
 }
 
 .feature-icon-wrapper {
-  width: 84px;
-  height: 84px;
-  background: rgba(255, 255, 255, 0.2);
+  width: 96px;
+  height: 96px;
+  background: rgba(255, 255, 255, 0.12);
   border-radius: 50%;
-  margin: 0 auto 20px;
+  margin: 0 auto 22px;
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: all 0.3s ease;
+  transition: all 0.28s ease;
   position: relative;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.12);
 }
 
 .feature-icon {
-  font-size: 32px;
+  font-size: 40px;
   color: white;
   position: relative;
   z-index: 2;
-  transition: all 0.3s ease;
+  transition: transform 220ms ease, color 200ms ease;
 }
 
 /* Support pages that use .feature-icon directly (no wrapper) */
 .feature-icon {
-  width: 84px;
-  height: 84px;
+  width: 96px;
+  height: 96px;
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  background: rgba(255,255,255,0.08);
+  background: rgba(255,255,255,0.06);
   border-radius: 50%;
-  margin: 0 auto 20px;
+  margin: 0 auto 22px;
 }
 
 .feature-icon-wrapper:after {
