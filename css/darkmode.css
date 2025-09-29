@@ -17,8 +17,12 @@
 
 /* Modo oscuro base */
 .dark-mode {
-  background-color: var(--dark-bg) !important;
+  background-color: transparent !important;
   color: var(--dark-text) !important;
+}
+
+.dark-mode body {
+  background-color: transparent !important;
 }
 
 .dark-mode nav {
