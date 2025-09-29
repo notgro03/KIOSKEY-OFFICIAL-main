@@ -137,56 +137,54 @@ body.dark-mode .feature-card h3 { color: #66B2FF; }
   transition: transform 220ms ease, color 200ms ease;
 }
 
-/* Support pages that use .feature-icon directly (no wrapper) */
-.feature-icon {
-  width: 96px;
-  height: 96px;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  background: rgba(255,255,255,0.06);
-  border-radius: 50%;
-  margin: 0 auto 22px;
+/* Reset inner icon when wrapped to avoid double circles */
+.feature-icon-wrapper .feature-icon {
+  width: auto !important;
+  height: auto !important;
+  background: none !important;
+  border: 0 !important;
+  box-shadow: none !important;
+  border-radius: 0 !important;
+  display: inline-block !important;
+  position: relative;
+  z-index: 2;
+  font-size: 40px; /* visible glyph */
+  color: #ffffff;
+}
+body.dark-mode .feature-icon-wrapper .feature-icon { color: #66B2FF; }
+
+/* If there is a wrapper, create the luminous ring on the wrapper, not the inner icon */
+.feature-icon-wrapper::before { content: ''; position: absolute; inset: 6px; border-radius: 50%; background: radial-gradient(circle at 60% 30%, rgba(255,255,255,0.35), transparent 60%); filter: blur(1px); pointer-events: none; }
+body.dark-mode .feature-icon-wrapper::before { background: radial-gradient(circle at 60% 30%, rgba(102,178,255,0.35), transparent 60%); }
+
+/* Disable ring on inner icon when wrapped */
+.feature-icon-wrapper .feature-icon::before { content: none !important; }
+
+/* When .feature-icon is used directly (without wrapper), keep its circle surface and glyph */
+.feature-icon:not(.fas):not(.far):not(.fa) {
+  font-size: 32px;
+  color: #ffffff;
+}
+body.dark-mode .feature-icon:not(.fas):not(.far):not(.fa) { color: #66B2FF; }
+
+/* Dark mode: stronger neon and bluish grain */
+.dark-mode .features-section::before {
+  background-image:
+    radial-gradient(800px 500px at 12% 22%, rgba(0, 163, 255, 0.24), transparent 60%),
+    radial-gradient(600px 400px at 82% 28%, rgba(0, 140, 255, 0.22), transparent 58%),
+    radial-gradient(700px 500px at 50% 95%, rgba(0, 90, 200, 0.22), transparent 60%),
+    radial-gradient(circle at 30% 35%, rgba(102,178,255,0.08) 0 1px, transparent 1px),
+    radial-gradient(circle at 70% 65%, rgba(102,178,255,0.06) 0 1px, transparent 1px),
+    radial-gradient(circle at 40% 80%, rgba(102,178,255,0.06) 0 1px, transparent 1px),
+    radial-gradient(circle at 60% 20%, rgba(102,178,255,0.06) 0 1px, transparent 1px);
+  opacity: 0.7;
 }
 
-.feature-icon-wrapper:after {
-  content: '';
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(135deg, rgba(255,255,255,0.2) 0%, rgba(255,255,255,0.05) 100%);
-  border-radius: 50%;
-  opacity: 0;
-  transition: all 0.3s ease;
-}
-
-.feature-card:hover .feature-icon-wrapper {
-  transform: scale(1.1);
-  background: rgba(255, 255, 255, 0.3);
-}
-
-.feature-card:hover .feature-icon-wrapper:after {
-  opacity: 1;
-  transform: translate(-50%, -50%) scale(1.1);
-}
-
-.feature-card:hover .feature-icon {
-  transform: scale(1.1);
-  text-shadow: 0 0 20px rgba(255,255,255,0.3);
-}
-
-.feature-card h3 {
-  margin-bottom: 12px;
-  color: white;
-}
-
-.feature-card p {
-  color: rgba(255, 255, 255, 0.9);
-  font-size: 14px;
-  line-height: 1.6;
+/* Dark glass */
+.dark-mode .feature-card {
+  background: rgba(18, 24, 34, 0.45);
+  border: 1px solid rgba(102,178,255,0.25);
+  box-shadow: 0 22px 60px rgba(0,0,0,0.45), 0 16px 48px rgba(0,115,230,0.18), inset 0 1px 0 rgba(255,255,255,0.06);
 }
 
 /* Glassmorphism + blue grainy neon background for features */
@@ -213,24 +211,4 @@ body.dark-mode .feature-card h3 { color: #66B2FF; }
   background-size: auto, auto, auto, 3px 3px, 3px 3px, 3px 3px, 3px 3px;
   filter: saturate(120%) blur(0.2px);
   opacity: 0.65;
-}
-
-/* Dark mode: stronger neon and bluish grain */
-.dark-mode .features-section::before {
-  background-image:
-    radial-gradient(800px 500px at 12% 22%, rgba(0, 163, 255, 0.24), transparent 60%),
-    radial-gradient(600px 400px at 82% 28%, rgba(0, 140, 255, 0.22), transparent 58%),
-    radial-gradient(700px 500px at 50% 95%, rgba(0, 90, 200, 0.22), transparent 60%),
-    radial-gradient(circle at 30% 35%, rgba(102,178,255,0.08) 0 1px, transparent 1px),
-    radial-gradient(circle at 70% 65%, rgba(102,178,255,0.06) 0 1px, transparent 1px),
-    radial-gradient(circle at 40% 80%, rgba(102,178,255,0.06) 0 1px, transparent 1px),
-    radial-gradient(circle at 60% 20%, rgba(102,178,255,0.06) 0 1px, transparent 1px);
-  opacity: 0.7;
-}
-
-/* Dark glass */
-.dark-mode .feature-card {
-  background: rgba(18, 24, 34, 0.45);
-  border: 1px solid rgba(102,178,255,0.25);
-  box-shadow: 0 22px 60px rgba(0,0,0,0.45), 0 16px 48px rgba(0,115,230,0.18), inset 0 1px 0 rgba(255,255,255,0.06);
 }
