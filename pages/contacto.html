@@ -17,18 +17,53 @@
       box-shadow: 0 4px 6px rgba(0, 59, 142, 0.1);
     }
 
-    .contact-intro h2 {
-      color: var(--primary-blue);
-      font-size: 32px;
-      margin-bottom: 16px;
-    }
+    /* Tidy grid spacing */
+    .features-grid { gap: 28px; }
 
-    .contact-intro p {
-      color: #666;
-      font-size: 18px;
-      max-width: 600px;
-      margin: 0 auto;
-      line-height: 1.6;
+    /* Support CTA button under cards */
+    .tutorial-button {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      margin: 28px auto 12px;
+      padding: 12px 18px;
+      background: var(--card-gradient);
+      color: #fff;
+      text-decoration: none;
+      border-radius: 999px;
+      font-weight: 600;
+      box-shadow: 0 10px 24px rgba(0,59,142,0.25);
+    }
+    .tutorial-button:hover { transform: translateY(-2px); box-shadow: 0 16px 32px rgba(0,59,142,0.35); }
+
+    /* Keep the icon small inside the button, overriding global feature-icon */
+    .tutorial-button .feature-icon {
+      width: 36px !important;
+      height: 36px !important;
+      margin: 0 !important;
+      background: rgba(255,255,255,0.15) !important;
+      box-shadow: none !important;
+    }
+    .tutorial-button .feature-icon i { font-size: 16px !important; }
+
+    /* Dark mode adjustments for contact cards */
+    body.dark-mode .contact-card {
+      background: linear-gradient(135deg, #2b2f3a, #1f2330);
+      border-color: rgba(255,255,255,0.08);
+      box-shadow: 0 16px 48px rgba(0,0,0,0.5), 0 12px 36px rgba(0,115,230,0.18);
+    }
+    body.dark-mode .contact-card .feature-icon { background: rgba(102,178,255,0.12); color: #cfe5ff; }
+    body.dark-mode .contact-card h3 { color: #cfe5ff; }
+    body.dark-mode .contact-card p { color: #e6e6e6; }
+
+    /* Neon underglow specific to contact cards */
+    body.dark-mode .contact-card::after {
+      content: '';
+      position: absolute;
+      left: 10%; right: 10%; bottom: -14px; height: 24px;
+      background: radial-gradient(ellipse at center, rgba(0,115,230,0.4) 0%, rgba(0,115,230,0) 70%);
+      filter: blur(12px);
+      border-radius: 50%; pointer-events: none;
     }
 
     .contact-card {

@@ -22,12 +22,19 @@
 }
 
 .dark-mode nav {
-  background-color: var(--dark-bg);
-  border-bottom: 1px solid var(--dark-border);
+  background: rgba(10, 14, 24, 0.85) !important;
+  border: 1px solid rgba(102, 178, 255, 0.15) !important;
+  box-shadow: 0 8px 32px rgba(0, 115, 230, 0.25), 0 2px 6px rgba(0,0,0,0.4) !important;
 }
 
 .dark-mode .nav-links a {
-  color: var(--dark-text);
+  color: #e6f0ff !important;
+  opacity: 0.95 !important;
+}
+
+.dark-mode .nav-links a:hover {
+  background: rgba(102, 178, 255, 0.12) !important;
+  box-shadow: 0 6px 18px rgba(0, 115, 230, 0.25) !important;
 }
 
 .dark-mode .nav-dropdown-content {
@@ -36,8 +43,12 @@
   box-shadow: 0 4px 12px var(--dark-shadow);
 }
 
+.dark-mode .nav-dropdown-content a {
+  color: #cfe5ff !important;
+}
+
 .dark-mode .nav-dropdown-content a:hover {
-  background-color: var(--dark-hover);
+  background: rgba(102,178,255,0.12) !important;
 }
 
 .dark-mode .search-box,
@@ -54,8 +65,27 @@
   color: var(--dark-text);
 }
 
-.dark-mode .feature-card {
+.dark-mode .feature-card,
+.dark-mode .plan-card,
+.dark-mode .contact-card {
+  position: relative;
   background: var(--dark-card-gradient);
+  box-shadow: 0 16px 48px rgba(0,0,0,0.5), 0 12px 36px rgba(0,115,230,0.18);
+}
+
+.dark-mode .feature-card::after,
+.dark-mode .plan-card::after,
+.dark-mode .contact-card::after {
+  content: '';
+  position: absolute;
+  left: 10%;
+  right: 10%;
+  bottom: -14px;
+  height: 24px;
+  background: radial-gradient(ellipse at center, rgba(0,115,230,0.4) 0%, rgba(0,115,230,0.0) 70%);
+  filter: blur(12px);
+  pointer-events: none;
+  border-radius: 50%;
 }
 
 .dark-mode .result-feature {
