@@ -1774,7 +1774,40 @@ body::before {
   box-shadow: 0 22px 60px rgba(0,0,0,0.45), 0 16px 48px rgba(0,115,230,0.18), inset 0 1px 0 rgba(255,255,255,0.06);
 }
 
-/* Subtle glass edge highlight */
+/* Tweak global grain intensity for a cleaner look */
+body::before { opacity: 0.38; filter: saturate(110%) blur(0.2px); }
+.dark-mode body::before { opacity: 0.5; }
+
+/* Softer, more premium glass defaults */
+.feature-card,
+.plan-card,
+.contact-card,
+.product-card,
+.info-section,
+.search-box,
+.content-box,
+.service-card,
+.faq-item {
+  border-radius: 18px;
+  padding: clamp(16px, 2vw, 24px);
+  background: rgba(255,255,255,0.12) !important; /* lighter */
+  box-shadow: 0 12px 32px rgba(0,59,142,0.15), inset 0 1px 0 rgba(255,255,255,0.28);
+}
+.dark-mode .feature-card,
+.dark-mode .plan-card,
+.dark-mode .contact-card,
+.dark-mode .product-card,
+.dark-mode .info-section,
+.dark-mode .search-box,
+.dark-mode .content-box,
+.dark-mode .service-card,
+.dark-mode .faq-item {
+  background: rgba(25,29,38,0.35) !important; /* less heavy */
+  border-color: rgba(102,178,255,0.18);
+  box-shadow: 0 18px 44px rgba(0,0,0,0.35), 0 10px 26px rgba(0,115,230,0.12), inset 0 1px 0 rgba(255,255,255,0.04);
+}
+
+/* Softer edge highlight */
 .feature-card::before,
 .plan-card::before,
 .contact-card::before,
@@ -1783,27 +1816,48 @@ body::before {
 .search-box::before,
 .content-box::before,
 .service-card::before,
-.faq-item::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  border-radius: inherit;
-  pointer-events: none;
-  background: linear-gradient(180deg, rgba(255,255,255,0.35), rgba(255,255,255,0.06));
-  mask: linear-gradient(#000, #000) content-box, linear-gradient(#000, #000);
-  -webkit-mask: linear-gradient(#000, #000) content-box, linear-gradient(#000, #000);
-  padding: 1px;
-  -webkit-mask-composite: xor;
-          mask-composite: exclude;
-  opacity: 0.55;
-}
+.faq-item::before { opacity: 0.38; }
 
-/* Make sure text remains legible on glass */
+/* Text legibility */
+.feature-card h3,
+.plan-card h3,
+.contact-card h3,
+.product-card h3 { color: #0f2a55; }
+.feature-card p,
+.plan-card p,
+.contact-card p,
+.product-card p { color: #374c69; }
 .dark-mode .feature-card h3,
 .dark-mode .plan-card h3,
 .dark-mode .contact-card h3,
-.dark-mode .product-card h3 { color: #eaf2ff; }
+.dark-mode .product-card h3 { color: #e6f0ff; }
 .dark-mode .feature-card p,
 .dark-mode .plan-card p,
 .dark-mode .contact-card p,
-.dark-mode .product-card p { color: #cfd8e6; }
+.dark-mode .product-card p { color: #c7d7f0; }
+
+/* Backdrop-filter fallback for browsers that don’t support it */
+@supports not ((backdrop-filter: blur(4px)) or (-webkit-backdrop-filter: blur(4px))) {
+  .feature-card,
+  .plan-card,
+  .contact-card,
+  .product-card,
+  .info-section,
+  .search-box,
+  .content-box,
+  .service-card,
+  .faq-item {
+    background: linear-gradient(180deg, rgba(255,255,255,0.85), rgba(255,255,255,0.7)) !important;
+  }
+  .dark-mode .feature-card,
+  .dark-mode .plan-card,
+  .dark-mode .contact-card,
+  .dark-mode .product-card,
+  .dark-mode .info-section,
+  .dark-mode .search-box,
+  .dark-mode .content-box,
+  .dark-mode .service-card,
+  .dark-mode .faq-item {
+    background: linear-gradient(180deg, rgba(29,33,42,0.85), rgba(29,33,42,0.7)) !important;
+  }
+}

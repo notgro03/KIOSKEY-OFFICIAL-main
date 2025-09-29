@@ -8,12 +8,12 @@
   "theme_color": "#003B8E",
   "icons": [
     {
-      "src": "/LOGO_KIOSKEYS.png",
+      "src": "/images/LOGO_KIOSKEYS.png",
       "sizes": "192x192",
       "type": "image/png"
     },
     {
-      "src": "/LOGO_KIOSKEYS.png",
+      "src": "/images/LOGO_KIOSKEYS.png",
       "sizes": "512x512",
       "type": "image/png"
     }
