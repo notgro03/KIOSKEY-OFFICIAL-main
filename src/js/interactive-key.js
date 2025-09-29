@@ -6,19 +6,19 @@
 
   let rafId = null;
   let pointerX = 0, pointerY = 0;
-  let progress = 0; // scroll progress 0..1.5
+  let progress = 0; // scroll progress 0..1.2
   let active = true;
 
   const update = () => {
     rafId = null;
     if (!active) return;
 
-    // Calculate transforms
-    const rotZ = 10 + progress * 40; // degrees
-    const moveY = progress * 140;    // px
-    const tiltX = (pointerY - 0.5) * 14; // degrees
-    const tiltY = (pointerX - 0.5) * 18; // degrees
-    const scale = 1 + Math.min(progress, 1) * 0.04;
+    // Subtle ranges for elegance
+    const rotZ = -6 + progress * 12; // -6..+6 deg
+    const moveY = progress * 80;     // px
+    const tiltX = (pointerY - 0.5) * 8; // deg
+    const tiltY = (pointerX - 0.5) * 10; // deg
+    const scale = 1 + Math.min(progress, 1) * 0.02;
 
     keyWrap.style.transform = `translate3d(0, ${moveY}px, 0) rotateX(${tiltX}deg) rotateY(${tiltY}deg) rotateZ(${rotZ}deg) scale(${scale})`;
   };
@@ -28,9 +28,7 @@
   // Scroll mapping to progress
   const onScroll = () => {
     const viewport = window.innerHeight || 1;
-    const rect = hero.getBoundingClientRect();
-    const visibleTop = Math.min(Math.max(-rect.top, 0), rect.height + viewport);
-    progress = Math.max(0, Math.min((window.scrollY || window.pageYOffset) / viewport, 1.6));
+    progress = Math.max(0, Math.min((window.scrollY || window.pageYOffset) / viewport, 1.2));
     schedule();
   };
 
