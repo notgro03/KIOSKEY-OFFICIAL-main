@@ -1,10 +1,18 @@
-/* Import base styles and components */
-@import './css/base.css';
-@import './css/components/navigation.css';
+/**
+ * Main stylesheet for Kioskeys website
+ */
+
+/* Import base styles */
+@import './src/styles/base.css';
+
+/* Import component styles */
+@import './src/styles/components.css';
+
+/* Legacy component/page styles still in use */
 @import './css/carousel.css';
 @import './css/features.css';
-@import './css/plans.css';
 @import './css/darkmode.css';
+@import './css/plans.css';
 
 /* Navigation */
 nav {
