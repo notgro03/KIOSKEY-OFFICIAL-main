@@ -1,43 +1,24 @@
 // Import styles
 import './style.css'
 
-// Bring in global scripts so Vite bundles them for production
-import './src/js/darkmode.js'
-import './js/carousel.js'
-import './src/js/interactive-key.js'
+// Import components
+import { Navigation } from './src/js/components/Navigation'
+import { Carousel } from './src/js/components/Carousel'
 
-// Initialize modules
+// Initialize app
 const initApp = () => {
-  // Navigation menu
-  const menuButton = document.querySelector('.menu-button')
-  const navLinks = document.querySelector('.nav-links')
+  // Initialize navigation
+  new Navigation()
 
-  if (menuButton && navLinks) {
-    menuButton.addEventListener('click', () => {
-      navLinks.classList.toggle('active')
-      menuButton.classList.toggle('active')
+  // Initialize carousels if present
+  const carouselElements = document.querySelectorAll('.carousel-container')
+  carouselElements.forEach(element => {
+    new Carousel(element, {
+      autoplay: true,
+      autoplayDelay: 5000,
+      loop: true
     })
-
-    // Close menu when clicking outside
-    document.addEventListener('click', (e) => {
-      if (!menuButton.contains(e.target) && !navLinks.contains(e.target)) {
-        navLinks.classList.remove('active')
-        menuButton.classList.remove('active')
-      }
-    })
-  }
-
-  // Scroll effects
-  const hero = document.querySelector('.hero')
-  if (hero) {
-    window.addEventListener('scroll', () => {
-      if (window.scrollY > 50) {
-        hero.classList.add('scrolled')
-      } else {
-        hero.classList.remove('scrolled')
-      }
-    })
-  }
+  })
 }
 
 // Initialize app when DOM is ready

@@ -1,35 +1,74 @@
 import { defineConfig } from 'vite'
 import { resolve } from 'path'
+import { glob } from 'glob'
+
+// Get all HTML files
+const htmlFiles = glob.sync('{pages,}/*.html').reduce((acc, file) => {
+  const name = file.replace(/^pages\//, '').replace('.html', '')
+  acc[name] = resolve(__dirname, file)
+  return acc
+}, {})
 
 export default defineConfig({
   build: {
     outDir: 'dist',
+    emptyOutDir: true,
+    sourcemap: true,
     rollupOptions: {
-      input: {
-        main: resolve(__dirname, 'index.html'),
-        'como-funciona': resolve(__dirname, 'pages/como-funciona.html'),
-        'red-servicios': resolve(__dirname, 'pages/red-servicios.html'),
-        'planes': resolve(__dirname, 'pages/planes.html'),
-        'productos': resolve(__dirname, 'pages/productos.html'),
-        'contacto': resolve(__dirname, 'pages/contacto.html'),
-        'tutoriales': resolve(__dirname, 'pages/tutoriales.html'),
-        'telemandos': resolve(__dirname, 'pages/telemandos.html'),
-        'faq': resolve(__dirname, 'pages/faq.html'),
-        'privacidad': resolve(__dirname, 'pages/privacidad.html'),
-        'terminos': resolve(__dirname, 'pages/terminos.html'),
-        'llaves': resolve(__dirname, 'pages/llaves.html'),
-        'carcasas': resolve(__dirname, 'pages/carcasas.html'),
-        'accesorios': resolve(__dirname, 'pages/accesorios.html'),
+      input: htmlFiles,
+      output: {
+        entryFileNames: 'assets/[name]-[hash].js',
+        chunkFileNames: 'assets/[name]-[hash].js',
+        assetFileNames: 'assets/[name]-[hash].[ext]',
+        manualChunks: {
+          vendor: ['src/js/utils.js'],
+          components: [
+            'src/js/components/Navigation.js',
+            'src/js/components/Carousel.js'
+          ]
+        }
+      }
+    },
+    target: ['es2020', 'edge88', 'firefox78', 'chrome87', 'safari14'],
+    minify: 'terser',
+    terserOptions: {
+      compress: {
+        drop_console: true,
+        drop_debugger: true
       }
     }
   },
   resolve: {
     alias: {
       '@': resolve(__dirname, 'src'),
-      '@admin': resolve(__dirname, 'src/admin')
+      '@components': resolve(__dirname, 'src/js/components'),
+      '@utils': resolve(__dirname, 'src/js/utils'),
+      '@styles': resolve(__dirname, 'css'),
+      '@assets': resolve(__dirname, 'public')
     }
   },
   server: {
-    open: true
+    open: true,
+    port: 3000,
+    cors: true,
+    headers: {
+      'Access-Control-Allow-Origin': '*'
+    }
+  },
+  preview: {
+    port: 8080
+  },
+  plugins: [],
+  css: {
+    postcss: {
+      plugins: [
+        require('autoprefixer'),
+        require('cssnano')({
+          preset: ['default', {
+            discardComments: { removeAll: true }
+          }]
+        })
+      ]
+    }
   }
 })

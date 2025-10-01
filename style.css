@@ -1,26 +1,10 @@
-:root {
-  --primary-blue: #003B8E;
-  --secondary-blue: #0072BC;
-  --background: #ffffff;
-  --text-color: #1d1d1f;
-  --nav-height: 64px;
-  --card-gradient: linear-gradient(135deg, #003B8E, #0072BC);
-  --content-padding: 24px;
-  --max-content-width: 1200px;
-
-  /* Glass morphism theme */
-  --morph-a:#1fb0ff; /* cyan */
-  --morph-b:#5b2cff; /* purple */
-  --morph-c:#0a58ff; /* blue */
-}
-
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Text', sans-serif;
-  -webkit-font-smoothing: antialiased;
-}
+/* Import base styles and components */
+@import './css/base.css';
+@import './css/components/navigation.css';
+@import './css/carousel.css';
+@import './css/features.css';
+@import './css/plans.css';
+@import './css/darkmode.css';
 
 /* Navigation */
 nav {

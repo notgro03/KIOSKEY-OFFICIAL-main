@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>{PAGE_TITLE} - Kioskeys</title>
+  <meta name="description" content="{PAGE_DESCRIPTION}">
+  <meta name="keywords" content="{PAGE_KEYWORDS}">
+  <meta name="author" content="Kioskeys">
+  <link rel="canonical" href="https://kioskeys.com/{PAGE_URL}">
+  <meta name="robots" content="index, follow">
+  
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://kioskeys.com/{PAGE_URL}">
+  <meta property="og:title" content="{PAGE_TITLE} - Kioskeys">
+  <meta property="og:description" content="{PAGE_DESCRIPTION}">
+  <meta property="og:image" content="https://kioskeys.com/LOGO_KIOSKEYS.png">
+
+  <!-- Twitter -->
+  <meta property="twitter:card" content="summary_large_image">
+  <meta property="twitter:url" content="https://kioskeys.com/{PAGE_URL}">
+  <meta property="twitter:title" content="{PAGE_TITLE} - Kioskeys">
+  <meta property="twitter:description" content="{PAGE_DESCRIPTION}">
+  <meta property="twitter:image" content="https://kioskeys.com/LOGO_KIOSKEYS.png">
+
+  <!-- Preload critical assets -->
+  <link rel="icon" href="/favicon.jpg">
+  <link rel="preload" href="/LOGO_KIOSKEYS.png" as="image">
+  <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" as="style">
+  
+  <!-- Styles -->
+  <link rel="stylesheet" href="/style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <link rel="manifest" href="/manifest.json">
+</head>
+<body>
+  <nav>
+    <div class="logo">
+      <a href="/"><img src="/LOGO_KIOSKEYS.png" alt="Kioskeys - Gestión inteligente de llaves"></a>
+    </div>
+    <div class="nav-links">
+      <a href="/">
+        <i class="fas fa-home" aria-hidden="true"></i>
+        Inicio
+      </a>
+      <div class="nav-dropdown">
+        <a href="/pages/productos.html" aria-haspopup="true" aria-expanded="false">
+          <i class="fas fa-box" aria-hidden="true"></i>
+          Productos
+          <i class="fas fa-chevron-down" style="font-size: 10px; margin-left: 4px;" aria-hidden="true"></i>
+        </a>
+        <div class="nav-dropdown-content" role="menu">
+          <a href="/pages/telemandos.html" role="menuitem">
+            <i class="fas fa-car"></i>
+            Telemandos
+          </a>
+          <a href="/pages/llaves.html" role="menuitem">
+            <i class="fas fa-key"></i>
+            Llaves
+          </a>
+          <a href="/pages/carcasas.html" role="menuitem">
+            <i class="fas fa-shield-alt"></i>
+            Carcasas
+          </a>
+          <a href="/pages/accesorios.html" role="menuitem">
+            <i class="fas fa-tools"></i>
+            Accesorios
+          </a>
+        </div>
+      </div>
+      <a href="/pages/red-servicios.html">
+        <i class="fas fa-map-marker-alt" aria-hidden="true"></i>
+        Red de Servicios
+      </a>
+      <a href="/pages/planes.html">
+        <i class="fas fa-crown" aria-hidden="true"></i>
+        Planes
+      </a>
+      <a href="/pages/faq.html">
+        <i class="fas fa-question-circle" aria-hidden="true"></i>
+        FAQ
+      </a>
+      <a href="/pages/contacto.html" class="nav-cta">
+        <i class="fas fa-phone" aria-hidden="true"></i>
+        Contacto
+      </a>
+    </div>
+    <button class="dark-mode-toggle" aria-label="Cambiar modo oscuro">
+      <i class="fas fa-moon"></i>
+    </button>
+  </nav>
+
+  <main>
+    <!-- Breadcrumbs -->
+    <nav class="breadcrumbs" aria-label="Breadcrumb">
+      <div class="breadcrumbs-container">
+        <ol class="breadcrumbs-list">
+          <li><a href="/">Inicio</a></li>
+          <li><span class="breadcrumbs-separator">›</span></li>
+          <li><span class="current">{PAGE_TITLE}</span></li>
+        </ol>
+      </div>
+    </nav>
+
+    {PAGE_CONTENT}
+  </main>
+
+  <footer>
+    <div class="footer-content">
+      <div class="footer-section">
+        <h4 class="shiny-text">Empresa</h4>
+        <ul class="footer-links">
+          <li><a href="/pages/sobre-nosotros.html" class="shiny-text">Sobre Nosotros</a></li>
+          <li><a href="/pages/red-servicios.html" class="shiny-text">Red de Servicios</a></li>
+          <li><a href="/pages/trabaja-con-nosotros.html" class="shiny-text">Trabaja con Nosotros</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-section">
+        <h4 class="shiny-text">Servicios</h4>
+        <ul class="footer-links">
+          <li><a href="/pages/productos.html" class="shiny-text">Productos</a></li>
+          <li><a href="/pages/telemandos.html" class="shiny-text">Telemandos</a></li>
+          <li><a href="/pages/planes.html" class="shiny-text">Planes</a></li>
+          <li><a href="/pages/cerrajeria.html" class="shiny-text">Cerrajería</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-section">
+        <h4 class="shiny-text">Soporte</h4>
+        <ul class="footer-links">
+          <li><a href="/pages/contacto.html" class="shiny-text">Contacto</a></li>
+          <li><a href="/pages/faq.html" class="shiny-text">FAQ</a></li>
+          <li><a href="/pages/tutoriales.html" class="shiny-text">Tutoriales</a></li>
+          <li><a href="/pages/ayuda.html" class="shiny-text">Centro de Ayuda</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-section">
+        <h4 class="shiny-text">Legal</h4>
+        <ul class="footer-links">
+          <li><a href="/pages/privacidad.html" class="shiny-text">Política de Privacidad</a></li>
+          <li><a href="/pages/terminos.html" class="shiny-text">Términos y Condiciones</a></li>
+          <li><a href="/pages/cookies.html" class="shiny-text">Política de Cookies</a></li>
+          <li><a href="/pages/legal.html" class="shiny-text">Aviso Legal</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-section">
+        <h4 class="shiny-text">Síguenos</h4>
+        <div class="footer-social">
+          <a href="https://facebook.com/kioskeys" target="_blank" rel="noopener" class="shiny-button">
+            <i class="fab fa-facebook"></i>
+          </a>
+          <a href="https://twitter.com/kioskeys" target="_blank" rel="noopener" class="shiny-button">
+            <i class="fab fa-twitter"></i>
+          </a>
+          <a href="https://instagram.com/kioskeys" target="_blank" rel="noopener" class="shiny-button">
+            <i class="fab fa-instagram"></i>
+          </a>
+          <a href="https://linkedin.com/company/kioskeys" target="_blank" rel="noopener" class="shiny-button">
+            <i class="fab fa-linkedin"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <p class="shiny-text">&copy; 2024 Kioskeys. Todos los derechos reservados.</p>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script type="module" src="/main.js"></script>
+  {PAGE_SCRIPTS}
+</body>
+</html>
