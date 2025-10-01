@@ -1,9 +1,14 @@
 import { defineConfig } from 'vite'
-import { resolve } from 'path'
-import { glob } from 'glob'
+import { resolve, dirname } from 'path'
+import { fileURLToPath } from 'url'
+import autoprefixer from 'autoprefixer'
+import cssnano from 'cssnano'
+import { globSync } from 'glob'
+
+const __dirname = dirname(fileURLToPath(import.meta.url))
 
 // Get all HTML files
-const htmlFiles = glob.sync('{pages,}/*.html').reduce((acc, file) => {
+const htmlFiles = globSync('{pages,}/*.html').reduce((acc, file) => {
   const name = file.replace(/^pages\//, '').replace('.html', '')
   acc[name] = resolve(__dirname, file)
   return acc
@@ -62,8 +67,8 @@ export default defineConfig({
   css: {
     postcss: {
       plugins: [
-        require('autoprefixer'),
-        require('cssnano')({
+        autoprefixer(),
+        cssnano({
           preset: ['default', {
             discardComments: { removeAll: true }
           }]
