@@ -10,12 +10,8 @@
   to = "/pages/admin/kioskeys-admin-x7k9y2"
   status = 200
 
+# Serve extensionless URLs under /pages/ as their .html counterparts
 [[redirects]]
-  from = "/*.html"
-  to = "/:splat"
-  status = 301
-
-[[redirects]]
-  from = "/*"
-  to = "/index.html"
+  from = "/pages/*"
+  to = "/pages/:splat.html"
   status = 200
